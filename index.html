@@ -768,7 +768,7 @@ footer {
 <!-- ── NAV ── -->
 <nav>
   <a href="#" class="nav-logo">
-    <svg viewBox="0 0 320 52" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 320 52" xmlns="http://www.w3.org/2000/svg" style="direction:ltr;unicode-bidi:embed">
       <style>
         .wm { font-family: "Schibsted Grotesk", "Arial Black", sans-serif; font-weight: 900; font-size: 44px; letter-spacing: -2px; }
       </style>
@@ -1228,7 +1228,7 @@ footer {
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <svg viewBox="0 0 320 52" height="36" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 320 52" height="36" xmlns="http://www.w3.org/2000/svg" style="direction:ltr;unicode-bidi:embed">
         <style>.wm2 { font-family: "Schibsted Grotesk","Arial Black",sans-serif; font-weight:900; font-size:44px; letter-spacing:-2px; }</style>
         <text class="wm2" x="0" y="44" fill="#F3EDE1">SOLVE</text>
         <text class="wm2" x="232" y="44" fill="#D04F00">D</text>
@@ -1238,28 +1238,28 @@ footer {
     <div class="footer-col">
       <h4 data-i18n="footer_col1">Services</h4>
       <ul>
-        <li><a href="#services">International Shipping</a></li>
-        <li><a href="#services">Local Delivery</a></li>
-        <li><a href="#services">Cargo & Freight</a></li>
-        <li><a href="#services">Personal Effects</a></li>
-        <li><a href="#services">Fulfillment</a></li>
+        <li><a href="#services" data-i18n="footer_s1">International Shipping</a></li>
+        <li><a href="#services" data-i18n="footer_s2">Local Delivery</a></li>
+        <li><a href="#services" data-i18n="footer_s3">Cargo & Freight</a></li>
+        <li><a href="#services" data-i18n="footer_s4">Personal Effects</a></li>
+        <li><a href="#services" data-i18n="footer_s5">Fulfillment</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer_col2">Company</h4>
       <ul>
-        <li><a href="#why">Why SOLVED</a></li>
-        <li><a href="#coverage">Coverage</a></li>
-        <li><a href="#contact">Get a Quote</a></li>
-        <li><a href="mailto:hello@solved-logistics.com">Careers</a></li>
+        <li><a href="#why" data-i18n="footer_c1">Why SOLVED</a></li>
+        <li><a href="#coverage" data-i18n="footer_c2">Coverage</a></li>
+        <li><a href="#contact" data-i18n="footer_c3">Get a Quote</a></li>
+        <li><a href="mailto:hello@solved-logistics.com" data-i18n="footer_c4">Careers</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer_col3">Get in Touch</h4>
       <ul>
         <li><a href="mailto:hello@solved-logistics.com">hello@solved-logistics.com</a></li>
-        <li><a href="#contact">Request a Callback</a></li>
-        <li><a href="#contact">Kuwait City, Kuwait</a></li>
+        <li><a href="#contact" data-i18n="footer_t1">Request a Callback</a></li>
+        <li><a href="#contact" data-i18n="footer_t2">Kuwait City, Kuwait</a></li>
       </ul>
     </div>
   </div>
@@ -1377,6 +1377,9 @@ const T = {
     s5_tag1:"FCL", s5_tag2:"LCL", s5_tag3:"Air Cargo",
     s6_tag1:"Storage", s6_tag2:"Pick & Pack", s6_tag3:"Returns",
     // Form labels
+    footer_s1:"International Shipping", footer_s2:"Local Delivery", footer_s3:"Cargo & Freight", footer_s4:"Personal Effects", footer_s5:"Fulfillment",
+    footer_c1:"Why SOLVED", footer_c2:"Coverage", footer_c3:"Get a Quote", footer_c4:"Careers",
+    footer_t1:"Request a Callback", footer_t2:"Kuwait City, Kuwait",
     form_name:"Full Name", form_company:"Company", form_email:"Email",
     form_phone:"Phone", form_service:"Service Needed",
     form_message:"Tell us about your shipment", form_submit:"Send Message →"
@@ -1486,6 +1489,9 @@ const T = {
     s5_tag1:"FCL", s5_tag2:"LCL", s5_tag3:"شحن جوي",
     s6_tag1:"تخزين", s6_tag2:"تجهيز وتعبئة", s6_tag3:"مرتجعات",
     // Form labels
+    footer_s1:"الشحن الدولي", footer_s2:"التوصيل المحلي", footer_s3:"الشحن والبضائع", footer_s4:"المقتنيات الشخصية", footer_s5:"التخزين والتوزيع",
+    footer_c1:"لماذا SOLVED", footer_c2:"التغطية", footer_c3:"احصل على عرض", footer_c4:"الوظائف",
+    footer_t1:"اطلب معاودة الاتصال", footer_t2:"مدينة الكويت، الكويت",
     form_name:"الاسم الكامل", form_company:"الشركة", form_email:"البريد الإلكتروني",
     form_phone:"رقم الهاتف", form_service:"الخدمة المطلوبة",
     form_message:"أخبرنا عن شحنتك", form_submit:"إرسال الرسالة →"
