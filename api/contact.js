@@ -28,14 +28,16 @@ module.exports = async function handler(req, res) {
     body: JSON.stringify({ name, company, email, phone, service, message, lang: lang || 'en' })
   });
 
-  // 2. Send email via GoDaddy SMTP
+  // 2. Send email via GoDaddy SMTP (port 587 STARTTLS)
   if (SMTP_USER && SMTP_PASS) {
     try {
       const transporter = nodemailer.createTransport({
         host: 'smtpout.secureserver.net',
-        port: 465,
-        secure: true,
+        port: 587,
+        secure: false,
+        requireTLS: true,
         auth: { user: SMTP_USER, pass: SMTP_PASS },
+        tls: { rejectUnauthorized: false }
       });
 
       await transporter.sendMail({
@@ -62,7 +64,6 @@ module.exports = async function handler(req, res) {
       });
     } catch (e) {
       console.error('SMTP error:', e.message);
-      // Don't fail the request if email fails — lead is already saved
     }
   }
 
