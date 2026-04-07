@@ -1329,9 +1329,9 @@ const T = {
     contact_loc: "Kuwait City, Kuwait",
     contact_hours: "Sat – Thu, 8am – 8pm (AST)",
     footer_copy: "© 2026 SOLVED Logistics. Kuwait · GCC.",
-    ph_name: "Ahmed Al-Rashidi", ph_company: "Your company",
-    ph_email: "ahmed@company.com", ph_phone: "+965 XXXX XXXX",
-    ph_select: "Select a service...", ph_msg: "What are you shipping? Where to? How often? Any special requirements?",
+    ph_name: "", ph_company: "",
+    ph_email: "", ph_phone: "",
+    ph_select: "", ph_msg: "",
     submit_btn: "Send Message →", submit_sent: "✓ Message Sent",
     // Coverage
     c1_name:"Kuwait", c1_note:"HQ · Full ops", c2_name:"Saudi Arabia", c2_note:"GCC Partner",
@@ -1441,9 +1441,9 @@ const T = {
     contact_loc: "مدينة الكويت، الكويت",
     contact_hours: "السبت – الخميس، ٨ص – ٨م (توقيت الخليج)",
     footer_copy: "© ٢٠٢٦ SOLVED للخدمات اللوجستية. الكويت · الخليج.",
-    ph_name: "أحمد الراشدي", ph_company: "اسم شركتك",
-    ph_email: "ahmed@company.com", ph_phone: "+965 XXXX XXXX",
-    ph_select: "اختر خدمة...", ph_msg: "ماذا تشحن؟ إلى أين؟ كم مرة؟ هل لديك متطلبات خاصة؟",
+    ph_name: "", ph_company: "",
+    ph_email: "", ph_phone: "",
+    ph_select: "", ph_msg: "",
     submit_btn: "إرسال الرسالة →", submit_sent: "✓ تم الإرسال",
     // Coverage
     c1_name:"الكويت", c1_note:"المقر · عمليات كاملة", c2_name:"المملكة العربية السعودية", c2_note:"شريك خليجي",
@@ -1491,17 +1491,7 @@ function switchLang(lang) {
     const key = el.dataset.i18n;
     if (T[lang] && T[lang][key] !== undefined) el.innerHTML = T[lang][key];
   });
-  // Placeholders
-  const phs = {name:'ph_name',company:'ph_company',email_i:'ph_email',phone:'ph_phone',service:'ph_select',msg:'ph_msg'};
-  document.querySelector('input[placeholder=""], input[placeholder=""]') && (document.querySelector('input[placeholder=""], input[placeholder=""]').placeholder = T[lang].ph_name);
-  document.querySelectorAll('input, textarea, select').forEach(el => {
-    if (el.tagName === 'SELECT') { el.options[0] && (el.options[0].text = T[lang].ph_select); }
-    else if (el.type === 'text' && el.placeholder && (el.placeholder.includes('Al-Rashidi') || el.placeholder.includes('الراشدي'))) el.placeholder = T[lang].ph_name;
-    else if (el.type === 'text' && el.placeholder && (el.placeholder.includes('company') || el.placeholder.includes('شركت'))) el.placeholder = T[lang].ph_company;
-    else if (el.type === 'email') el.placeholder = T[lang].ph_email;
-    else if (el.type === 'tel') el.placeholder = T[lang].ph_phone;
-    else if (el.tagName === 'TEXTAREA') el.placeholder = T[lang].ph_msg;
-  });
+
   // Submit button
   const sb = document.getElementById('submit-btn');
   if (sb && !sb.disabled) sb.textContent = lang === 'ar' ? 'إرسال الرسالة →' : 'Send Message →';
