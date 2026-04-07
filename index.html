@@ -461,76 +461,27 @@ nav {
 .coverage-inner {
   max-width: 1200px; margin: 0 auto;
 }
-.coverage-countries { margin-top: 60px; }
-.coverage-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  border: 1px solid var(--border);
-}
-.coverage-item {
+.cov-clean { margin-top: 56px; }
+.cov-tags {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 28px 24px;
-  border-right: 1px solid var(--border);
-  transition: background 0.2s;
+  flex-wrap: wrap;
+  gap: 12px;
 }
-.coverage-item:last-child { border-right: none; }
-.coverage-item:hover { background: #fff; }
-.coverage-item.primary { background: var(--ink); }
-.coverage-item.primary:hover { background: #2a2010; }
-.cov-flag { font-size: 28px; flex-shrink: 0; }
-.cov-name {
+.cov-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 2px;
   font-family: "Schibsted Grotesk", sans-serif;
   font-weight: 900;
   font-size: 15px;
   color: var(--ink);
-  line-height: 1.2;
+  transition: background 0.2s, border-color 0.2s;
 }
-.coverage-item.primary .cov-name { color: var(--cream); }
-.cov-sub { font-size: 11px; color: var(--muted); margin-top: 2px; letter-spacing: 0.05em; }
-.cov-badge {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-top: 3px;
-}
-.coverage-divider { height: 1px; background: var(--border); margin: 0; }
-.coverage-world {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 32px 28px;
-  border: 1px solid var(--border);
-  border-top: none;
-  background: #fff;
-}
-.cov-world-text { display: flex; align-items: baseline; gap: 20px; }
-.cov-world-num {
-  font-family: "Schibsted Grotesk", sans-serif;
-  font-weight: 900;
-  font-size: 56px;
-  line-height: 1;
-  color: var(--ink);
-}
-.cov-world-label {
-  font-size: 14px;
-  color: var(--muted);
-  max-width: 200px;
-  line-height: 1.5;
-}
-.cov-world-flags { font-size: 28px; letter-spacing: 4px; }
-@media (max-width: 768px) {
-  .coverage-row { grid-template-columns: 1fr 1fr; }
-  .coverage-item { padding: 20px 16px; gap: 12px; }
-  .coverage-item:nth-child(2) { border-right: none; }
-  .coverage-item:nth-child(3) { border-top: 1px solid var(--border); }
-  .coverage-world { flex-direction: column; gap: 16px; align-items: flex-start; padding: 24px 20px; }
-  .cov-world-num { font-size: 40px; }
-  .cov-world-text { gap: 12px; align-items: center; }
-}
+.cov-tag:hover { background: var(--cream); border-color: rgba(24,16,0,0.2); }
 
 /* ── PROCESS ─────────────────────────────────────────── */
 .process-section {
@@ -1104,44 +1055,14 @@ footer {
         We're based in Kuwait City with strong carrier partnerships across the GCC and global networks covering 220+ countries and territories.
       </p>
     </div>
-    <div class="coverage-countries reveal">
-      <div class="coverage-row">
-        <div class="coverage-item primary">
-          <span class="cov-flag">🇰🇼</span>
-          <div class="cov-info">
-            <div class="cov-name" data-i18n="c1_name">Kuwait</div>
-            <div class="cov-badge" data-i18n="c1_note">HQ · Full ops</div>
-          </div>
-        </div>
-        <div class="coverage-item">
-          <span class="cov-flag">🇸🇦</span>
-          <div class="cov-info">
-            <div class="cov-name" data-i18n="c2_name">Saudi Arabia</div>
-            <div class="cov-sub" data-i18n="c2_note">GCC Partner</div>
-          </div>
-        </div>
-        <div class="coverage-item">
-          <span class="cov-flag">🇦🇪</span>
-          <div class="cov-info">
-            <div class="cov-name" data-i18n="c3_name">UAE</div>
-            <div class="cov-sub" data-i18n="c3_note">GCC Partner</div>
-          </div>
-        </div>
-        <div class="coverage-item">
-          <span class="cov-flag">🇶🇦</span>
-          <div class="cov-info">
-            <div class="cov-name" data-i18n="c4_name">Qatar</div>
-            <div class="cov-sub" data-i18n="c4_note">GCC Partner</div>
-          </div>
-        </div>
-      </div>
-      <div class="coverage-divider"></div>
-      <div class="coverage-world reveal">
-        <div class="cov-world-text">
-          <span class="cov-world-num">220<span style="color:var(--orange)">+</span></span>
-          <span class="cov-world-label" data-i18n="c6_note">Countries & territories worldwide</span>
-        </div>
-        <div class="cov-world-flags">🌍 🌏 🌎</div>
+    <div class="cov-clean reveal">
+      <div class="cov-tags">
+        <span class="cov-tag">🇰🇼 <span data-i18n="c1_name">Kuwait</span></span>
+        <span class="cov-tag">🇸🇦 <span data-i18n="c2_name">Saudi Arabia</span></span>
+        <span class="cov-tag">🇦🇪 <span data-i18n="c3_name">UAE</span></span>
+        <span class="cov-tag">🇶🇦 <span data-i18n="c4_name">Qatar</span></span>
+        <span class="cov-tag">🇧🇭 Bahrain</span>
+        <span class="cov-tag">🌍 <span data-i18n="c6_name">Worldwide</span> <span style="color:var(--orange)">220+</span></span>
       </div>
     </div>
   </div>
