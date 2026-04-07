@@ -7,7 +7,7 @@
 <meta name="description" content="SOLVED is Kuwait's full-service logistics company. International shipping, local delivery, freight forwarding, fulfillment, and more — across Kuwait and the GCC.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Cairo:wght@400;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -715,6 +715,48 @@ footer {
   .footer-inner { grid-template-columns: 1fr; gap: 40px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
 }
+
+/* ── RTL / ARABIC ──────────────────────────────────── */
+[dir="rtl"] body { font-family: "IBM Plex Sans Arabic", sans-serif; }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4 {
+  font-family: "Cairo", sans-serif;
+  letter-spacing: 0;
+}
+[dir="rtl"] .hero-headline .line2 { padding-left: 0; padding-right: 120px; }
+[dir="rtl"] .hero-headline .line3 { padding-left: 0; padding-right: 240px; }
+[dir="rtl"] .section-label::before { display: none; }
+[dir="rtl"] .section-label::after {
+  content: "";
+  display: block; width: 24px; height: 1px;
+  background: var(--orange);
+}
+[dir="rtl"] .hero-label::before { display: none; }
+[dir="rtl"] .hero-label::after {
+  content: "";
+  display: block; width: 32px; height: 1px;
+  background: var(--orange);
+}
+[dir="rtl"] .cta-label::before, [dir="rtl"] .cta-label::after { width: 40px; }
+[dir="rtl"] .why-item { direction: rtl; }
+[dir="rtl"] .process-step:not(:last-child)::after { content: "←"; right: auto; left: -16px; }
+[dir="rtl"] .hero-sub { font-size: 16px; line-height: 2; }
+[dir="rtl"] .service-desc, [dir="rtl"] .why-body, [dir="rtl"] .step-body { font-size: 14px; line-height: 2; }
+[dir="rtl"] .solutions-headline { letter-spacing: 0; }
+[dir="rtl"] .nav-links { direction: rtl; }
+[dir="rtl"] .stat-num { font-family: "Schibsted Grotesk", sans-serif; }
+.lang-btn {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(24,16,0,0.45); cursor: pointer; background: none; border: none;
+  padding: 4px 6px; transition: color 0.2s;
+}
+.lang-btn.active { color: var(--orange); font-weight: 700; }
+.lang-btn:hover { color: var(--ink); }
+.lang-divider { color: rgba(24,16,0,0.2); font-size: 11px; }
+@media (max-width: 768px) {
+  [dir="rtl"] .hero-headline .line2 { padding-right: 0; }
+  [dir="rtl"] .hero-headline .line3 { padding-right: 0; }
+}
 </style>
 </head>
 <body>
@@ -725,18 +767,65 @@ footer {
     <svg viewBox="0 0 320 52" xmlns="http://www.w3.org/2000/svg">
       <style>
         .wm { font-family: "Schibsted Grotesk", "Arial Black", sans-serif; font-weight: 900; font-size: 44px; letter-spacing: -2px; }
-      </style>
+      
+/* ── RTL / ARABIC ──────────────────────────────────── */
+[dir="rtl"] body { font-family: "IBM Plex Sans Arabic", sans-serif; }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4 {
+  font-family: "Cairo", sans-serif;
+  letter-spacing: 0;
+}
+[dir="rtl"] .hero-headline .line2 { padding-left: 0; padding-right: 120px; }
+[dir="rtl"] .hero-headline .line3 { padding-left: 0; padding-right: 240px; }
+[dir="rtl"] .section-label::before { display: none; }
+[dir="rtl"] .section-label::after {
+  content: "";
+  display: block; width: 24px; height: 1px;
+  background: var(--orange);
+}
+[dir="rtl"] .hero-label::before { display: none; }
+[dir="rtl"] .hero-label::after {
+  content: "";
+  display: block; width: 32px; height: 1px;
+  background: var(--orange);
+}
+[dir="rtl"] .cta-label::before, [dir="rtl"] .cta-label::after { width: 40px; }
+[dir="rtl"] .why-item { direction: rtl; }
+[dir="rtl"] .process-step:not(:last-child)::after { content: "←"; right: auto; left: -16px; }
+[dir="rtl"] .hero-sub { font-size: 16px; line-height: 2; }
+[dir="rtl"] .service-desc, [dir="rtl"] .why-body, [dir="rtl"] .step-body { font-size: 14px; line-height: 2; }
+[dir="rtl"] .solutions-headline { letter-spacing: 0; }
+[dir="rtl"] .nav-links { direction: rtl; }
+[dir="rtl"] .stat-num { font-family: "Schibsted Grotesk", sans-serif; }
+.lang-btn {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(24,16,0,0.45); cursor: pointer; background: none; border: none;
+  padding: 4px 6px; transition: color 0.2s;
+}
+.lang-btn.active { color: var(--orange); font-weight: 700; }
+.lang-btn:hover { color: var(--ink); }
+.lang-divider { color: rgba(24,16,0,0.2); font-size: 11px; }
+@media (max-width: 768px) {
+  [dir="rtl"] .hero-headline .line2 { padding-right: 0; }
+  [dir="rtl"] .hero-headline .line3 { padding-right: 0; }
+}
+</style>
       <text class="wm" x="0" y="44" fill="#181000">SOLVE</text>
       <text class="wm" x="232" y="44" fill="#D04F00">D</text>
     </svg>
   </a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#why">Why SOLVED</a></li>
-    <li><a href="#coverage">Coverage</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+    <li><a href="#services" data-i18n="nav_services">Services</a></li>
+    <li><a href="#why" data-i18n="nav_why">Why SOLVED</a></li>
+    <li><a href="#coverage" data-i18n="nav_coverage">Coverage</a></li>
+    <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta" data-i18n="nav_cta">Get a Quote</a></li>
   </ul>
+  <div style="display:flex;align-items:center;gap:4px;margin-left:20px">
+    <button class="lang-btn active" data-lang="en" onclick="switchLang('en')">EN</button>
+    <span class="lang-divider">|</span>
+    <button class="lang-btn" data-lang="ar" onclick="switchLang('ar')">AR</button>
+  </div>
 </nav>
 
 <!-- ── HERO ── -->
@@ -744,18 +833,18 @@ footer {
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-inner">
-    <div class="hero-label">Kuwait · GCC · 2026</div>
-    <h1 class="hero-headline">
+    <div class="hero-label" data-i18n="hero_label">Kuwait · GCC · 2026</div>
+    <h1 class="hero-headline" data-i18n="hero_headline">
       YOUR<br>
       <span class="line2">LOGISTICS,</span>
       <span class="line3 accent">SOLVED<span style="color: var(--orange)">.</span></span>
     </h1>
-    <p class="hero-sub">
+    <p class="hero-sub" data-i18n="hero_sub">
       Full-service logistics built for Kuwait and the GCC — international shipping, local delivery, freight forwarding, and fulfillment, all under one roof.
     </p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Get a Quote</a>
-      <a href="#services" class="btn-ghost">
+      <a href="#contact" class="btn-primary" data-i18n="hero_cta">Get a Quote</a>
+      <a href="#services" class="btn-ghost" data-i18n="hero_cta2">
         Explore Services
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -763,15 +852,15 @@ footer {
     <div class="hero-stats">
       <div class="stat">
         <div class="stat-num">6<span>+</span></div>
-        <div class="stat-label">Service lines</div>
+        <div class="stat-label" data-i18n="stat1">Service lines</div>
       </div>
       <div class="stat">
         <div class="stat-num">GCC<span>.</span></div>
-        <div class="stat-label">Market coverage</div>
+        <div class="stat-label" data-i18n="stat2">Market coverage</div>
       </div>
       <div class="stat">
         <div class="stat-num">24<span>/7</span></div>
-        <div class="stat-label">Operations</div>
+        <div class="stat-label" data-i18n="stat3">Operations</div>
       </div>
     </div>
   </div>
@@ -805,10 +894,10 @@ footer {
 <section class="services-section" id="services">
   <div class="section-header reveal">
     <div>
-      <div class="section-label">What We Do</div>
-      <h2 class="section-title">Six ways we move your business forward.</h2>
+      <div class="section-label" data-i18n="srv_label">What We Do</div>
+      <h2 class="section-title" data-i18n="srv_title">Six ways we move your business forward.</h2>
     </div>
-    <p class="section-body">
+    <p class="section-body" data-i18n="srv_body">
       Whether you're shipping a single parcel or moving a container, SOLVED has the infrastructure, partners, and expertise to get it there.
     </p>
   </div>
@@ -822,8 +911,8 @@ footer {
           <path d="M5 20.5L20 16l-5-12 2.5-1 8 11 10-3c2.2-.6 4 .6 4 2.8s-1.8 4.2-4 4.8l-10 3 1 13.5-2.5 1-4.5-11.5L5 23" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <div class="service-name">International E-Commerce Shipping</div>
-      <div class="service-desc">
+      <div class="service-name" data-i18n="s1_name">International E-Commerce Shipping</div>
+      <div class="service-desc" data-i18n="s1_desc">
         Door-to-door shipping for online businesses selling globally. We connect Kuwait-based merchants to carriers serving 220+ countries — fast, tracked, and competitively priced.
       </div>
       <div class="service-tags">
@@ -845,8 +934,8 @@ footer {
           <path d="M14 18v-4M20 18v-6M26 18v-4" stroke="#D04F00" stroke-width="1" opacity="0.3"/>
         </svg>
       </div>
-      <div class="service-name">Local Delivery Kuwait</div>
-      <div class="service-desc">
+      <div class="service-name" data-i18n="s2_name">Local Delivery Kuwait</div>
+      <div class="service-desc" data-i18n="s2_desc">
         Same-day and next-day delivery across Kuwait — from Hawalli to Ahmadi. Dedicated drivers, real-time tracking, and flexible delivery windows for your customers.
       </div>
       <div class="service-tags">
@@ -866,8 +955,8 @@ footer {
           <path d="M20 20L4 12" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
         </svg>
       </div>
-      <div class="service-name">Medium Cargo</div>
-      <div class="service-desc">
+      <div class="service-name" data-i18n="s3_name">Medium Cargo</div>
+      <div class="service-desc" data-i18n="s3_desc">
         Palletized freight and oversized shipments that don't fit in a parcel. We handle documentation, customs clearance, and last-mile delivery for goods of any volume.
       </div>
       <div class="service-tags">
@@ -888,8 +977,8 @@ footer {
           <path d="M20 25v10" stroke="#D04F00" stroke-width="1" opacity="0.5"/>
         </svg>
       </div>
-      <div class="service-name">Personal Effects</div>
-      <div class="service-desc">
+      <div class="service-name" data-i18n="s4_name">Personal Effects</div>
+      <div class="service-desc" data-i18n="s4_desc">
         Relocating to or from Kuwait? We handle the packing, customs paperwork, and international shipping of your personal belongings with care and full visibility.
       </div>
       <div class="service-tags">
@@ -910,8 +999,8 @@ footer {
           <path d="M4 34c4 0 4-2 8-2s4 2 8 2 4-2 8-2 4 2 8 2" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
         </svg>
       </div>
-      <div class="service-name">Air & Sea Freight</div>
-      <div class="service-desc">
+      <div class="service-name" data-i18n="s5_name">Air & Sea Freight</div>
+      <div class="service-desc" data-i18n="s5_desc">
         Full-container and LCL sea freight, plus air cargo for time-sensitive large shipments. Direct routes to major ports and airports across the GCC, Europe, and Asia.
       </div>
       <div class="service-tags">
@@ -932,8 +1021,8 @@ footer {
           <path d="M30 6v4M33 6v4" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
         </svg>
       </div>
-      <div class="service-name">Fulfillment</div>
-      <div class="service-desc">
+      <div class="service-name" data-i18n="s6_name">Fulfillment</div>
+      <div class="service-desc" data-i18n="s6_desc">
         Store your inventory with us, and we'll pick, pack, and ship every order — automatically. From single-SKU stores to complex multi-channel operations.
       </div>
       <div class="service-tags">
@@ -951,40 +1040,40 @@ footer {
   <div class="why-glow"></div>
   <div class="why-inner">
     <div class="why-left reveal">
-      <div class="section-label">Why SOLVED</div>
-      <h2 class="section-title">Logistics that actually works.</h2>
-      <p class="section-body">
+      <div class="section-label" data-i18n="why_label">Why SOLVED</div>
+      <h2 class="section-title" data-i18n="why_title">Logistics that actually works.</h2>
+      <p class="section-body" data-i18n="why_body">
         Most logistics companies make you coordinate between multiple providers. SOLVED is one team, one platform, one invoice — solving everything together.
       </p>
-      <a href="#contact" class="btn-primary">Talk to us</a>
+      <a href="#contact" class="btn-primary" data-i18n="why_cta">Talk to us</a>
     </div>
     <div class="why-right">
       <div class="why-item reveal reveal-delay-1">
         <div class="why-num">01</div>
         <div>
-          <div class="why-title">Kuwait-native, built for the GCC</div>
-          <div class="why-body">We understand the local market, customs regulations, and carrier relationships that matter in Kuwait and across the Gulf. No generic global playbook.</div>
+          <div class="why-title" data-i18n="w1_title">Kuwait-native, built for the GCC</div>
+          <div class="why-body" data-i18n="w1_body">We understand the local market, customs regulations, and carrier relationships that matter in Kuwait and across the Gulf. No generic global playbook.</div>
         </div>
       </div>
       <div class="why-item reveal reveal-delay-2">
         <div class="why-num">02</div>
         <div>
-          <div class="why-title">One partner for everything</div>
-          <div class="why-body">From the first mile to the last, from international air freight to local delivery — SOLVED handles all of it, so you can focus on your business.</div>
+          <div class="why-title" data-i18n="w2_title">One partner for everything</div>
+          <div class="why-body" data-i18n="w2_body">From the first mile to the last, from international air freight to local delivery — SOLVED handles all of it, so you can focus on your business.</div>
         </div>
       </div>
       <div class="why-item reveal reveal-delay-3">
         <div class="why-num">03</div>
         <div>
-          <div class="why-title">Transparent pricing, no surprises</div>
-          <div class="why-body">Clear rate cards, real-time shipment tracking, and straightforward invoicing. You know what you're paying and why.</div>
+          <div class="why-title" data-i18n="w3_title">Transparent pricing, no surprises</div>
+          <div class="why-body" data-i18n="w3_body">Clear rate cards, real-time shipment tracking, and straightforward invoicing. You know what you're paying and why.</div>
         </div>
       </div>
       <div class="why-item reveal reveal-delay-4">
         <div class="why-num">04</div>
         <div>
-          <div class="why-title">Built for businesses of every size</div>
-          <div class="why-body">Whether you're shipping 10 parcels a month or 10,000, SOLVED has the capacity, flexibility, and dedicated support to scale with you.</div>
+          <div class="why-title" data-i18n="w4_title">Built for businesses of every size</div>
+          <div class="why-body" data-i18n="w4_body">Whether you're shipping 10 parcels a month or 10,000, SOLVED has the capacity, flexibility, and dedicated support to scale with you.</div>
         </div>
       </div>
     </div>
@@ -995,20 +1084,20 @@ footer {
 <section class="solutions-strip">
   <div class="solutions-inner">
     <div class="reveal">
-      <h2 class="solutions-headline">
+      <h2 class="solutions-headline" data-i18n="sol_headline">
         Every shipment.<br>
         <span class="dark">Every scale.<br>
         Every route.</span>
       </h2>
     </div>
     <div class="solutions-list reveal reveal-delay-2">
-      <div class="solution-item">International parcel delivery <span class="arrow">→</span></div>
-      <div class="solution-item">Kuwait last-mile delivery <span class="arrow">→</span></div>
+      <div class="solution-item" data-i18n="sol1">International parcel delivery <span class="arrow">→</span></div>
+      <div class="solution-item" data-i18n="sol2">Kuwait last-mile delivery <span class="arrow">→</span></div>
       <div class="solution-item">Sea & air freight forwarding <span class="arrow">→</span></div>
       <div class="solution-item">Relocation & personal effects <span class="arrow">→</span></div>
-      <div class="solution-item">E-commerce fulfillment <span class="arrow">→</span></div>
+      <div class="solution-item" data-i18n="sol5">E-commerce fulfillment <span class="arrow">→</span></div>
       <div class="solution-item">Packaging materials & supplies <span class="arrow">→</span></div>
-      <div class="solution-item">Customs clearance assistance <span class="arrow">→</span></div>
+      <div class="solution-item" data-i18n="sol7">Customs clearance assistance <span class="arrow">→</span></div>
     </div>
   </div>
 </section>
@@ -1018,43 +1107,43 @@ footer {
   <div class="coverage-inner">
     <div class="section-header reveal">
       <div>
-        <div class="section-label">Coverage</div>
-        <h2 class="section-title">Headquartered in Kuwait. Shipping everywhere.</h2>
+        <div class="section-label" data-i18n="cov_label">Coverage</div>
+        <h2 class="section-title" data-i18n="cov_title">Headquartered in Kuwait. Shipping everywhere.</h2>
       </div>
-      <p class="section-body">
+      <p class="section-body" data-i18n="cov_body">
         We're based in Kuwait City with strong carrier partnerships across the GCC and global networks covering 220+ countries and territories.
       </p>
     </div>
     <div class="coverage-grid">
       <div class="coverage-card reveal reveal-delay-1">
         <span class="coverage-flag">🇰🇼</span>
-        <div class="coverage-name">Kuwait</div>
-        <div class="coverage-note">HQ · Full ops</div>
+        <div class="coverage-name" data-i18n="c1_name">Kuwait</div>
+        <div class="coverage-note" data-i18n="c1_note">HQ · Full ops</div>
       </div>
       <div class="coverage-card reveal reveal-delay-2">
         <span class="coverage-flag">🇸🇦</span>
-        <div class="coverage-name">Saudi Arabia</div>
-        <div class="coverage-note">GCC Partner</div>
+        <div class="coverage-name" data-i18n="c2_name">Saudi Arabia</div>
+        <div class="coverage-note" data-i18n="c2_note">GCC Partner</div>
       </div>
       <div class="coverage-card reveal reveal-delay-3">
         <span class="coverage-flag">🇦🇪</span>
-        <div class="coverage-name">UAE</div>
-        <div class="coverage-note">GCC Partner</div>
+        <div class="coverage-name" data-i18n="c3_name">UAE</div>
+        <div class="coverage-note" data-i18n="c3_note">GCC Partner</div>
       </div>
       <div class="coverage-card reveal reveal-delay-4">
         <span class="coverage-flag">🇶🇦</span>
-        <div class="coverage-name">Qatar</div>
-        <div class="coverage-note">GCC Partner</div>
+        <div class="coverage-name" data-i18n="c4_name">Qatar</div>
+        <div class="coverage-note" data-i18n="c4_note">GCC Partner</div>
       </div>
       <div class="coverage-card reveal reveal-delay-5">
         <span class="coverage-flag">🌍</span>
-        <div class="coverage-name">Europe & UK</div>
+        <div class="coverage-name" data-i18n="c5_name">Europe & UK</div>
         <div class="coverage-note">Express routes</div>
       </div>
       <div class="coverage-card reveal reveal-delay-5">
         <span class="coverage-flag">🌏</span>
-        <div class="coverage-name">Worldwide</div>
-        <div class="coverage-note">220+ countries</div>
+        <div class="coverage-name" data-i18n="c6_name">Worldwide</div>
+        <div class="coverage-note" data-i18n="c6_note">220+ countries</div>
       </div>
     </div>
   </div>
@@ -1065,31 +1154,31 @@ footer {
   <div class="process-inner">
     <div class="section-header reveal">
       <div>
-        <div class="section-label">How It Works</div>
-        <h2 class="section-title">Simple from start to delivery.</h2>
+        <div class="section-label" data-i18n="proc_label">How It Works</div>
+        <h2 class="section-title" data-i18n="proc_title">Simple from start to delivery.</h2>
       </div>
-      <p class="section-body">We keep the process lean. You focus on your business — we handle every step of the logistics chain.</p>
+      <p class="section-body" data-i18n="proc_body">We keep the process lean. You focus on your business — we handle every step of the logistics chain.</p>
     </div>
     <div class="process-steps">
       <div class="process-step reveal reveal-delay-1">
         <div class="step-num">01</div>
-        <div class="step-title">Tell us what you need</div>
-        <div class="step-body">Reach out with your shipment details, volume, and destinations. We'll recommend the right service and give you a clear quote — no hidden fees.</div>
+        <div class="step-title" data-i18n="p1_title">Tell us what you need</div>
+        <div class="step-body" data-i18n="p1_body">Reach out with your shipment details, volume, and destinations. We'll recommend the right service and give you a clear quote — no hidden fees.</div>
       </div>
       <div class="process-step reveal reveal-delay-2">
         <div class="step-num">02</div>
-        <div class="step-title">We arrange the pickup</div>
-        <div class="step-body">Our team schedules a collection from your address or warehouse. You get a confirmation, a tracking reference, and documentation handled.</div>
+        <div class="step-title" data-i18n="p2_title">We arrange the pickup</div>
+        <div class="step-body" data-i18n="p2_body">Our team schedules a collection from your address or warehouse. You get a confirmation, a tracking reference, and documentation handled.</div>
       </div>
       <div class="process-step reveal reveal-delay-3">
         <div class="step-num">03</div>
-        <div class="step-title">Track every step</div>
-        <div class="step-body">Real-time visibility on all shipments. From the moment we collect to the moment it's delivered, you and your customers are always in the loop.</div>
+        <div class="step-title" data-i18n="p3_title">Track every step</div>
+        <div class="step-body" data-i18n="p3_body">Real-time visibility on all shipments. From the moment we collect to the moment it's delivered, you and your customers are always in the loop.</div>
       </div>
       <div class="process-step reveal reveal-delay-4">
         <div class="step-num">04</div>
-        <div class="step-title">Delivered. Done.</div>
-        <div class="step-body">On-time delivery with proof of delivery and a simple monthly invoice covering everything. Problems are rare — but our support team is always on hand.</div>
+        <div class="step-title" data-i18n="p4_title">Delivered. Done.</div>
+        <div class="step-body" data-i18n="p4_body">On-time delivery with proof of delivery and a simple monthly invoice covering everything. Problems are rare — but our support team is always on hand.</div>
       </div>
     </div>
   </div>
@@ -1099,15 +1188,15 @@ footer {
 <section class="cta-section">
   <div class="cta-glow"></div>
   <div class="cta-inner">
-    <div class="cta-label reveal">Ready to ship smarter?</div>
-    <h2 class="cta-headline reveal reveal-delay-1">
+    <div class="cta-label reveal" data-i18n="cta_label">Ready to ship smarter?</div>
+    <h2 class="cta-headline reveal reveal-delay-1" data-i18n="cta_headline">
       Let's get your<br>
       logistics <span class="accent">solved.</span>
     </h2>
-    <p class="cta-sub reveal reveal-delay-2">Talk to our team — we'll put together a solution that fits your operation and your budget.</p>
+    <p class="cta-sub reveal reveal-delay-2" data-i18n="cta_sub">Talk to our team — we'll put together a solution that fits your operation and your budget.</p>
     <div class="cta-actions reveal reveal-delay-3">
-      <a href="#contact" class="btn-primary">Get a Free Quote</a>
-      <a href="mailto:hello@solved-logistics.com" class="btn-ghost">
+      <a href="#contact" class="btn-primary" data-i18n="cta_btn">Get a Free Quote</a>
+      <a href="mailto:hello@solved-logistics.com" class="btn-ghost" data-i18n="cta_email">
         Email Us
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 5 6-5M2 4h12v9H2V4z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -1120,8 +1209,8 @@ footer {
   <div class="contact-inner">
     <div class="contact-left reveal">
       <div class="section-label" style="margin-bottom: 24px;">Contact</div>
-      <h3>Start a conversation.</h3>
-      <p>
+      <h3 data-i18n="contact_title">Start a conversation.</h3>
+      <p data-i18n="contact_body">
         Tell us about your business and your shipments. Our team will come back to you within one business day with options, pricing, and a plan.
       </p>
       <div class="contact-detail">
@@ -1130,11 +1219,11 @@ footer {
       </div>
       <div class="contact-detail">
         <div class="label">Location</div>
-        <div class="value">Kuwait City, Kuwait</div>
+        <div class="value" data-i18n="contact_loc">Kuwait City, Kuwait</div>
       </div>
       <div class="contact-detail">
         <div class="label">Operations</div>
-        <div class="value">Sat – Thu, 8am – 8pm (AST)</div>
+        <div class="value" data-i18n="contact_hours">Sat – Thu, 8am – 8pm (AST)</div>
       </div>
     </div>
     <form class="contact-form reveal reveal-delay-2" onsubmit="handleSubmit(event)">
@@ -1185,7 +1274,49 @@ footer {
   <div class="footer-inner">
     <div class="footer-brand">
       <svg viewBox="0 0 320 52" height="36" xmlns="http://www.w3.org/2000/svg">
-        <style>.wm2 { font-family: "Schibsted Grotesk","Arial Black",sans-serif; font-weight:900; font-size:44px; letter-spacing:-2px; }</style>
+        <style>.wm2 { font-family: "Schibsted Grotesk","Arial Black",sans-serif; font-weight:900; font-size:44px; letter-spacing:-2px; }
+/* ── RTL / ARABIC ──────────────────────────────────── */
+[dir="rtl"] body { font-family: "IBM Plex Sans Arabic", sans-serif; }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4 {
+  font-family: "Cairo", sans-serif;
+  letter-spacing: 0;
+}
+[dir="rtl"] .hero-headline .line2 { padding-left: 0; padding-right: 120px; }
+[dir="rtl"] .hero-headline .line3 { padding-left: 0; padding-right: 240px; }
+[dir="rtl"] .section-label::before { display: none; }
+[dir="rtl"] .section-label::after {
+  content: "";
+  display: block; width: 24px; height: 1px;
+  background: var(--orange);
+}
+[dir="rtl"] .hero-label::before { display: none; }
+[dir="rtl"] .hero-label::after {
+  content: "";
+  display: block; width: 32px; height: 1px;
+  background: var(--orange);
+}
+[dir="rtl"] .cta-label::before, [dir="rtl"] .cta-label::after { width: 40px; }
+[dir="rtl"] .why-item { direction: rtl; }
+[dir="rtl"] .process-step:not(:last-child)::after { content: "←"; right: auto; left: -16px; }
+[dir="rtl"] .hero-sub { font-size: 16px; line-height: 2; }
+[dir="rtl"] .service-desc, [dir="rtl"] .why-body, [dir="rtl"] .step-body { font-size: 14px; line-height: 2; }
+[dir="rtl"] .solutions-headline { letter-spacing: 0; }
+[dir="rtl"] .nav-links { direction: rtl; }
+[dir="rtl"] .stat-num { font-family: "Schibsted Grotesk", sans-serif; }
+.lang-btn {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(24,16,0,0.45); cursor: pointer; background: none; border: none;
+  padding: 4px 6px; transition: color 0.2s;
+}
+.lang-btn.active { color: var(--orange); font-weight: 700; }
+.lang-btn:hover { color: var(--ink); }
+.lang-divider { color: rgba(24,16,0,0.2); font-size: 11px; }
+@media (max-width: 768px) {
+  [dir="rtl"] .hero-headline .line2 { padding-right: 0; }
+  [dir="rtl"] .hero-headline .line3 { padding-right: 0; }
+}
+</style>
         <text class="wm2" x="0" y="44" fill="#F3EDE1">SOLVE</text>
         <text class="wm2" x="232" y="44" fill="#D04F00">D</text>
       </svg>
@@ -1220,12 +1351,197 @@ footer {
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 SOLVED Logistics. Kuwait · GCC.</span>
+    <span data-i18n="footer_copy">© 2026 SOLVED Logistics. Kuwait · GCC.</span>
     <span>solved-logistics.com</span>
   </div>
 </footer>
 
 <script>
+// ── i18n ─────────────────────────────────────────────
+const T = {
+  en: {
+    nav_services: "Services", nav_why: "Why SOLVED", nav_coverage: "Coverage",
+    nav_contact: "Contact", nav_cta: "Get a Quote",
+    hero_label: "Kuwait · GCC · 2026",
+    hero_headline: 'YOUR<br><span class="line2">LOGISTICS,</span><span class="line3 accent">SOLVED<span style="color:var(--orange)">.</span></span>',
+    hero_sub: "Full-service logistics built for Kuwait and the GCC — international shipping, local delivery, freight forwarding, and fulfillment, all under one roof.",
+    hero_cta: "Get a Quote",
+    hero_cta2: 'Explore Services <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    stat1: "Service lines", stat2: "Market coverage", stat3: "Operations",
+    srv_label: "What We Do",
+    srv_title: "Six ways we move your business forward.",
+    srv_body: "Whether you're shipping a single parcel or moving a container, SOLVED has the infrastructure, partners, and expertise to get it there.",
+    s1_name: "International E-Commerce Shipping",
+    s1_desc: "Door-to-door shipping for online businesses selling globally. We connect Kuwait-based merchants to carriers serving 220+ countries — fast, tracked, and competitively priced.",
+    s2_name: "Local Delivery Kuwait",
+    s2_desc: "Same-day and next-day delivery across Kuwait — from Hawalli to Ahmadi. Dedicated drivers, real-time tracking, and flexible delivery windows for your customers.",
+    s3_name: "Medium Cargo",
+    s3_desc: "Palletized freight and oversized shipments that don't fit in a parcel. We handle documentation, customs clearance, and last-mile delivery for goods of any volume.",
+    s4_name: "Personal Effects",
+    s4_desc: "Relocating to or from Kuwait? We handle the packing, customs paperwork, and international shipping of your personal belongings with care and full visibility.",
+    s5_name: "Air & Sea Freight",
+    s5_desc: "Full-container and LCL sea freight, plus air cargo for time-sensitive large shipments. Direct routes to major ports and airports across the GCC, Europe, and Asia.",
+    s6_name: "Fulfillment",
+    s6_desc: "Store your inventory with us, and we'll pick, pack, and ship every order — automatically. From single-SKU stores to complex multi-channel operations.",
+    why_label: "Why SOLVED", why_title: "Logistics that actually works.",
+    why_body: "Most logistics companies make you coordinate between multiple providers. SOLVED is one team, one platform, one invoice — solving everything together.",
+    why_cta: "Talk to us",
+    w1_title: "Kuwait-native, built for the GCC",
+    w1_body: "We understand the local market, customs regulations, and carrier relationships that matter in Kuwait and across the Gulf. No generic global playbook.",
+    w2_title: "One partner for everything",
+    w2_body: "From the first mile to the last, from international air freight to local delivery — SOLVED handles all of it, so you can focus on your business.",
+    w3_title: "Transparent pricing, no surprises",
+    w3_body: "Clear rate cards, real-time shipment tracking, and straightforward invoicing. You know what you're paying and why.",
+    w4_title: "Built for businesses of every size",
+    w4_body: "Whether you're shipping 10 parcels a month or 10,000, SOLVED has the capacity, flexibility, and dedicated support to scale with you.",
+    sol_headline: 'Every shipment.<br><span class="dark">Every scale.<br>Every route.</span>',
+    sol1: 'International parcel delivery <span class="arrow">→</span>',
+    sol2: 'Kuwait last-mile delivery <span class="arrow">→</span>',
+    sol3: 'Sea &amp; air freight forwarding <span class="arrow">→</span>',
+    sol4: 'Relocation &amp; personal effects <span class="arrow">→</span>',
+    sol5: 'E-commerce fulfillment <span class="arrow">→</span>',
+    sol6: 'Packaging materials &amp; supplies <span class="arrow">→</span>',
+    sol7: 'Customs clearance assistance <span class="arrow">→</span>',
+    cov_label: "Coverage", cov_title: "Headquartered in Kuwait. Shipping everywhere.",
+    cov_body: "We're based in Kuwait City with strong carrier partnerships across the GCC and global networks covering 220+ countries and territories.",
+    c1_name: "Kuwait", c1_note: "HQ · Full ops",
+    c2_name: "Saudi Arabia", c2_note: "GCC Partner",
+    c3_name: "UAE", c3_note: "GCC Partner",
+    c4_name: "Qatar", c4_note: "GCC Partner",
+    c5_name: "Europe & UK", c5_note: "Express routes",
+    c6_name: "Worldwide", c6_note: "220+ countries",
+    proc_label: "How It Works", proc_title: "Simple from start to delivery.",
+    proc_body: "We keep the process lean. You focus on your business — we handle every step of the logistics chain.",
+    p1_title: "Tell us what you need",
+    p1_body: "Reach out with your shipment details, volume, and destinations. We'll recommend the right service and give you a clear quote — no hidden fees.",
+    p2_title: "We arrange the pickup",
+    p2_body: "Our team schedules a collection from your address or warehouse. You get a confirmation, a tracking reference, and documentation handled.",
+    p3_title: "Track every step",
+    p3_body: "Real-time visibility on all shipments. From the moment we collect to the moment it's delivered, you and your customers are always in the loop.",
+    p4_title: "Delivered. Done.",
+    p4_body: "On-time delivery with proof of delivery and a simple monthly invoice covering everything. Problems are rare — but our support team is always on hand.",
+    cta_label: "Ready to ship smarter?",
+    cta_headline: 'Let's get your<br>logistics <span class="accent">solved.</span>',
+    cta_sub: "Talk to our team — we'll put together a solution that fits your operation and your budget.",
+    cta_btn: "Get a Free Quote",
+    cta_email: 'Email Us <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 5 6-5M2 4h12v9H2V4z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    contact_title: "Start a conversation.",
+    contact_body: "Tell us about your business and your shipments. Our team will come back to you within one business day with options, pricing, and a plan.",
+    contact_loc: "Kuwait City, Kuwait",
+    contact_hours: "Sat – Thu, 8am – 8pm (AST)",
+    footer_copy: "© 2026 SOLVED Logistics. Kuwait · GCC.",
+    ph_name: "Ahmed Al-Rashidi", ph_company: "Your company",
+    ph_email: "ahmed@company.com", ph_phone: "+965 XXXX XXXX",
+    ph_select: "Select a service...", ph_msg: "What are you shipping? Where to? How often? Any special requirements?",
+    submit_btn: "Send Message →", submit_sent: "✓ Message Sent"
+  },
+  ar: {
+    nav_services: "خدماتنا", nav_why: "لماذا SOLVED", nav_coverage: "التغطية",
+    nav_contact: "تواصل معنا", nav_cta: "احصل على عرض",
+    hero_label: "الكويت · دول الخليج · ٢٠٢٦",
+    hero_headline: 'خدماتك<br><span class="line2">اللوجستية،</span><span class="line3 accent">محلولة<span style="color:var(--orange)">.</span></span>',
+    hero_sub: "خدمات لوجستية متكاملة مصممة للكويت ودول الخليج — شحن دولي، توصيل محلي، شحن جوي وبحري، وتخزين وتوزيع، كل ذلك تحت سقف واحد.",
+    hero_cta: "احصل على عرض سعر",
+    hero_cta2: 'استكشف خدماتنا <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    stat1: "خطوط خدمة", stat2: "تغطية الخليج", stat3: "عمليات ٢٤/٧",
+    srv_label: "ما نقدمه",
+    srv_title: "ستة طرق لتحريك أعمالك للأمام.",
+    srv_body: "سواء كنت تشحن طرداً واحداً أو حاوية كاملة، تمتلك SOLVED البنية التحتية والشركاء والخبرة للوصول إلى وجهتك.",
+    s1_name: "الشحن الدولي للتجارة الإلكترونية",
+    s1_desc: "شحن من الباب إلى الباب للمتاجر الإلكترونية التي تبيع عالمياً. نربط التجار في الكويت بشركات نقل تخدم أكثر من ٢٢٠ دولة — بسرعة وتتبع وأسعار تنافسية.",
+    s2_name: "التوصيل المحلي في الكويت",
+    s2_desc: "توصيل في نفس اليوم وفي اليوم التالي في جميع أنحاء الكويت — من حولي إلى الأحمدي. سائقون مخصصون وتتبع فوري ومواعيد مرنة لعملائك.",
+    s3_name: "الشحن المتوسط",
+    s3_desc: "شحن البضائع الكبيرة والطرود ذات الأحجام الزائدة. نتولى التوثيق والتخليص الجمركي والتوصيل في المرحلة الأخيرة لأي حجم.",
+    s4_name: "المقتنيات الشخصية",
+    s4_desc: "هل تنتقل إلى الكويت أو منها؟ نتولى التعبئة والتوثيق الجمركي والشحن الدولي لمتعلقاتك الشخصية بعناية وشفافية كاملة.",
+    s5_name: "الشحن الجوي والبحري",
+    s5_desc: "شحن بحري بحاويات كاملة وجزئية، وشحن جوي للشحنات الكبيرة الحساسة للوقت. مسارات مباشرة إلى الموانئ والمطارات الرئيسية في الخليج وأوروبا وآسيا.",
+    s6_name: "التخزين والتوزيع",
+    s6_desc: "احتفظ بمخزونك لدينا وسنقوم بالتجهيز والتعبئة وشحن كل طلب تلقائياً. من المتاجر أحادية المنتج إلى العمليات متعددة القنوات المعقدة.",
+    why_label: "لماذا SOLVED", why_title: "لوجستيات تعمل فعلاً.",
+    why_body: "تجبرك معظم شركات الخدمات اللوجستية على التنسيق بين مزودين متعددين. SOLVED فريق واحد، منصة واحدة، فاتورة واحدة — نحل كل شيء معاً.",
+    why_cta: "تحدث معنا",
+    w1_title: "كويتيون، نبني للخليج",
+    w1_body: "نفهم السوق المحلي وأنظمة الجمارك وعلاقات شركات النقل في الكويت وعبر الخليج. لا نتبع أساليب عالمية جاهزة.",
+    w2_title: "شريك واحد لكل شيء",
+    w2_body: "من أول ميل إلى آخر ميل، ومن الشحن الجوي الدولي إلى التوصيل المحلي — SOLVED تتولى كل شيء لتركز أنت على عملك.",
+    w3_title: "أسعار شفافة، لا مفاجآت",
+    w3_body: "جداول أسعار واضحة وتتبع شحنات في الوقت الفعلي وفواتير مباشرة. تعرف ما تدفعه ولماذا.",
+    w4_title: "مصممة لكل حجم من الأعمال",
+    w4_body: "سواء كنت تشحن ١٠ طرود أو ١٠,٠٠٠ شهرياً، تمتلك SOLVED الطاقة والمرونة والدعم المخصص لتنمو معك.",
+    sol_headline: 'كل شحنة.<br><span class="dark">كل حجم.<br>كل مسار.</span>',
+    sol1: '<span class="arrow">←</span> التوصيل الدولي للطرود',
+    sol2: '<span class="arrow">←</span> التوصيل في المرحلة الأخيرة بالكويت',
+    sol3: '<span class="arrow">←</span> الشحن البحري والجوي',
+    sol4: '<span class="arrow">←</span> الانتقال والمقتنيات الشخصية',
+    sol5: '<span class="arrow">←</span> تخزين وتوزيع التجارة الإلكترونية',
+    sol6: '<span class="arrow">←</span> مواد ومستلزمات التعبئة',
+    sol7: '<span class="arrow">←</span> المساعدة في التخليص الجمركي',
+    cov_label: "التغطية الجغرافية", cov_title: "مقرنا الكويت. نشحن في كل مكان.",
+    cov_body: "يقع مقرنا في مدينة الكويت مع شراكات قوية مع شركات النقل في الخليج وشبكات عالمية تغطي أكثر من ٢٢٠ دولة.",
+    c1_name: "الكويت", c1_note: "المقر · عمليات كاملة",
+    c2_name: "المملكة العربية السعودية", c2_note: "شريك خليجي",
+    c3_name: "الإمارات", c3_note: "شريك خليجي",
+    c4_name: "قطر", c4_note: "شريك خليجي",
+    c5_name: "أوروبا والمملكة المتحدة", c5_note: "مسارات سريعة",
+    c6_name: "عالمياً", c6_note: "+٢٢٠ دولة",
+    proc_label: "كيف نعمل", proc_title: "بسيط من البداية حتى التسليم.",
+    proc_body: "نبقي العملية بسيطة. ركز على عملك — نتولى نحن كل خطوة في سلسلة اللوجستيات.",
+    p1_title: "أخبرنا بما تحتاجه",
+    p1_body: "تواصل معنا بتفاصيل شحنتك وحجمها ووجهاتها. سنوصي بالخدمة المناسبة ونقدم لك عرض سعر واضح بدون رسوم مخفية.",
+    p2_title: "نرتب الاستلام",
+    p2_body: "يحدد فريقنا موعد الاستلام من عنوانك أو مستودعك. ستحصل على تأكيد ورقم تتبع وجميع الوثائق جاهزة.",
+    p3_title: "تتبع كل خطوة",
+    p3_body: "رؤية كاملة على جميع الشحنات في الوقت الفعلي. من لحظة الاستلام حتى التسليم، أنت وعملاؤك تعرفون دائماً ما يجري.",
+    p4_title: "تم التسليم. انتهى.",
+    p4_body: "تسليم في الوقت المحدد مع إثبات الاستلام وفاتورة شهرية بسيطة تشمل كل شيء. المشكلات نادرة — لكن فريق الدعم لدينا دائماً في خدمتك.",
+    cta_label: "هل أنت مستعد للشحن بذكاء؟",
+    cta_headline: 'دعنا نحل<br>لوجستياتك <span class="accent">معاً.</span>',
+    cta_sub: "تحدث مع فريقنا — سنضع حلاً يناسب عملياتك وميزانيتك.",
+    cta_btn: "احصل على عرض مجاني",
+    cta_email: 'راسلنا <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 5 6-5M2 4h12v9H2V4z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    contact_title: "ابدأ محادثة.",
+    contact_body: "أخبرنا عن عملك وشحناتك. سيعود إليك فريقنا خلال يوم عمل واحد بالخيارات والأسعار والخطة المناسبة.",
+    contact_loc: "مدينة الكويت، الكويت",
+    contact_hours: "السبت – الخميس، ٨ص – ٨م (توقيت الخليج)",
+    footer_copy: "© ٢٠٢٦ SOLVED للخدمات اللوجستية. الكويت · الخليج.",
+    ph_name: "أحمد الراشدي", ph_company: "اسم شركتك",
+    ph_email: "ahmed@company.com", ph_phone: "+965 XXXX XXXX",
+    ph_select: "اختر خدمة...", ph_msg: "ماذا تشحن؟ إلى أين؟ كم مرة؟ هل لديك متطلبات خاصة؟",
+    submit_btn: "إرسال الرسالة →", submit_sent: "✓ تم الإرسال"
+  }
+};
+
+function switchLang(lang) {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (T[lang] && T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+  });
+  // Placeholders
+  const phs = {name:'ph_name',company:'ph_company',email_i:'ph_email',phone:'ph_phone',service:'ph_select',msg:'ph_msg'};
+  document.querySelector('input[placeholder="Ahmed Al-Rashidi"], input[placeholder="أحمد الراشدي"]') && (document.querySelector('input[placeholder="Ahmed Al-Rashidi"], input[placeholder="أحمد الراشدي"]').placeholder = T[lang].ph_name);
+  document.querySelectorAll('input, textarea, select').forEach(el => {
+    if (el.tagName === 'SELECT') { el.options[0] && (el.options[0].text = T[lang].ph_select); }
+    else if (el.type === 'text' && el.placeholder && (el.placeholder.includes('Al-Rashidi') || el.placeholder.includes('الراشدي'))) el.placeholder = T[lang].ph_name;
+    else if (el.type === 'text' && el.placeholder && (el.placeholder.includes('company') || el.placeholder.includes('شركت'))) el.placeholder = T[lang].ph_company;
+    else if (el.type === 'email') el.placeholder = T[lang].ph_email;
+    else if (el.type === 'tel') el.placeholder = T[lang].ph_phone;
+    else if (el.tagName === 'TEXTAREA') el.placeholder = T[lang].ph_msg;
+  });
+  // Submit button
+  const sb = document.getElementById('submit-btn');
+  if (sb && !sb.disabled) sb.textContent = lang === 'ar' ? 'إرسال الرسالة →' : 'Send Message →';
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  localStorage.setItem('solved-lang', lang);
+}
+
+// Init from saved pref
+const savedLang = localStorage.getItem('solved-lang');
+if (savedLang === 'ar') switchLang('ar');
+
 // Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -1253,11 +1569,11 @@ function handleSubmit(e) {
   btn.textContent = 'Sending...';
   btn.disabled = true;
   setTimeout(() => {
-    btn.textContent = '✓ Message Sent';
+    btn.textContent = document.documentElement.lang === 'ar' ? '✓ تم الإرسال' : '✓ Message Sent';
     btn.style.background = '#1a7a1a';
     e.target.reset();
     setTimeout(() => {
-      btn.textContent = 'Send Message →';
+      btn.textContent = document.documentElement.lang === 'ar' ? 'إرسال الرسالة →' : 'Send Message →';
       btn.style.background = '';
       btn.disabled = false;
     }, 3000);
