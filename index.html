@@ -13,11 +13,10 @@
 
 :root {
   --orange:  #D04F00;
-  --orange2: #C04400;
-  --black:   #EDE7D9;
-  --cream:   #181000;
-  --deep:    #F3EDE1;
-  --mid:     #E8E2D6;
+  --orange2: #B84400;
+  --ink:     #181000;
+  --cream:   #F3EDE1;
+  --sand:    #EAE3D5;
   --muted:   rgba(24,16,0,0.5);
   --border:  rgba(24,16,0,0.12);
 }
@@ -25,8 +24,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--deep);
-  color: var(--black);
+  background: var(--cream);
+  color: var(--ink);
   font-family: "IBM Plex Mono", monospace;
   font-size: 15px;
   line-height: 1.7;
@@ -76,11 +75,11 @@ nav {
   text-transform: uppercase;
   transition: color 0.2s;
 }
-.nav-links a:hover { color: var(--black); }
+.nav-links a:hover { color: var(--ink); }
 
 .nav-cta {
   background: var(--orange);
-  color: var(--cream) !important;
+  color: #F3EDE1 !important;
   padding: 10px 22px;
   border-radius: 2px;
   font-size: 12px !important;
@@ -89,7 +88,7 @@ nav {
   font-weight: 500;
   transition: background 0.2s !important;
 }
-.nav-cta:hover { background: var(--orange2) !important; color: var(--cream) !important; }
+.nav-cta:hover { background: var(--orange2) !important; color: #F3EDE1 !important; }
 
 /* ── HERO ─────────────────────────────────────────────── */
 .hero {
@@ -168,7 +167,7 @@ nav {
 
 .btn-primary {
   background: var(--orange);
-  color: var(--cream);
+  color: #F3EDE1;
   padding: 16px 40px;
   font-family: "IBM Plex Mono", monospace;
   font-size: 13px;
@@ -194,7 +193,7 @@ nav {
   transition: color 0.2s, border-color 0.2s;
   display: inline-flex; align-items: center; gap: 10px;
 }
-.btn-ghost:hover { color: var(--black); border-color: rgba(24,16,0,0.4); }
+.btn-ghost:hover { color: var(--ink); border-color: rgba(24,16,0,0.4); }
 
 .hero-stats {
   margin-top: 100px;
@@ -216,7 +215,7 @@ nav {
   font-family: "Schibsted Grotesk", sans-serif;
   font-weight: 900;
   font-size: 40px;
-  color: var(--black);
+  color: var(--ink);
   line-height: 1;
   margin-bottom: 6px;
 }
@@ -281,7 +280,7 @@ nav {
 }
 .section-title {
   font-size: clamp(40px, 5vw, 72px);
-  color: var(--black);
+  color: var(--ink);
   max-width: 560px;
 }
 .section-body {
@@ -302,14 +301,14 @@ nav {
 }
 
 .service-card {
-  background: #F3EDE1;
+  background: #fff;
   padding: 48px 40px;
   position: relative;
   overflow: hidden;
   transition: background 0.3s;
   cursor: default;
 }
-.service-card:hover { background: #EDE7D9; }
+.service-card:hover { background: var(--cream); }
 .service-card::after {
   content: "";
   position: absolute; bottom: 0; left: 0; right: 0;
@@ -337,7 +336,7 @@ nav {
   font-family: "Schibsted Grotesk", sans-serif;
   font-weight: 900;
   font-size: 22px;
-  color: var(--black);
+  color: var(--ink);
   margin-bottom: 16px;
   line-height: 1.1;
 }
@@ -363,7 +362,7 @@ nav {
 /* ── WHY SOLVED ──────────────────────────────────────── */
 .why-section {
   padding: 140px 40px;
-  background: var(--mid);
+  background: var(--sand);
   position: relative;
   overflow: hidden;
 }
@@ -407,7 +406,7 @@ nav {
   font-family: "Schibsted Grotesk", sans-serif;
   font-weight: 900;
   font-size: 18px;
-  color: var(--black);
+  color: var(--ink);
   margin-bottom: 10px;
 }
 .why-body {
@@ -428,7 +427,7 @@ nav {
 }
 .solutions-headline {
   font-size: clamp(40px, 5vw, 72px);
-  color: var(--cream);
+  color: #F3EDE1;
   font-family: "Schibsted Grotesk", sans-serif;
   font-weight: 900;
   line-height: 0.95;
@@ -444,7 +443,7 @@ nav {
   border-bottom: 1px solid rgba(14,12,8,0.2);
   display: flex; align-items: center; justify-content: space-between;
   font-size: 13px;
-  color: var(--deep);
+  color: #F3EDE1;
   letter-spacing: 0.05em;
 }
 .solution-item:first-child { border-top: 1px solid rgba(14,12,8,0.2); }
@@ -453,7 +452,7 @@ nav {
 /* ── COVERAGE ─────────────────────────────────────────── */
 .coverage-section {
   padding: 140px 40px;
-  background: var(--deep);
+  background: var(--cream);
 }
 .coverage-inner {
   max-width: 1200px; margin: 0 auto;
@@ -467,18 +466,18 @@ nav {
   margin-top: 80px;
 }
 .coverage-card {
-  background: #F3EDE1;
+  background: #fff;
   padding: 36px 28px;
   text-align: center;
   transition: background 0.3s;
 }
-.coverage-card:hover { background: #EDE7D9; }
+.coverage-card:hover { background: var(--cream); }
 .coverage-flag { font-size: 32px; margin-bottom: 12px; display: block; }
 .coverage-name {
   font-family: "Schibsted Grotesk", sans-serif;
   font-weight: 900;
   font-size: 15px;
-  color: var(--black);
+  color: var(--ink);
   margin-bottom: 4px;
 }
 .coverage-note { font-size: 11px; color: var(--orange); letter-spacing: 0.1em; text-transform: uppercase; }
@@ -486,7 +485,7 @@ nav {
 /* ── PROCESS ─────────────────────────────────────────── */
 .process-section {
   padding: 140px 40px;
-  background: var(--mid);
+  background: var(--sand);
 }
 .process-inner { max-width: 1200px; margin: 0 auto; }
 .process-steps {
@@ -498,7 +497,7 @@ nav {
   margin-top: 80px;
 }
 .process-step {
-  background: var(--cream);
+  background: var(--sand);
   padding: 48px 36px;
   position: relative;
 }
@@ -520,7 +519,7 @@ nav {
   font-family: "Schibsted Grotesk", sans-serif;
   font-weight: 900;
   font-size: 20px;
-  color: var(--black);
+  color: var(--ink);
   margin-bottom: 14px;
   line-height: 1.1;
 }
@@ -529,7 +528,7 @@ nav {
 /* ── CTA ─────────────────────────────────────────────── */
 .cta-section {
   padding: 160px 40px;
-  background: var(--deep);
+  background: var(--cream);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -551,7 +550,7 @@ nav {
 }
 .cta-headline {
   font-size: clamp(48px, 7vw, 110px);
-  color: var(--black);
+  color: var(--ink);
   margin-bottom: 24px;
   line-height: 0.9;
 }
@@ -573,7 +572,7 @@ nav {
 .contact-left h3 {
   font-size: 32px;
   margin-bottom: 24px;
-  color: var(--black);
+  color: var(--ink);
 }
 .contact-left p {
   font-size: 13px;
@@ -588,7 +587,7 @@ nav {
   font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange);
   margin-bottom: 4px;
 }
-.contact-detail .value { font-size: 14px; color: var(--black); }
+.contact-detail .value { font-size: 14px; color: var(--ink); }
 
 .contact-form { display: flex; flex-direction: column; gap: 20px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -601,7 +600,7 @@ nav {
   background: rgba(24,16,0,0.04);
   border: 1px solid var(--border);
   border-radius: 2px;
-  color: var(--black);
+  color: var(--ink);
   font-family: "IBM Plex Mono", monospace;
   font-size: 13px;
   padding: 14px 16px;
@@ -617,7 +616,7 @@ nav {
 .field textarea { height: 120px; }
 .submit-btn {
   background: var(--orange);
-  color: var(--cream);
+  color: #F3EDE1;
   border: none;
   padding: 16px 40px;
   font-family: "IBM Plex Mono", monospace;
