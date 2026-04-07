@@ -237,7 +237,7 @@ nav {
 }
 .marquee-track {
   display: flex; gap: 0;
-  animation: marquee 28s linear infinite;
+  animation: marquee 14s linear infinite;
   white-space: nowrap;
 }
 .marquee-item {
@@ -328,10 +328,9 @@ nav {
   font-variant-numeric: tabular-nums;
 }
 .service-icon {
-  font-size: 36px;
   margin-bottom: 24px;
   display: block;
-  filter: grayscale(0.3);
+  opacity: 0.9;
 }
 .service-name {
   font-family: "Schibsted Grotesk", sans-serif;
@@ -816,7 +815,12 @@ footer {
 
     <div class="service-card reveal reveal-delay-1">
       <div class="service-num">01</div>
-      <span class="service-icon">✈️</span>
+      <div class="service-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M36 16.5L24 20l-8-10-3 1 4 10.5L8 24l-2.5-3.5-2 .5 1.5 6 1.5 6 2-.5L8 29l9 2.5 4 10.5 3-1-2-12.5 12-3.5 4 2 2-1.5-2-5.5-2-5.5z" fill="#D04F00" opacity="0.15"/>
+          <path d="M5 20.5L20 16l-5-12 2.5-1 8 11 10-3c2.2-.6 4 .6 4 2.8s-1.8 4.2-4 4.8l-10 3 1 13.5-2.5 1-4.5-11.5L5 23" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
       <div class="service-name">International E-Commerce Shipping</div>
       <div class="service-desc">
         Door-to-door shipping for online businesses selling globally. We connect Kuwait-based merchants to carriers serving 220+ countries — fast, tracked, and competitively priced.
@@ -830,7 +834,16 @@ footer {
 
     <div class="service-card reveal reveal-delay-2">
       <div class="service-num">02</div>
-      <span class="service-icon">🚗</span>
+      <div class="service-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="18" width="34" height="14" rx="3" fill="#D04F00" opacity="0.1" stroke="#D04F00" stroke-width="1.5"/>
+          <path d="M7 18l4-8h18l4 8" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="11" cy="32" r="3.5" fill="#0E0C08" stroke="#D04F00" stroke-width="1.5"/>
+          <circle cx="29" cy="32" r="3.5" fill="#0E0C08" stroke="#D04F00" stroke-width="1.5"/>
+          <path d="M3 24h34" stroke="#D04F00" stroke-width="1" opacity="0.4"/>
+          <path d="M14 18v-4M20 18v-6M26 18v-4" stroke="#D04F00" stroke-width="1" opacity="0.3"/>
+        </svg>
+      </div>
       <div class="service-name">Local Delivery Kuwait</div>
       <div class="service-desc">
         Same-day and next-day delivery across Kuwait — from Hawalli to Ahmadi. Dedicated drivers, real-time tracking, and flexible delivery windows for your customers.
@@ -844,7 +857,14 @@ footer {
 
     <div class="service-card reveal reveal-delay-3">
       <div class="service-num">03</div>
-      <span class="service-icon">📦</span>
+      <div class="service-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 4L36 12v16L20 36 4 28V12L20 4z" fill="#D04F00" opacity="0.08" stroke="#D04F00" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M20 4l16 8M20 4L4 12M20 20v16M4 12v16l16 8M36 12v16" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 8l16 8" stroke="#D04F00" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
+          <path d="M20 20L4 12" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+        </svg>
+      </div>
       <div class="service-name">Medium Cargo</div>
       <div class="service-desc">
         Palletized freight and oversized shipments that don't fit in a parcel. We handle documentation, customs clearance, and last-mile delivery for goods of any volume.
@@ -858,7 +878,15 @@ footer {
 
     <div class="service-card reveal reveal-delay-1">
       <div class="service-num">04</div>
-      <span class="service-icon">🏠</span>
+      <div class="service-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 5L35 18v17H25V25h-10v10H5V18L20 5z" fill="#D04F00" opacity="0.08" stroke="#D04F00" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M3 20L20 5l17 15" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M28 10h4v5" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="15" y="25" width="10" height="10" fill="#D04F00" opacity="0.15" stroke="#D04F00" stroke-width="1" rx="1"/>
+          <path d="M20 25v10" stroke="#D04F00" stroke-width="1" opacity="0.5"/>
+        </svg>
+      </div>
       <div class="service-name">Personal Effects</div>
       <div class="service-desc">
         Relocating to or from Kuwait? We handle the packing, customs paperwork, and international shipping of your personal belongings with care and full visibility.
@@ -872,7 +900,15 @@ footer {
 
     <div class="service-card reveal reveal-delay-2">
       <div class="service-num">05</div>
-      <span class="service-icon">🚢</span>
+      <div class="service-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 26L6 32h28l-2-6H8z" fill="#D04F00" opacity="0.1" stroke="#D04F00" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M12 26V14h16v12" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="16" y="14" width="8" height="7" fill="#D04F00" opacity="0.1" stroke="#D04F00" stroke-width="1" rx="1"/>
+          <path d="M20 7v7M17 10h6" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M4 34c4 0 4-2 8-2s4 2 8 2 4-2 8-2 4 2 8 2" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+        </svg>
+      </div>
       <div class="service-name">Air & Sea Freight</div>
       <div class="service-desc">
         Full-container and LCL sea freight, plus air cargo for time-sensitive large shipments. Direct routes to major ports and airports across the GCC, Europe, and Asia.
@@ -886,7 +922,15 @@ footer {
 
     <div class="service-card reveal reveal-delay-3">
       <div class="service-num">06</div>
-      <span class="service-icon">🏭</span>
+      <div class="service-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="20" width="34" height="16" rx="2" fill="#D04F00" opacity="0.08" stroke="#D04F00" stroke-width="1.5"/>
+          <path d="M3 20l9-10v10M12 20l9-10v10M21 20l9-10v10" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="28" y="10" width="9" height="26" rx="1" fill="#D04F00" opacity="0.08" stroke="#D04F00" stroke-width="1.5"/>
+          <path d="M8 28h4M8 32h4M18 28h4M18 32h4" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          <path d="M30 6v4M33 6v4" stroke="#D04F00" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+        </svg>
+      </div>
       <div class="service-name">Fulfillment</div>
       <div class="service-desc">
         Store your inventory with us, and we'll pick, pack, and ship every order — automatically. From single-SKU stores to complex multi-channel operations.
