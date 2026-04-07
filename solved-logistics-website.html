@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOLVED — Your Logistics, Solved | Kuwait · GCC</title>
+<meta name="description" content="SOLVED is Kuwait's full-service logistics company. International shipping, local delivery, freight forwarding, fulfillment, and more — across Kuwait and the GCC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --orange:  #D04F00;
+  --orange2: #E05800;
+  --black:   #181000;
+  --cream:   #F3EDE1;
+  --deep:    #0E0C08;
+  --mid:     #1E1800;
+  --muted:   rgba(243,237,225,0.45);
+  --border:  rgba(243,237,225,0.1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--deep);
+  color: var(--cream);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── Typography ─────────────────────────────────────── */
+h1, h2, h3, h4, .display {
+  font-family: "Schibsted Grotesk", sans-serif;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+
+/* ── Layout ─────────────────────────────────────────── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.container-wide { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+
+/* ── NAV ─────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+  background: rgba(14,12,8,0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s;
+}
+
+.nav-logo {
+  display: flex; align-items: center; gap: 0;
+  text-decoration: none;
+}
+.nav-logo svg { height: 32px; width: auto; }
+
+.nav-links {
+  display: flex; align-items: center; gap: 40px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--cream); }
+
+.nav-cta {
+  background: var(--orange);
+  color: var(--cream) !important;
+  padding: 10px 22px;
+  border-radius: 2px;
+  font-size: 12px !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--orange2) !important; color: var(--cream) !important; }
+
+/* ── HERO ─────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 40px 80px;
+}
+
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(243,237,225,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(243,237,225,0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+.hero-glow {
+  position: absolute; top: -200px; right: -200px;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(208,79,0,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-inner { max-width: 1200px; margin: 0 auto; position: relative; }
+
+.hero-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 32px;
+  display: flex; align-items: center; gap: 12px;
+  opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+}
+.hero-label::before {
+  content: "";
+  display: block; width: 32px; height: 1px;
+  background: var(--orange);
+}
+
+.hero-headline {
+  font-size: clamp(64px, 9vw, 140px);
+  font-family: "Schibsted Grotesk", sans-serif;
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  margin-bottom: 48px;
+  opacity: 0; animation: fadeUp 0.8s 0.35s forwards;
+}
+.hero-headline .accent { color: var(--orange); }
+.hero-headline .line2 {
+  display: block;
+  padding-left: 120px;
+}
+.hero-headline .line3 {
+  display: block;
+  padding-left: 240px;
+  color: var(--muted);
+}
+
+.hero-sub {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 56px;
+  opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
+}
+
+.hero-actions {
+  display: flex; gap: 16px; align-items: center;
+  opacity: 0; animation: fadeUp 0.8s 0.65s forwards;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: var(--cream);
+  padding: 16px 40px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--orange2); transform: translateY(-1px); }
+
+.btn-ghost {
+  color: var(--muted);
+  padding: 16px 32px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  transition: color 0.2s, border-color 0.2s;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.btn-ghost:hover { color: var(--cream); border-color: rgba(243,237,225,0.3); }
+
+.hero-stats {
+  margin-top: 100px;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+  max-width: 600px;
+  opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
+}
+.stat {
+  padding: 32px 0;
+  border-right: 1px solid var(--border);
+}
+.stat:first-child { padding-left: 0; }
+.stat:last-child { border-right: none; padding-left: 32px; }
+.stat:nth-child(2) { padding-left: 32px; }
+
+.stat-num {
+  font-family: "Schibsted Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-num span { color: var(--orange); }
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── MARQUEE ─────────────────────────────────────────── */
+.marquee-section {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--black);
+  overflow: hidden;
+  padding: 20px 0;
+}
+.marquee-track {
+  display: flex; gap: 0;
+  animation: marquee 28s linear infinite;
+  white-space: nowrap;
+}
+.marquee-item {
+  display: inline-flex; align-items: center; gap: 28px;
+  padding: 0 28px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.marquee-dot {
+  width: 4px; height: 4px;
+  background: var(--orange);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── SERVICES ─────────────────────────────────────────── */
+.services-section {
+  padding: 140px 40px;
+}
+.section-header {
+  max-width: 1200px; margin: 0 auto 80px;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 60px;
+}
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-label::before {
+  content: "";
+  display: block; width: 24px; height: 1px;
+  background: var(--orange);
+}
+.section-title {
+  font-size: clamp(40px, 5vw, 72px);
+  color: var(--cream);
+  max-width: 560px;
+}
+.section-body {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 380px;
+  line-height: 1.9;
+  padding-bottom: 8px;
+}
+
+.services-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.service-card {
+  background: var(--deep);
+  padding: 48px 40px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+  cursor: default;
+}
+.service-card:hover { background: #131108; }
+.service-card::after {
+  content: "";
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.service-card:hover::after { transform: scaleX(1); }
+
+.service-num {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--orange);
+  margin-bottom: 32px;
+  font-variant-numeric: tabular-nums;
+}
+.service-icon {
+  font-size: 36px;
+  margin-bottom: 24px;
+  display: block;
+  filter: grayscale(0.3);
+}
+.service-name {
+  font-family: "Schibsted Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--cream);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.service-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.service-tags {
+  margin-top: 28px;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.tag {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  border: 1px solid rgba(208,79,0,0.3);
+  padding: 4px 10px;
+  border-radius: 1px;
+}
+
+/* ── WHY SOLVED ──────────────────────────────────────── */
+.why-section {
+  padding: 140px 40px;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+.why-glow {
+  position: absolute; bottom: -300px; left: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(208,79,0,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.why-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 120px; align-items: center;
+}
+
+.why-left .section-title { margin-bottom: 32px; }
+.why-left .section-body { margin-bottom: 48px; }
+
+.why-right {
+  display: flex; flex-direction: column; gap: 0;
+}
+
+.why-item {
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+  display: grid; grid-template-columns: 48px 1fr;
+  gap: 24px; align-items: start;
+}
+.why-item:first-child { border-top: 1px solid var(--border); }
+
+.why-num {
+  font-family: "Schibsted Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  color: var(--orange);
+  line-height: 1;
+  padding-top: 4px;
+}
+.why-title {
+  font-family: "Schibsted Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+.why-body {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* ── SOLUTIONS STRIP ─────────────────────────────────── */
+.solutions-strip {
+  padding: 140px 40px;
+  background: var(--orange);
+}
+.solutions-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.solutions-headline {
+  font-size: clamp(40px, 5vw, 72px);
+  color: var(--cream);
+  font-family: "Schibsted Grotesk", sans-serif;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+.solutions-headline .dark { color: var(--deep); }
+
+.solutions-list {
+  display: flex; flex-direction: column; gap: 0;
+}
+.solution-item {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(14,12,8,0.2);
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 13px;
+  color: var(--deep);
+  letter-spacing: 0.05em;
+}
+.solution-item:first-child { border-top: 1px solid rgba(14,12,8,0.2); }
+.solution-item .arrow { opacity: 0.5; font-size: 18px; }
+
+/* ── COVERAGE ─────────────────────────────────────────── */
+.coverage-section {
+  padding: 140px 40px;
+  background: var(--deep);
+}
+.coverage-inner {
+  max-width: 1200px; margin: 0 auto;
+}
+.coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 80px;
+}
+.coverage-card {
+  background: var(--deep);
+  padding: 36px 28px;
+  text-align: center;
+  transition: background 0.3s;
+}
+.coverage-card:hover { background: #131108; }
+.coverage-flag { font-size: 32px; margin-bottom: 12px; display: block; }
+.coverage-name {
+  font-family: "Schibsted Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+.coverage-note { font-size: 11px; color: var(--orange); letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* ── PROCESS ─────────────────────────────────────────── */
+.process-section {
+  padding: 140px 40px;
+  background: var(--black);
+}
+.process-inner { max-width: 1200px; margin: 0 auto; }
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 80px;
+}
+.process-step {
+  background: var(--black);
+  padding: 48px 36px;
+  position: relative;
+}
+.process-step:not(:last-child)::after {
+  content: "→";
+  position: absolute; top: 48px; right: -16px;
+  color: var(--orange);
+  font-size: 20px;
+  z-index: 2;
+}
+.step-num {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--orange);
+  margin-bottom: 32px;
+  font-variant-numeric: tabular-nums;
+}
+.step-title {
+  font-family: "Schibsted Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--cream);
+  margin-bottom: 14px;
+  line-height: 1.1;
+}
+.step-body { font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+/* ── CTA ─────────────────────────────────────────────── */
+.cta-section {
+  padding: 160px 40px;
+  background: var(--deep);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-glow {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 1000px; height: 600px;
+  background: radial-gradient(ellipse, rgba(208,79,0,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cta-inner { position: relative; z-index: 1; }
+.cta-label {
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 28px;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+.cta-label::before, .cta-label::after {
+  content: ""; display: block; width: 40px; height: 1px; background: var(--orange);
+}
+.cta-headline {
+  font-size: clamp(48px, 7vw, 110px);
+  color: var(--cream);
+  margin-bottom: 24px;
+  line-height: 0.9;
+}
+.cta-headline .accent { color: var(--orange); }
+.cta-sub { font-size: 14px; color: var(--muted); margin-bottom: 56px; }
+.cta-actions { display: flex; gap: 16px; justify-content: center; align-items: center; }
+
+/* ── CONTACT ─────────────────────────────────────────── */
+.contact-section {
+  padding: 0 40px 140px;
+}
+.contact-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  border: 1px solid var(--border);
+  padding: 80px;
+}
+.contact-left h3 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+.contact-left p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 48px;
+}
+.contact-detail {
+  margin-bottom: 20px;
+}
+.contact-detail .label {
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange);
+  margin-bottom: 4px;
+}
+.contact-detail .value { font-size: 14px; color: var(--cream); }
+
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label {
+  font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--muted);
+}
+.field input, .field select, .field textarea {
+  background: rgba(243,237,225,0.04);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--cream);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  resize: none;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: rgba(208,79,0,0.6);
+}
+.field select option { background: var(--deep); }
+.field textarea { height: 120px; }
+.submit-btn {
+  background: var(--orange);
+  color: var(--cream);
+  border: none;
+  padding: 16px 40px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s;
+  align-self: flex-start;
+}
+.submit-btn:hover { background: var(--orange2); }
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+footer {
+  background: var(--black);
+  border-top: 1px solid var(--border);
+  padding: 64px 40px 40px;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 80px; margin-bottom: 64px;
+}
+.footer-brand .tagline-text {
+  font-size: 12px; color: var(--muted); line-height: 1.8; margin-top: 20px;
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 24px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-col ul a {
+  font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--cream); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid var(--border);
+  padding-top: 32px;
+  font-size: 11px; color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+/* ── ANIMATIONS ─────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .coverage-grid { grid-template-columns: repeat(3, 1fr); }
+  .process-steps { grid-template-columns: repeat(2, 1fr); }
+  .why-inner { grid-template-columns: 1fr; gap: 60px; }
+  .solutions-inner { grid-template-columns: 1fr; gap: 48px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 48px; }
+}
+@media (max-width: 768px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .container, .container-wide { padding: 0 24px; }
+  .hero { padding: 100px 24px 80px; }
+  .hero-headline .line2, .hero-headline .line3 { padding-left: 0; }
+  .services-section, .why-section, .solutions-strip,
+  .coverage-section, .process-section, .cta-section,
+  .contact-section { padding: 80px 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .coverage-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-steps { grid-template-columns: 1fr; }
+  .process-step::after { display: none; }
+  .section-header { flex-direction: column; gap: 24px; align-items: flex-start; }
+  .contact-inner { grid-template-columns: 1fr; padding: 40px 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 320 52" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        .wm { font-family: "Schibsted Grotesk", "Arial Black", sans-serif; font-weight: 900; font-size: 44px; letter-spacing: -2px; }
+      </style>
+      <text class="wm" x="0" y="44" fill="#F3EDE1">SOLVE</text>
+      <text class="wm" x="232" y="44" fill="#D04F00">D</text>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why SOLVED</a></li>
+    <li><a href="#coverage">Coverage</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-label">Kuwait · GCC · 2026</div>
+    <h1 class="hero-headline">
+      YOUR<br>
+      <span class="line2">LOGISTICS,</span>
+      <span class="line3 accent">SOLVED<span style="color: var(--orange)">.</span></span>
+    </h1>
+    <p class="hero-sub">
+      Full-service logistics built for Kuwait and the GCC — international shipping, local delivery, freight forwarding, and fulfillment, all under one roof.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get a Quote</a>
+      <a href="#services" class="btn-ghost">
+        Explore Services
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">6<span>+</span></div>
+        <div class="stat-label">Service lines</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">GCC<span>.</span></div>
+        <div class="stat-label">Market coverage</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">24<span>/7</span></div>
+        <div class="stat-label">Operations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">International Shipping <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Local Delivery Kuwait <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Air Freight <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Sea Freight <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Fulfillment <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Cargo Services <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Personal Effects <span class="marquee-dot"></span></span>
+    <span class="marquee-item">E-Commerce Logistics <span class="marquee-dot"></span></span>
+    <span class="marquee-item">GCC Coverage <span class="marquee-dot"></span></span>
+    <span class="marquee-item">International Shipping <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Local Delivery Kuwait <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Air Freight <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Sea Freight <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Fulfillment <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Cargo Services <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Personal Effects <span class="marquee-dot"></span></span>
+    <span class="marquee-item">E-Commerce Logistics <span class="marquee-dot"></span></span>
+    <span class="marquee-item">GCC Coverage <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- ── SERVICES ── -->
+<section class="services-section" id="services">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Six ways we move your business forward.</h2>
+    </div>
+    <p class="section-body">
+      Whether you're shipping a single parcel or moving a container, SOLVED has the infrastructure, partners, and expertise to get it there.
+    </p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">01</div>
+      <span class="service-icon">✈️</span>
+      <div class="service-name">International E-Commerce Shipping</div>
+      <div class="service-desc">
+        Door-to-door shipping for online businesses selling globally. We connect Kuwait-based merchants to carriers serving 220+ countries — fast, tracked, and competitively priced.
+      </div>
+      <div class="service-tags">
+        <span class="tag">Express</span>
+        <span class="tag">Economy</span>
+        <span class="tag">Tracked</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">02</div>
+      <span class="service-icon">🚗</span>
+      <div class="service-name">Local Delivery Kuwait</div>
+      <div class="service-desc">
+        Same-day and next-day delivery across Kuwait — from Hawalli to Ahmadi. Dedicated drivers, real-time tracking, and flexible delivery windows for your customers.
+      </div>
+      <div class="service-tags">
+        <span class="tag">Same-Day</span>
+        <span class="tag">Next-Day</span>
+        <span class="tag">Nationwide</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-num">03</div>
+      <span class="service-icon">📦</span>
+      <div class="service-name">Medium Cargo</div>
+      <div class="service-desc">
+        Palletized freight and oversized shipments that don't fit in a parcel. We handle documentation, customs clearance, and last-mile delivery for goods of any volume.
+      </div>
+      <div class="service-tags">
+        <span class="tag">Pallets</span>
+        <span class="tag">Customs</span>
+        <span class="tag">B2B</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">04</div>
+      <span class="service-icon">🏠</span>
+      <div class="service-name">Personal Effects</div>
+      <div class="service-desc">
+        Relocating to or from Kuwait? We handle the packing, customs paperwork, and international shipping of your personal belongings with care and full visibility.
+      </div>
+      <div class="service-tags">
+        <span class="tag">Relocation</span>
+        <span class="tag">Insured</span>
+        <span class="tag">Door-to-Door</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">05</div>
+      <span class="service-icon">🚢</span>
+      <div class="service-name">Air & Sea Freight</div>
+      <div class="service-desc">
+        Full-container and LCL sea freight, plus air cargo for time-sensitive large shipments. Direct routes to major ports and airports across the GCC, Europe, and Asia.
+      </div>
+      <div class="service-tags">
+        <span class="tag">FCL</span>
+        <span class="tag">LCL</span>
+        <span class="tag">Air Cargo</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-num">06</div>
+      <span class="service-icon">🏭</span>
+      <div class="service-name">Fulfillment</div>
+      <div class="service-desc">
+        Store your inventory with us, and we'll pick, pack, and ship every order — automatically. From single-SKU stores to complex multi-channel operations.
+      </div>
+      <div class="service-tags">
+        <span class="tag">Storage</span>
+        <span class="tag">Pick & Pack</span>
+        <span class="tag">Returns</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── WHY SOLVED ── -->
+<section class="why-section" id="why">
+  <div class="why-glow"></div>
+  <div class="why-inner">
+    <div class="why-left reveal">
+      <div class="section-label">Why SOLVED</div>
+      <h2 class="section-title">Logistics that actually works.</h2>
+      <p class="section-body">
+        Most logistics companies make you coordinate between multiple providers. SOLVED is one team, one platform, one invoice — solving everything together.
+      </p>
+      <a href="#contact" class="btn-primary">Talk to us</a>
+    </div>
+    <div class="why-right">
+      <div class="why-item reveal reveal-delay-1">
+        <div class="why-num">01</div>
+        <div>
+          <div class="why-title">Kuwait-native, built for the GCC</div>
+          <div class="why-body">We understand the local market, customs regulations, and carrier relationships that matter in Kuwait and across the Gulf. No generic global playbook.</div>
+        </div>
+      </div>
+      <div class="why-item reveal reveal-delay-2">
+        <div class="why-num">02</div>
+        <div>
+          <div class="why-title">One partner for everything</div>
+          <div class="why-body">From the first mile to the last, from international air freight to local delivery — SOLVED handles all of it, so you can focus on your business.</div>
+        </div>
+      </div>
+      <div class="why-item reveal reveal-delay-3">
+        <div class="why-num">03</div>
+        <div>
+          <div class="why-title">Transparent pricing, no surprises</div>
+          <div class="why-body">Clear rate cards, real-time shipment tracking, and straightforward invoicing. You know what you're paying and why.</div>
+        </div>
+      </div>
+      <div class="why-item reveal reveal-delay-4">
+        <div class="why-num">04</div>
+        <div>
+          <div class="why-title">Built for businesses of every size</div>
+          <div class="why-body">Whether you're shipping 10 parcels a month or 10,000, SOLVED has the capacity, flexibility, and dedicated support to scale with you.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOLUTIONS STRIP ── -->
+<section class="solutions-strip">
+  <div class="solutions-inner">
+    <div class="reveal">
+      <h2 class="solutions-headline">
+        Every shipment.<br>
+        <span class="dark">Every scale.<br>
+        Every route.</span>
+      </h2>
+    </div>
+    <div class="solutions-list reveal reveal-delay-2">
+      <div class="solution-item">International parcel delivery <span class="arrow">→</span></div>
+      <div class="solution-item">Kuwait last-mile delivery <span class="arrow">→</span></div>
+      <div class="solution-item">Sea & air freight forwarding <span class="arrow">→</span></div>
+      <div class="solution-item">Relocation & personal effects <span class="arrow">→</span></div>
+      <div class="solution-item">E-commerce fulfillment <span class="arrow">→</span></div>
+      <div class="solution-item">Packaging materials & supplies <span class="arrow">→</span></div>
+      <div class="solution-item">Customs clearance assistance <span class="arrow">→</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COVERAGE ── -->
+<section class="coverage-section" id="coverage">
+  <div class="coverage-inner">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">Coverage</div>
+        <h2 class="section-title">Headquartered in Kuwait. Shipping everywhere.</h2>
+      </div>
+      <p class="section-body">
+        We're based in Kuwait City with strong carrier partnerships across the GCC and global networks covering 220+ countries and territories.
+      </p>
+    </div>
+    <div class="coverage-grid">
+      <div class="coverage-card reveal reveal-delay-1">
+        <span class="coverage-flag">🇰🇼</span>
+        <div class="coverage-name">Kuwait</div>
+        <div class="coverage-note">HQ · Full ops</div>
+      </div>
+      <div class="coverage-card reveal reveal-delay-2">
+        <span class="coverage-flag">🇸🇦</span>
+        <div class="coverage-name">Saudi Arabia</div>
+        <div class="coverage-note">GCC Partner</div>
+      </div>
+      <div class="coverage-card reveal reveal-delay-3">
+        <span class="coverage-flag">🇦🇪</span>
+        <div class="coverage-name">UAE</div>
+        <div class="coverage-note">GCC Partner</div>
+      </div>
+      <div class="coverage-card reveal reveal-delay-4">
+        <span class="coverage-flag">🇶🇦</span>
+        <div class="coverage-name">Qatar</div>
+        <div class="coverage-note">GCC Partner</div>
+      </div>
+      <div class="coverage-card reveal reveal-delay-5">
+        <span class="coverage-flag">🌍</span>
+        <div class="coverage-name">Europe & UK</div>
+        <div class="coverage-note">Express routes</div>
+      </div>
+      <div class="coverage-card reveal reveal-delay-5">
+        <span class="coverage-flag">🌏</span>
+        <div class="coverage-name">Worldwide</div>
+        <div class="coverage-note">220+ countries</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process-section">
+  <div class="process-inner">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">Simple from start to delivery.</h2>
+      </div>
+      <p class="section-body">We keep the process lean. You focus on your business — we handle every step of the logistics chain.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-num">01</div>
+        <div class="step-title">Tell us what you need</div>
+        <div class="step-body">Reach out with your shipment details, volume, and destinations. We'll recommend the right service and give you a clear quote — no hidden fees.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-num">02</div>
+        <div class="step-title">We arrange the pickup</div>
+        <div class="step-body">Our team schedules a collection from your address or warehouse. You get a confirmation, a tracking reference, and documentation handled.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="step-num">03</div>
+        <div class="step-title">Track every step</div>
+        <div class="step-body">Real-time visibility on all shipments. From the moment we collect to the moment it's delivered, you and your customers are always in the loop.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="step-num">04</div>
+        <div class="step-title">Delivered. Done.</div>
+        <div class="step-body">On-time delivery with proof of delivery and a simple monthly invoice covering everything. Problems are rare — but our support team is always on hand.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <div class="cta-label reveal">Ready to ship smarter?</div>
+    <h2 class="cta-headline reveal reveal-delay-1">
+      Let's get your<br>
+      logistics <span class="accent">solved.</span>
+    </h2>
+    <p class="cta-sub reveal reveal-delay-2">Talk to our team — we'll put together a solution that fits your operation and your budget.</p>
+    <div class="cta-actions reveal reveal-delay-3">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="mailto:hello@solved-logistics.com" class="btn-ghost">
+        Email Us
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 5 6-5M2 4h12v9H2V4z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <div class="section-label" style="margin-bottom: 24px;">Contact</div>
+      <h3>Start a conversation.</h3>
+      <p>
+        Tell us about your business and your shipments. Our team will come back to you within one business day with options, pricing, and a plan.
+      </p>
+      <div class="contact-detail">
+        <div class="label">Email</div>
+        <div class="value">hello@solved-logistics.com</div>
+      </div>
+      <div class="contact-detail">
+        <div class="label">Location</div>
+        <div class="value">Kuwait City, Kuwait</div>
+      </div>
+      <div class="contact-detail">
+        <div class="label">Operations</div>
+        <div class="value">Sat – Thu, 8am – 8pm (AST)</div>
+      </div>
+    </div>
+    <form class="contact-form reveal reveal-delay-2" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="field">
+          <label>Full Name</label>
+          <input type="text" placeholder="Ahmed Al-Rashidi" required>
+        </div>
+        <div class="field">
+          <label>Company</label>
+          <input type="text" placeholder="Your company">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label>Email</label>
+          <input type="email" placeholder="ahmed@company.com" required>
+        </div>
+        <div class="field">
+          <label>Phone</label>
+          <input type="tel" placeholder="+965 XXXX XXXX">
+        </div>
+      </div>
+      <div class="field">
+        <label>Service Needed</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>International E-Commerce Shipping</option>
+          <option>Local Delivery Kuwait</option>
+          <option>Medium Cargo</option>
+          <option>Personal Effects / Relocation</option>
+          <option>Air & Sea Freight</option>
+          <option>Fulfillment</option>
+          <option>Multiple / Not Sure</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Tell us about your shipment</label>
+        <textarea placeholder="What are you shipping? Where to? How often? Any special requirements?"></textarea>
+      </div>
+      <button type="submit" class="submit-btn" id="submit-btn">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg viewBox="0 0 320 52" height="36" xmlns="http://www.w3.org/2000/svg">
+        <style>.wm2 { font-family: "Schibsted Grotesk","Arial Black",sans-serif; font-weight:900; font-size:44px; letter-spacing:-2px; }</style>
+        <text class="wm2" x="0" y="44" fill="#F3EDE1">SOLVE</text>
+        <text class="wm2" x="232" y="44" fill="#D04F00">D</text>
+      </svg>
+      <p class="tagline-text">Your Logistics, Solved. Full-service shipping and delivery solutions for businesses across Kuwait and the GCC.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">International Shipping</a></li>
+        <li><a href="#services">Local Delivery</a></li>
+        <li><a href="#services">Cargo & Freight</a></li>
+        <li><a href="#services">Personal Effects</a></li>
+        <li><a href="#services">Fulfillment</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#why">Why SOLVED</a></li>
+        <li><a href="#coverage">Coverage</a></li>
+        <li><a href="#contact">Get a Quote</a></li>
+        <li><a href="mailto:hello@solved-logistics.com">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <ul>
+        <li><a href="mailto:hello@solved-logistics.com">hello@solved-logistics.com</a></li>
+        <li><a href="#contact">Request a Callback</a></li>
+        <li><a href="#contact">Kuwait City, Kuwait</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 SOLVED Logistics. Kuwait · GCC.</span>
+    <span>solved-logistics.com</span>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.background =
+    window.scrollY > 80
+      ? 'rgba(14,12,8,0.98)'
+      : 'rgba(14,12,8,0.9)';
+});
+
+// Contact form
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = '✓ Message Sent';
+    btn.style.background = '#1a7a1a';
+    e.target.reset();
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+  }, 1200);
+}
+</script>
+</body>
+</html>
