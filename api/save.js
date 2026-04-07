@@ -1,7 +1,8 @@
 const SUPABASE_URL = 'https://ccpaanmmdehsnkxmndqt.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjcGFhbm1tZGVoc25reG1uZHF0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MTQxMzEsImV4cCI6MjA4ODk5MDEzMX0.pGpGeFMF3bRHNbVfBFYzgaJzMNn3n4mJXFnf-NVSJ2U';
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY;
+const ADMIN_PASSWORD = 'solved2026';
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -9,18 +10,9 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const { password, updates } = req.body || {};
-
-  // Fetch password from DB
-  const pwRes = await fetch(`${SUPABASE_URL}/rest/v1/solved_site_content?key=eq._admin_password&select=en`, {
-    headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
-  });
-  const pwRows = await pwRes.json();
-  const correctPw = pwRows?.[0]?.en;
-
-  if (!correctPw || password !== correctPw) {
+  if (!password || password !== ADMIN_PASSWORD) {
     return res.status(401).json({ error: 'Wrong password' });
   }
-
   if (!updates || updates.length === 0) return res.json({ saved: 0 });
 
   const errors = [];
@@ -41,4 +33,4 @@ export default async function handler(req, res) {
 
   if (errors.length) return res.status(207).json({ saved: updates.length - errors.length, errors });
   return res.json({ saved: updates.length });
-}
+};
