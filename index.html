@@ -1190,15 +1190,15 @@ footer {
       </div>
       <div class="field">
         <label data-i18n="form_service">Service Needed</label>
-        <select>
-          <option value="">Select a service...</option>
-          <option>International E-Commerce Shipping</option>
-          <option>Local Delivery Kuwait</option>
-          <option>Medium Cargo</option>
-          <option>Personal Effects / Relocation</option>
-          <option>Air & Sea Freight</option>
-          <option>Fulfillment</option>
-          <option>Multiple / Not Sure</option>
+        <select id="service-select">
+          <option value="" data-ar="اختر خدمة..." data-en="Select a service...">Select a service...</option>
+          <option data-ar="الشحن الدولي للتجارة الإلكترونية" data-en="International E-Commerce Shipping">International E-Commerce Shipping</option>
+          <option data-ar="التوصيل المحلي في الكويت" data-en="Local Delivery Kuwait">Local Delivery Kuwait</option>
+          <option data-ar="الشحن المتوسط" data-en="Medium Cargo">Medium Cargo</option>
+          <option data-ar="المقتنيات الشخصية / الانتقال" data-en="Personal Effects / Relocation">Personal Effects / Relocation</option>
+          <option data-ar="الشحن الجوي والبحري" data-en="Air & Sea Freight">Air & Sea Freight</option>
+          <option data-ar="التخزين والتوزيع" data-en="Fulfillment">Fulfillment</option>
+          <option data-ar="متعدد / غير متأكد" data-en="Multiple / Not Sure">Multiple / Not Sure</option>
         </select>
       </div>
       <div class="field">
@@ -1506,6 +1506,10 @@ function switchLang(lang) {
   const sb = document.getElementById('submit-btn');
   if (sb && !sb.disabled) sb.textContent = lang === 'ar' ? 'إرسال الرسالة →' : 'Send Message →';
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  // Translate select options
+  document.querySelectorAll('select option[data-ar]').forEach(opt => {
+    opt.textContent = lang === 'ar' ? opt.dataset.ar : opt.dataset.en;
+  });
   localStorage.setItem('solved-lang', lang);
 }
 
