@@ -1171,21 +1171,21 @@ footer {
       <div class="form-row">
         <div class="field">
           <label data-i18n="form_name">Full Name</label>
-          <input type="text" placeholder="Ahmed Al-Rashidi" required>
+          <input type="text" placeholder="" required>
         </div>
         <div class="field">
           <label data-i18n="form_company">Company</label>
-          <input type="text" placeholder="Your company">
+          <input type="text" placeholder="">
         </div>
       </div>
       <div class="form-row">
         <div class="field">
           <label data-i18n="form_email">Email</label>
-          <input type="email" placeholder="ahmed@company.com" required>
+          <input type="email" placeholder="" required>
         </div>
         <div class="field">
           <label data-i18n="form_phone">Phone</label>
-          <input type="tel" placeholder="+965 XXXX XXXX">
+          <input type="tel" placeholder="">
         </div>
       </div>
       <div class="field">
@@ -1203,7 +1203,7 @@ footer {
       </div>
       <div class="field">
         <label data-i18n="form_message">Tell us about your shipment</label>
-        <textarea placeholder="What are you shipping? Where to? How often? Any special requirements?"></textarea>
+        <textarea placeholder=""></textarea>
       </div>
       <button type="submit" class="submit-btn" id="submit-btn" data-i18n="form_submit">Send Message →</button>
     </form>
@@ -1493,7 +1493,7 @@ function switchLang(lang) {
   });
   // Placeholders
   const phs = {name:'ph_name',company:'ph_company',email_i:'ph_email',phone:'ph_phone',service:'ph_select',msg:'ph_msg'};
-  document.querySelector('input[placeholder="Ahmed Al-Rashidi"], input[placeholder="أحمد الراشدي"]') && (document.querySelector('input[placeholder="Ahmed Al-Rashidi"], input[placeholder="أحمد الراشدي"]').placeholder = T[lang].ph_name);
+  document.querySelector('input[placeholder=""], input[placeholder="أحمد الراشدي"]') && (document.querySelector('input[placeholder=""], input[placeholder="أحمد الراشدي"]').placeholder = T[lang].ph_name);
   document.querySelectorAll('input, textarea, select').forEach(el => {
     if (el.tagName === 'SELECT') { el.options[0] && (el.options[0].text = T[lang].ph_select); }
     else if (el.type === 'text' && el.placeholder && (el.placeholder.includes('Al-Rashidi') || el.placeholder.includes('الراشدي'))) el.placeholder = T[lang].ph_name;
