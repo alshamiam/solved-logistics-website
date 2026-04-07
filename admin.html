@@ -54,6 +54,21 @@ textarea.ar,input[type=text].ar{direction:rtl;font-family:"IBM Plex Mono",monosp
 .toast.show{opacity:1}
 .loading{text-align:center;padding:80px;color:var(--muted);font-size:13px;letter-spacing:0.1em;text-transform:uppercase}
 .pw-hint{font-size:11px;color:rgba(243,237,225,0.35);margin-top:16px;text-align:center}
+.tab-btn{background:none;border:1px solid rgba(243,237,225,0.15);color:rgba(243,237,225,0.5);padding:6px 16px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 0.2s}
+.tab-btn.active{background:var(--orange);border-color:var(--orange);color:#F3EDE1}
+.tab-btn:hover:not(.active){border-color:rgba(243,237,225,0.35);color:rgba(243,237,225,0.8)}
+/* Leads */
+.leads-wrap{padding:80px 40px 60px;max-width:1100px;margin:0 auto}
+.leads-table{width:100%;border-collapse:collapse;background:var(--cream);border:1px solid var(--border)}
+.leads-table th{background:var(--ink);color:var(--cream);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:12px 16px;text-align:left;font-weight:500}
+.leads-table td{padding:14px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--ink);vertical-align:top;max-width:220px;word-break:break-word}
+.leads-table tr:hover td{background:#faf6ee}
+.lead-badge{display:inline-block;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;padding:2px 8px;border-radius:1px;background:rgba(208,79,0,0.1);color:var(--orange);border:1px solid rgba(208,79,0,0.2)}
+.leads-empty{text-align:center;padding:80px;color:var(--muted);font-size:13px;letter-spacing:0.1em;text-transform:uppercase}
+.leads-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.leads-count{font-size:12px;color:var(--muted);letter-spacing:0.08em}
+.btn-refresh{background:none;border:1px solid var(--border);color:var(--muted);padding:8px 16px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 0.2s}
+.btn-refresh:hover{border-color:var(--orange);color:var(--orange)}
 </style>
 </head>
 <body>
@@ -82,6 +97,16 @@ textarea.ar,input[type=text].ar{direction:rtl;font-family:"IBM Plex Mono",monosp
   </nav>
   <div class="main" id="main-content">
     <div class="loading">Loading content...</div>
+  </div>
+</div>
+
+<div id="leads-panel" style="display:none">
+  <div class="leads-wrap">
+    <div class="leads-header">
+      <div class="leads-count" id="leads-count">Loading...</div>
+      <button class="btn-refresh" onclick="loadLeads()">↻ Refresh</button>
+    </div>
+    <div id="leads-content"><div class="leads-empty">Loading leads...</div></div>
   </div>
 </div>
 
@@ -241,6 +266,51 @@ function showToast(msg) {
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+function switchTab(tab) {
+  document.getElementById('tab-content').classList.toggle('active', tab === 'content');
+  document.getElementById('tab-leads').classList.toggle('active', tab === 'leads');
+  document.getElementById('admin').style.display = tab === 'content' ? 'block' : 'none';
+  document.getElementById('leads-panel').style.display = tab === 'leads' ? 'block' : 'none';
+  document.getElementById('save-btn').style.display = tab === 'content' ? '' : 'none';
+  document.getElementById('save-status').style.display = tab === 'content' ? '' : 'none';
+  if (tab === 'leads') loadLeads();
+}
+
+async function loadLeads() {
+  document.getElementById('leads-content').innerHTML = '<div class="leads-empty">Loading...</div>';
+  try {
+    const r = await fetch('https://ccpaanmmdehsnkxmndqt.supabase.co/rest/v1/solved_leads?order=submitted_at.desc&limit=200', {
+      headers: {
+        'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjcGFhbm1tZGVoc25reG1uZHF0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MTQxMzEsImV4cCI6MjA4ODk5MDEzMX0.pGpGeFMF3bRHNbVfBFYzgaJzMNn3n4mJXFnf-NVSJ2U',
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjcGFhbm1tZGVoc25reG1uZHF0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MTQxMzEsImV4cCI6MjA4ODk5MDEzMX0.pGpGeFMF3bRHNbVfBFYzgaJzMNn3n4mJXFnf-NVSJ2U',
+      }
+    });
+    const leads = await r.json();
+    document.getElementById('leads-count').textContent = `${leads.length} submission${leads.length !== 1 ? 's' : ''}`;
+    if (!leads.length) {
+      document.getElementById('leads-content').innerHTML = '<div class="leads-empty">No submissions yet.</div>';
+      return;
+    }
+    let html = '<table class="leads-table"><thead><tr><th>Date</th><th>Name</th><th>Company</th><th>Email</th><th>Phone</th><th>Service</th><th>Message</th></tr></thead><tbody>';
+    for (const l of leads) {
+      const d = new Date(l.submitted_at).toLocaleDateString('en-KW', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit', timeZone:'Asia/Kuwait' });
+      html += `<tr>
+        <td style="white-space:nowrap;color:var(--muted)">${d}</td>
+        <td><strong>${l.name||''}</strong>${l.lang==='ar'?' <span class="lead-badge">AR</span>':''}</td>
+        <td>${l.company||'—'}</td>
+        <td><a href="mailto:${l.email||''}" style="color:var(--orange)">${l.email||'—'}</a></td>
+        <td>${l.phone||'—'}</td>
+        <td>${l.service||'—'}</td>
+        <td style="color:var(--muted)">${l.message||'—'}</td>
+      </tr>`;
+    }
+    html += '</tbody></table>';
+    document.getElementById('leads-content').innerHTML = html;
+  } catch(e) {
+    document.getElementById('leads-content').innerHTML = '<div class="leads-empty">Failed to load. Please refresh.</div>';
+  }
 }
 
 window.addEventListener('beforeunload', e => {

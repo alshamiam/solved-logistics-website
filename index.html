@@ -1571,21 +1571,49 @@ async function loadSiteContent() {
 loadSiteContent();
 
 // Contact form
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
   const btn = document.getElementById('submit-btn');
-  btn.textContent = 'Sending...';
+  const lang = document.documentElement.lang || 'en';
+  const form = e.target;
+  const inputs = form.querySelectorAll('input, select, textarea');
+  const [nameEl, companyEl, emailEl, phoneEl, serviceEl, messageEl] = inputs;
+
+  btn.textContent = lang === 'ar' ? 'جاري الإرسال...' : 'Sending...';
   btn.disabled = true;
+
+  try {
+    const r = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: nameEl?.value || '',
+        company: companyEl?.value || '',
+        email: emailEl?.value || '',
+        phone: phoneEl?.value || '',
+        service: serviceEl?.value || '',
+        message: messageEl?.value || '',
+        lang
+      })
+    });
+
+    if (r.ok) {
+      btn.textContent = lang === 'ar' ? '✓ تم الإرسال' : '✓ Message Sent';
+      btn.style.background = '#2a7a2a';
+      form.reset();
+    } else {
+      throw new Error('Server error');
+    }
+  } catch {
+    btn.textContent = lang === 'ar' ? '✗ فشل الإرسال، حاول مجدداً' : '✗ Failed, please try again';
+    btn.style.background = '#c0392b';
+  }
+
   setTimeout(() => {
-    btn.textContent = document.documentElement.lang === 'ar' ? '✓ تم الإرسال' : '✓ Message Sent';
-    btn.style.background = '#1a7a1a';
-    e.target.reset();
-    setTimeout(() => {
-      btn.textContent = document.documentElement.lang === 'ar' ? 'إرسال الرسالة →' : 'Send Message →';
-      btn.style.background = '';
-      btn.disabled = false;
-    }, 3000);
-  }, 1200);
+    btn.textContent = lang === 'ar' ? 'إرسال الرسالة →' : 'Send Message →';
+    btn.style.background = '';
+    btn.disabled = false;
+  }, 4000);
 }
 </script>
 </body>
