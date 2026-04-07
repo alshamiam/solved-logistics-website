@@ -1486,6 +1486,30 @@ window.addEventListener('scroll', () => {
       : 'rgba(243,237,225,0.95)';
 });
 
+// ── Dynamic content from DB ──────────────────────────────
+async function loadSiteContent() {
+  try {
+    const r = await fetch('/api/content');
+    if (!r.ok) return;
+    const db = await r.json();
+    // Merge DB content into T, overriding defaults
+    if (db.en) Object.assign(T.en, db.en);
+    if (db.ar) Object.assign(T.ar, db.ar);
+    // Re-apply current language
+    const lang = document.documentElement.lang || 'en';
+    if (lang === 'ar') switchLang('ar');
+    // Update contact details that aren't in i18n
+    const email = T.en.contact_email;
+    if (email) {
+      document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.href = 'mailto:' + email);
+      document.querySelectorAll('.contact-detail .value').forEach((el, i) => {
+        if (i === 0) el.textContent = email;
+      });
+    }
+  } catch(e) { /* fail silently — use hardcoded defaults */ }
+}
+loadSiteContent();
+
 // Contact form
 function handleSubmit(e) {
   e.preventDefault();

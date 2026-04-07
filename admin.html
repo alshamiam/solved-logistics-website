@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOLVED — Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--orange:#D04F00;--ink:#181000;--cream:#F3EDE1;--sand:#EAE3D5;--border:rgba(24,16,0,0.15);--muted:rgba(24,16,0,0.45)}
+body{background:var(--sand);font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink);min-height:100vh}
+/* Login */
+#login{display:flex;align-items:center;justify-content:center;min-height:100vh}
+.login-box{background:var(--cream);border:1px solid var(--border);padding:48px;width:380px;text-align:center}
+.login-logo{font-family:"Schibsted Grotesk",sans-serif;font-weight:900;font-size:36px;letter-spacing:-2px;margin-bottom:8px}
+.login-logo span{color:var(--orange)}
+.login-sub{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:40px}
+.login-box input{width:100%;padding:14px 16px;border:1px solid var(--border);background:#fff;font-family:"IBM Plex Mono",monospace;font-size:14px;outline:none;margin-bottom:12px;color:var(--ink)}
+.login-box input:focus{border-color:var(--orange)}
+.login-btn{width:100%;padding:14px;background:var(--orange);color:var(--cream);border:none;font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s}
+.login-btn:hover{background:#b84400}
+.login-error{color:var(--orange);font-size:12px;margin-top:12px;min-height:18px}
+/* Admin */
+#admin{display:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--ink);padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-family:"Schibsted Grotesk",sans-serif;font-weight:900;font-size:20px;color:var(--cream);letter-spacing:-1px}
+.nav-brand span{color:var(--orange)}
+.nav-actions{display:flex;gap:12px;align-items:center}
+.btn-save{background:var(--orange);color:var(--cream);border:none;padding:8px 24px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s}
+.btn-save:hover{background:#b84400}
+.btn-save:disabled{background:#888;cursor:not-allowed}
+.btn-logout{background:none;border:1px solid rgba(243,237,225,0.2);color:rgba(243,237,225,0.6);padding:8px 16px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.2s}
+.btn-logout:hover{border-color:rgba(243,237,225,0.5);color:var(--cream)}
+.save-status{font-size:11px;color:rgba(243,237,225,0.6)}
+/* Main */
+.main{padding:80px 40px 60px;max-width:1100px;margin:0 auto}
+.section-block{margin-bottom:40px;background:var(--cream);border:1px solid var(--border)}
+.section-head{padding:20px 28px;background:var(--ink);display:flex;align-items:center;gap:12px}
+.section-head h2{font-family:"Schibsted Grotesk",sans-serif;font-weight:900;font-size:16px;color:var(--cream)}
+.section-head .count{font-size:11px;color:rgba(243,237,225,0.4);letter-spacing:0.1em}
+.fields{padding:20px 28px;display:flex;flex-direction:column;gap:16px}
+.field-row{display:grid;grid-template-columns:200px 1fr 1fr;gap:12px;align-items:start}
+.field-label{padding-top:10px;font-size:11px;letter-spacing:0.08em;color:var(--muted);line-height:1.4}
+.field-label .key{font-size:10px;color:rgba(24,16,0,0.25);display:block;margin-top:2px}
+.lang-col{display:flex;flex-direction:column;gap:4px}
+.lang-tag{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.lang-tag.ar{color:var(--orange)}
+textarea,input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--border);background:#fff;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink);outline:none;resize:vertical;min-height:40px;line-height:1.5;transition:border-color 0.2s}
+textarea:focus,input[type=text]:focus{border-color:var(--orange)}
+textarea.ar,input[type=text].ar{direction:rtl;font-family:"IBM Plex Mono",monospace}
+.divider{height:1px;background:var(--border)}
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--cream);padding:12px 28px;font-size:12px;letter-spacing:0.08em;border-radius:2px;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+.loading{text-align:center;padding:80px;color:var(--muted);font-size:13px;letter-spacing:0.1em;text-transform:uppercase}
+.pw-hint{font-size:11px;color:rgba(243,237,225,0.35);margin-top:16px;text-align:center}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login">
+  <div class="login-box">
+    <div class="login-logo">SOLVE<span>D</span></div>
+    <div class="login-sub">Content Admin</div>
+    <input type="password" id="pw-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">Sign In</button>
+    <div class="login-error" id="login-error"></div>
+    <div class="pw-hint">Access restricted to SOLVED team</div>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div id="admin">
+  <nav>
+    <div class="nav-brand">SOLVE<span>D</span> <span style="font-size:13px;font-weight:400;font-family:'IBM Plex Mono',monospace;color:rgba(243,237,225,0.4);letter-spacing:0.1em">ADMIN</span></div>
+    <div class="nav-actions">
+      <span class="save-status" id="save-status"></span>
+      <button class="btn-save" id="save-btn" onclick="saveAll()" disabled>Save Changes</button>
+      <button class="btn-logout" onclick="logout()">Sign Out</button>
+    </div>
+  </nav>
+  <div class="main" id="main-content">
+    <div class="loading">Loading content...</div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const SECTIONS = {
+  nav:      'Navigation',
+  hero:     'Hero Section',
+  services: 'Services',
+  why:      'Why SOLVED',
+  coverage: 'Coverage',
+  process:  'How It Works',
+  cta:      'Call to Action',
+  contact:  'Contact Info',
+  meta:     'SEO / Meta Tags',
+};
+
+let allContent = [];
+let password = '';
+let changed = false;
+
+async function doLogin() {
+  const pw = document.getElementById('pw-input').value.trim();
+  if (!pw) return;
+  document.getElementById('login-error').textContent = '';
+  // Test password by trying to save nothing
+  const r = await fetch('/api/save', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ password: pw, updates: [] })
+  });
+  if (r.status === 401) {
+    document.getElementById('login-error').textContent = 'Wrong password.';
+    return;
+  }
+  password = pw;
+  document.getElementById('login').style.display = 'none';
+  document.getElementById('admin').style.display = 'block';
+  loadContent();
+}
+
+async function loadContent() {
+  try {
+    // Load full content including labels and sections
+    const r = await fetch('https://ccpaanmmdehsnkxmndqt.supabase.co/rest/v1/solved_site_content?key=neq._admin_password&order=section,key', {
+      headers: {
+        'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjcGFhbm1tZGVoc25reG1uZHF0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MTQxMzEsImV4cCI6MjA4ODk5MDEzMX0.pGpGeFMF3bRHNbVfBFYzgaJzMNn3n4mJXFnf-NVSJ2U',
+      }
+    });
+    allContent = await r.json();
+    renderContent();
+    document.getElementById('save-btn').disabled = false;
+  } catch(e) {
+    document.getElementById('main-content').innerHTML = '<div class="loading">Failed to load content. Please refresh.</div>';
+  }
+}
+
+function renderContent() {
+  const grouped = {};
+  for (const row of allContent) {
+    if (!grouped[row.section]) grouped[row.section] = [];
+    grouped[row.section].push(row);
+  }
+
+  let html = '';
+  for (const [sec, rows] of Object.entries(grouped)) {
+    const label = SECTIONS[sec] || sec;
+    html += `<div class="section-block">
+      <div class="section-head">
+        <h2>${label}</h2>
+        <span class="count">${rows.length} fields</span>
+      </div>
+      <div class="fields">`;
+
+    rows.forEach((row, i) => {
+      const isLong = row.en.length > 80 || row.ar.length > 80;
+      const tag = isLong ? 'textarea' : 'input type="text"';
+      const closeTag = isLong ? 'textarea' : 'input';
+      const rows_attr = isLong ? 'rows="3"' : '';
+      html += `
+        ${i > 0 ? '<div class="divider"></div>' : ''}
+        <div class="field-row">
+          <div class="field-label">
+            ${row.label}
+            <span class="key">${row.key}</span>
+          </div>
+          <div class="lang-col">
+            <div class="lang-tag">English</div>
+            <${tag} class="en-field" data-key="${row.key}" data-lang="en" ${rows_attr} oninput="markChanged()">${isLong ? escHtml(row.en) : ''}</${closeTag}>
+            ${!isLong ? `<script>document.querySelector('[data-key="${row.key}"][data-lang="en"]').value = ${JSON.stringify(row.en)}<\/script>` : ''}
+          </div>
+          <div class="lang-col">
+            <div class="lang-tag ar">العربية</div>
+            <${tag} class="ar" data-key="${row.key}" data-lang="ar" ${rows_attr} oninput="markChanged()" dir="rtl">${isLong ? escHtml(row.ar) : ''}</${closeTag}>
+            ${!isLong ? `<script>document.querySelector('[data-key="${row.key}"][data-lang="ar"]').value = ${JSON.stringify(row.ar)}<\/script>` : ''}
+          </div>
+        </div>`;
+    });
+
+    html += '</div></div>';
+  }
+
+  document.getElementById('main-content').innerHTML = html;
+}
+
+function escHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function markChanged() {
+  changed = true;
+  document.getElementById('save-status').textContent = 'Unsaved changes';
+  document.getElementById('save-status').style.color = 'var(--orange)';
+}
+
+async function saveAll() {
+  const btn = document.getElementById('save-btn');
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  // Collect all field values
+  const updates = {};
+  document.querySelectorAll('[data-key][data-lang]').forEach(el => {
+    const key = el.dataset.key;
+    const lang = el.dataset.lang;
+    if (!updates[key]) updates[key] = { key };
+    updates[key][lang] = el.value || el.textContent;
+  });
+
+  const r = await fetch('/api/save', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ password, updates: Object.values(updates) })
+  });
+
+  btn.disabled = false;
+  btn.textContent = 'Save Changes';
+
+  if (r.ok) {
+    const d = await r.json();
+    changed = false;
+    document.getElementById('save-status').textContent = `Saved ${d.saved} fields`;
+    document.getElementById('save-status').style.color = 'rgba(243,237,225,0.4)';
+    showToast(`✓ Saved — changes live on solved-logistics.com`);
+  } else {
+    showToast('❌ Save failed. Please try again.');
+  }
+}
+
+function logout() {
+  password = '';
+  document.getElementById('admin').style.display = 'none';
+  document.getElementById('login').style.display = 'flex';
+  document.getElementById('pw-input').value = '';
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+window.addEventListener('beforeunload', e => {
+  if (changed) { e.preventDefault(); e.returnValue = ''; }
+});
+</script>
+</body>
+</html>
