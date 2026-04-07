@@ -1493,7 +1493,7 @@ function switchLang(lang) {
   });
   // Placeholders
   const phs = {name:'ph_name',company:'ph_company',email_i:'ph_email',phone:'ph_phone',service:'ph_select',msg:'ph_msg'};
-  document.querySelector('input[placeholder=""], input[placeholder="أحمد الراشدي"]') && (document.querySelector('input[placeholder=""], input[placeholder="أحمد الراشدي"]').placeholder = T[lang].ph_name);
+  document.querySelector('input[placeholder=""], input[placeholder=""]') && (document.querySelector('input[placeholder=""], input[placeholder=""]').placeholder = T[lang].ph_name);
   document.querySelectorAll('input, textarea, select').forEach(el => {
     if (el.tagName === 'SELECT') { el.options[0] && (el.options[0].text = T[lang].ph_select); }
     else if (el.type === 'text' && el.placeholder && (el.placeholder.includes('Al-Rashidi') || el.placeholder.includes('الراشدي'))) el.placeholder = T[lang].ph_name;
