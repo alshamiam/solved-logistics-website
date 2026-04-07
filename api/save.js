@@ -26,7 +26,10 @@ module.exports = async function handler(req, res) {
         'Content-Type': 'application/json',
         'Prefer': 'return=minimal',
       },
-      body: JSON.stringify({ en: u.en ?? '', ar: u.ar ?? '', updated_at: new Date().toISOString() })
+      body: JSON.stringify(Object.fromEntries(
+        Object.entries({ en: u.en, ar: u.ar, updated_at: new Date().toISOString() })
+          .filter(([_, v]) => v !== undefined && v !== null && v !== '')
+      ))
     });
     if (!r.ok) errors.push(u.key);
   }
