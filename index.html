@@ -13,13 +13,13 @@
 
 :root {
   --orange:  #D04F00;
-  --orange2: #E05800;
-  --black:   #181000;
-  --cream:   #F3EDE1;
-  --deep:    #0E0C08;
-  --mid:     #1E1800;
-  --muted:   rgba(243,237,225,0.45);
-  --border:  rgba(243,237,225,0.1);
+  --orange2: #C04400;
+  --black:   #EDE7D9;
+  --cream:   #181000;
+  --deep:    #F3EDE1;
+  --mid:     #E8E2D6;
+  --muted:   rgba(24,16,0,0.5);
+  --border:  rgba(24,16,0,0.12);
 }
 
 html { scroll-behavior: smooth; }
@@ -51,7 +51,7 @@ nav {
   padding: 0 40px;
   display: flex; align-items: center; justify-content: space-between;
   height: 72px;
-  background: rgba(14,12,8,0.9);
+  background: rgba(243,237,225,0.95);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   transition: all 0.3s;
@@ -102,15 +102,15 @@ nav {
 .hero-grid {
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(243,237,225,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(243,237,225,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(24,16,0,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24,16,0,0.05) 1px, transparent 1px);
   background-size: 80px 80px;
   pointer-events: none;
 }
 .hero-glow {
   position: absolute; top: -200px; right: -200px;
   width: 800px; height: 800px;
-  background: radial-gradient(circle, rgba(208,79,0,0.12) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(208,79,0,0.15) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -231,7 +231,7 @@ nav {
 .marquee-section {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  background: var(--black);
+  background: #181000;
   overflow: hidden;
   padding: 20px 0;
 }
@@ -246,7 +246,7 @@ nav {
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(243,237,225,0.6);
   flex-shrink: 0;
 }
 .marquee-dot {
@@ -301,14 +301,14 @@ nav {
 }
 
 .service-card {
-  background: var(--deep);
+  background: #F3EDE1;
   padding: 48px 40px;
   position: relative;
   overflow: hidden;
   transition: background 0.3s;
   cursor: default;
 }
-.service-card:hover { background: #131108; }
+.service-card:hover { background: #EDE7D9; }
 .service-card::after {
   content: "";
   position: absolute; bottom: 0; left: 0; right: 0;
@@ -362,14 +362,14 @@ nav {
 /* ── WHY SOLVED ──────────────────────────────────────── */
 .why-section {
   padding: 140px 40px;
-  background: var(--black);
+  background: #181000;
   position: relative;
   overflow: hidden;
 }
 .why-glow {
   position: absolute; bottom: -300px; left: -200px;
   width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(208,79,0,0.08) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(208,79,0,0.12) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -466,12 +466,12 @@ nav {
   margin-top: 80px;
 }
 .coverage-card {
-  background: var(--deep);
+  background: #F3EDE1;
   padding: 36px 28px;
   text-align: center;
   transition: background 0.3s;
 }
-.coverage-card:hover { background: #131108; }
+.coverage-card:hover { background: #EDE7D9; }
 .coverage-flag { font-size: 32px; margin-bottom: 12px; display: block; }
 .coverage-name {
   font-family: "Schibsted Grotesk", sans-serif;
@@ -485,7 +485,7 @@ nav {
 /* ── PROCESS ─────────────────────────────────────────── */
 .process-section {
   padding: 140px 40px;
-  background: var(--black);
+  background: #181000;
 }
 .process-inner { max-width: 1200px; margin: 0 auto; }
 .process-steps {
@@ -497,7 +497,7 @@ nav {
   margin-top: 80px;
 }
 .process-step {
-  background: var(--black);
+  background: #181000;
   padding: 48px 36px;
   position: relative;
 }
@@ -536,7 +536,7 @@ nav {
 .cta-glow {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
   width: 1000px; height: 600px;
-  background: radial-gradient(ellipse, rgba(208,79,0,0.1) 0%, transparent 65%);
+  background: radial-gradient(ellipse, rgba(208,79,0,0.18) 0%, transparent 65%);
   pointer-events: none;
 }
 .cta-inner { position: relative; z-index: 1; }
@@ -596,7 +596,7 @@ nav {
   color: var(--muted);
 }
 .field input, .field select, .field textarea {
-  background: rgba(243,237,225,0.04);
+  background: rgba(24,16,0,0.04);
   border: 1px solid var(--border);
   border-radius: 2px;
   color: var(--cream);
@@ -631,7 +631,7 @@ nav {
 
 /* ── FOOTER ─────────────────────────────────────────────── */
 footer {
-  background: var(--black);
+  background: #181000;
   border-top: 1px solid var(--border);
   padding: 64px 40px 40px;
 }
@@ -725,7 +725,7 @@ footer {
       <style>
         .wm { font-family: "Schibsted Grotesk", "Arial Black", sans-serif; font-weight: 900; font-size: 44px; letter-spacing: -2px; }
       </style>
-      <text class="wm" x="0" y="44" fill="#F3EDE1">SOLVE</text>
+      <text class="wm" x="0" y="44" fill="#181000">SOLVE</text>
       <text class="wm" x="232" y="44" fill="#D04F00">D</text>
     </svg>
   </a>
@@ -1241,8 +1241,8 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 window.addEventListener('scroll', () => {
   document.querySelector('nav').style.background =
     window.scrollY > 80
-      ? 'rgba(14,12,8,0.98)'
-      : 'rgba(14,12,8,0.9)';
+      ? 'rgba(243,237,225,0.99)'
+      : 'rgba(243,237,225,0.95)';
 });
 
 // Contact form
