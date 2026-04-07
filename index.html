@@ -1552,8 +1552,9 @@ async function loadSiteContent() {
     if (!r.ok) return;
     const db = await r.json();
     // Merge DB content into T, overriding defaults
-    if (db.en) Object.assign(T.en, db.en);
-    if (db.ar) Object.assign(T.ar, db.ar);
+    // Only override if DB value is non-empty
+    if (db.en) Object.keys(db.en).forEach(k => { if (db.en[k]) T.en[k] = db.en[k]; });
+    if (db.ar) Object.keys(db.ar).forEach(k => { if (db.ar[k]) T.ar[k] = db.ar[k]; });
     // Re-apply current language
     const lang = document.documentElement.lang || 'en';
     if (lang === 'ar') switchLang('ar');
