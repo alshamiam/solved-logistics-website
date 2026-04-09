@@ -764,13 +764,142 @@ footer {
 
 <!-- ── NAV ── -->
 <nav>
-  <a href="#" class="nav-logo">
-    <svg viewBox="0 0 280 52" xmlns="http://www.w3.org/2000/svg" style="direction:ltr;unicode-bidi:embed">
-      <text y="44" font-family="'Schibsted Grotesk','Arial Black',sans-serif" font-weight="900" font-size="44" letter-spacing="-2">
-        <tspan fill="#181000">SOLVE</tspan><tspan fill="#D04F00">D</tspan>
-      </text>
-    </svg>
+  <a href="#" class="nav-logo" id="nav-logo-link">
+    <canvas id="logo-canvas" height="36" style="display:block;cursor:pointer;"></canvas>
   </a>
+  <script>
+  (function(){
+    const canvas = document.getElementById('logo-canvas');
+    const ctx = canvas.getContext('2d');
+    const FONT = "900 34px 'Schibsted Grotesk','Arial Black',sans-serif";
+    const INK = '#181000', ORANGE = '#d04f00';
+    let W, solveW, dW, totalW;
+    let animFrame, startTime, phase = 'orbit'; // orbit | reveal | hold | fadeout
+    let orbX, orbY, orbSize;
+    let dOpacity = 0, rulesScale = 0, tagOpacity = 0, logoOpacity = 0;
+    let orbOpacity = 0;
+
+    function measure() {
+      ctx.font = FONT;
+      solveW = ctx.measureText('SOLVE').width;
+      dW     = ctx.measureText('D').width;
+      totalW = solveW + dW;
+      W = Math.ceil(totalW) + 2;
+      canvas.width = W;
+      canvas.style.width = W + 'px';
+    }
+
+    function draw(now) {
+      ctx.clearRect(0, 0, W, 36);
+      const elapsed = now - startTime;
+
+      if (phase === 'orbit') {
+        // SOLVE fades in
+        const solveFade = Math.min(elapsed / 400, 1);
+        logoOpacity = solveFade;
+
+        // orbit starts after 350ms
+        if (elapsed > 350) {
+          const orbElapsed = elapsed - 350;
+          const orbDur = 600;
+          const prog = Math.min(orbElapsed / orbDur, 1);
+          const t = prog < .5 ? 4*prog*prog*prog : 1 - Math.pow(-2*prog+2,3)/2;
+
+          // orbit center = center of SOLVE, radius tight
+          const cx = solveW / 2;
+          const cy = 36 / 2;
+          const rx = solveW / 2 + 6;
+          const ry = 36 / 2 + 4;
+          const startAngle = 200 * Math.PI / 180;
+          const totalArc = -(360 - (200 - 5)) * Math.PI / 180;
+          const angle = startAngle + totalArc * t;
+
+          orbX = cx + Math.cos(angle) * rx;
+          orbY = cy + Math.sin(angle) * ry;
+          orbSize = 7 + (1 - t) * 4;
+          orbOpacity = 0.3 + t * 0.7;
+
+          if (prog >= 1) {
+            phase = 'land';
+            startTime = now;
+          }
+        }
+
+        // draw SOLVE
+        ctx.globalAlpha = logoOpacity;
+        ctx.font = FONT;
+        ctx.fillStyle = INK;
+        ctx.fillText('SOLVE', 0, 30);
+
+        // draw orb
+        if (elapsed > 350) {
+          ctx.globalAlpha = orbOpacity;
+          ctx.beginPath();
+          ctx.arc(orbX, orbY, orbSize / 2, 0, Math.PI * 2);
+          ctx.fillStyle = ORANGE;
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+
+      } else if (phase === 'land') {
+        const prog = Math.min(elapsed / 200, 1);
+        dOpacity = prog;
+
+        ctx.globalAlpha = 1;
+        ctx.font = FONT;
+        ctx.fillStyle = INK;
+        ctx.fillText('SOLVE', 0, 30);
+        ctx.fillStyle = ORANGE;
+        ctx.globalAlpha = dOpacity;
+        ctx.fillText('D', solveW, 30);
+        ctx.globalAlpha = 1;
+
+        // fade orb out simultaneously
+        ctx.globalAlpha = Math.max(0, 1 - prog * 2);
+        ctx.beginPath();
+        const tx = solveW + dW * 0.45;
+        const ty = 36 * 0.82;
+        ctx.arc(tx, ty, 4, 0, Math.PI * 2);
+        ctx.fillStyle = ORANGE;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+
+        if (prog >= 1) { phase = 'hold'; startTime = now; }
+
+      } else if (phase === 'hold') {
+        // hold full logo for 2.5s then restart
+        ctx.font = FONT;
+        ctx.fillStyle = INK; ctx.fillText('SOLVE', 0, 30);
+        ctx.fillStyle = ORANGE; ctx.fillText('D', solveW, 30);
+        if (elapsed > 2500) { phase = 'orbit'; startTime = now; dOpacity = 0; orbOpacity = 0; }
+      }
+
+      animFrame = requestAnimationFrame(draw);
+    }
+
+    function start() {
+      measure();
+      phase = 'orbit';
+      startTime = performance.now();
+      dOpacity = 0; orbOpacity = 0;
+      if (animFrame) cancelAnimationFrame(animFrame);
+      animFrame = requestAnimationFrame(draw);
+    }
+
+    // Start after fonts load
+    if (document.fonts) {
+      document.fonts.load("900 34px 'Schibsted Grotesk'").then(start).catch(start);
+    } else {
+      setTimeout(start, 400);
+    }
+
+    // Replay on click
+    document.getElementById('nav-logo-link').addEventListener('click', function(e){
+      e.preventDefault();
+      phase = 'orbit'; startTime = performance.now(); dOpacity = 0; orbOpacity = 0;
+    });
+  })();
+  </script>
   <ul class="nav-links">
     <li><a href="#services" data-i18n="nav_services">Services</a></li>
     <li><a href="#why" data-i18n="nav_why">Why SOLVED</a></li>
