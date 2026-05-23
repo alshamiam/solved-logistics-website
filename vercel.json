@@ -3,6 +3,7 @@
   "cleanUrls": true,
   "rewrites": [
     { "source": "/admin", "destination": "/admin.html" },
+    { "source": "/ar", "destination": "/ar.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
