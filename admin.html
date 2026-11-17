@@ -91,6 +91,8 @@ textarea.ar,input[type=text].ar{direction:rtl;font-family:"IBM Plex Mono",monosp
   <nav>
     <div class="nav-brand">SOLVE<span>D</span> <span style="font-size:13px;font-weight:400;font-family:'IBM Plex Mono',monospace;color:rgba(243,237,225,0.4);letter-spacing:0.1em">ADMIN</span></div>
     <div class="nav-actions">
+      <button class="tab-btn active" id="tab-content" onclick="switchTab('content')">Content</button>
+      <button class="tab-btn" id="tab-leads" onclick="switchTab('leads')">Leads</button>
       <span class="save-status" id="save-status"></span>
       <button class="btn-save" id="save-btn" onclick="saveAll()" disabled>Save Changes</button>
       <button class="btn-logout" onclick="logout()">Sign Out</button>
@@ -99,15 +101,14 @@ textarea.ar,input[type=text].ar{direction:rtl;font-family:"IBM Plex Mono",monosp
   <div class="main" id="main-content">
     <div class="loading">Loading content...</div>
   </div>
-</div>
-
-<div id="leads-panel" style="display:none">
-  <div class="leads-wrap">
-    <div class="leads-header">
-      <div class="leads-count" id="leads-count">Loading...</div>
-      <button class="btn-refresh" onclick="loadLeads()">↻ Refresh</button>
+  <div id="leads-panel" style="display:none">
+    <div class="leads-wrap">
+      <div class="leads-header">
+        <div class="leads-count" id="leads-count">Loading...</div>
+        <button class="btn-refresh" onclick="loadLeads()">↻ Refresh</button>
+      </div>
+      <div id="leads-content"><div class="leads-empty">Loading leads...</div></div>
     </div>
-    <div id="leads-content"><div class="leads-empty">Loading leads...</div></div>
   </div>
 </div>
 
@@ -272,7 +273,7 @@ function showToast(msg) {
 function switchTab(tab) {
   document.getElementById('tab-content').classList.toggle('active', tab === 'content');
   document.getElementById('tab-leads').classList.toggle('active', tab === 'leads');
-  document.getElementById('admin').style.display = tab === 'content' ? 'block' : 'none';
+  document.getElementById('main-content').style.display = tab === 'content' ? '' : 'none';
   document.getElementById('leads-panel').style.display = tab === 'leads' ? 'block' : 'none';
   document.getElementById('save-btn').style.display = tab === 'content' ? '' : 'none';
   document.getElementById('save-status').style.display = tab === 'content' ? '' : 'none';
