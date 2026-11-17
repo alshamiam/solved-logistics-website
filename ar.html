@@ -660,6 +660,65 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 }
 .social a:hover { background: var(--orange); border-color: var(--orange); color: #fff; transform: translateY(-2px); }
 
+/* ── Integrations (homepage) ────────────────────── */
+.integrations { padding: 128px 0; background: var(--ink-2); color: var(--cream); position: relative; overflow: hidden; }
+.integrations::before {
+  content: ""; position: absolute; width: 800px; height: 800px; border-radius: 50%; inset-inline-start: -320px; bottom: -380px;
+  background: radial-gradient(circle, rgba(208,79,0,.2), transparent 62%); pointer-events: none;
+}
+.integrations .eyebrow { color: var(--flame); }
+.integrations .lede { color: rgba(243,237,225,.68); margin: 24px 0 36px; }
+.int-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(40px, 6vw, 88px); align-items: center; position: relative; }
+.int-visual { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 32px; }
+.flow { display: grid; grid-template-columns: 1fr 84px 1.1fr 84px 1fr; align-items: center; gap: 0; }
+.flow-node {
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;
+  padding: 20px 10px; border-radius: 16px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+}
+.flow-ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(240,106,29,.15); color: var(--flame); }
+.flow-node small { font-size: 12px; color: rgba(243,237,225,.6); }
+.flow-node b { font-size: 16px; font-weight: 800; color: #fff; min-height: 1.3em; }
+.flow-plat { transition: opacity .35s, transform .35s var(--ease); }
+.flow-plat.out { opacity: 0; transform: translateY(6px); }
+.flow-hub { background: var(--orange); border-color: var(--orange); padding: 26px 12px; box-shadow: 0 16px 40px -12px rgba(208,79,0,.6); }
+.flow-hub .logo { font-size: 26px; color: #fff; }
+.flow-hub .logo span { color: var(--ink); }
+.flow-hub small { color: rgba(255,255,255,.85); }
+.flow-link { position: relative; width: 100%; height: 2px; background: rgba(255,255,255,.12); }
+.flow-link::before {
+  content: ""; position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, var(--flame) 0 6px, transparent 6px 14px);
+  animation: flowdash 1s linear infinite;
+}
+.flow-link-back::before { background: repeating-linear-gradient(90deg, rgba(243,237,225,.75) 0 6px, transparent 6px 14px); }
+@keyframes flowdash { from { background-position: 0 0; } to { background-position: 14px 0; } }
+[dir="rtl"] .flow-link::before { animation-direction: reverse; }
+.flow-tag {
+  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); width: 76px; text-align: center;
+  font-size: 11px; line-height: 1.3; font-weight: 600; color: rgba(243,237,225,.7);
+}
+.int-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; justify-content: center; }
+.int-chip {
+  font-size: 13px; font-weight: 700; padding: 8px 14px; border-radius: 999px;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); color: rgba(243,237,225,.85);
+  transition: background .3s, border-color .3s, color .3s;
+}
+.int-chip.on { background: var(--orange); border-color: var(--orange); color: #fff; }
+.int-chip-api { font-family: var(--mono); font-weight: 500; }
+[dir="rtl"] .flow-node b, [dir="rtl"] .int-chip { font-family: "Cairo", var(--display); }
+@media (max-width: 1080px) { .int-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .integrations { padding: 88px 0; }
+  .int-visual { padding: 20px; }
+  .flow { grid-template-columns: 1fr; justify-items: stretch; }
+  .flow-link { width: 2px; height: 44px; justify-self: center; }
+  .flow-link::before { background: repeating-linear-gradient(180deg, var(--flame) 0 6px, transparent 6px 14px); animation-name: flowdashv; }
+  .flow-link-back::before { background: repeating-linear-gradient(180deg, rgba(243,237,225,.75) 0 6px, transparent 6px 14px); }
+  .flow-tag { bottom: auto; top: 50%; left: 14px; transform: translateY(-50%); width: auto; white-space: nowrap; text-align: start; }
+  [dir="rtl"] .flow-tag { left: auto; right: 14px; }
+}
+@keyframes flowdashv { from { background-position: 0 0; } to { background-position: 0 14px; } }
+
 /* ── Motion layer ───────────────────────────────── */
 .scroll-progress {
   position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 300;
@@ -780,6 +839,7 @@ html { overflow-x: clip; }
 <nav aria-label="Main">
 <ul class="nav-links">
 <li><a data-i18n="nav_services" href="#services">خدماتنا</a></li>
+<li><a data-i18n="nav_int" href="#integrations">التكاملات</a></li>
 <li><a data-i18n="nav_why" href="#why">لماذا SOLVED</a></li>
 <li><a data-i18n="nav_coverage" href="#coverage">التغطية</a></li>
 <li><a data-i18n="nav_contact" href="#contact">تواصل معنا</a></li>
@@ -796,6 +856,7 @@ html { overflow-x: clip; }
 </header>
 <div class="mobile-menu" id="mobile-menu">
 <a data-i18n="nav_services" href="#services">خدماتنا</a>
+<a data-i18n="nav_int" href="#integrations">التكاملات</a>
 <a data-i18n="nav_why" href="#why">لماذا SOLVED</a>
 <a data-i18n="nav_coverage" href="#coverage">التغطية</a>
 <a data-i18n="nav_contact" href="#contact">تواصل معنا</a>
@@ -946,6 +1007,29 @@ html { overflow-x: clip; }
 </div>
 </div>
 </article>
+</div>
+</div>
+</section>
+<!-- ── INTEGRATIONS ── -->
+<section class="integrations" id="integrations">
+<div class="wrap int-grid">
+<div class="int-copy reveal">
+<div class="eyebrow" data-i18n="int_label">ربط المتاجر الإلكترونية</div>
+<h2 class="h2" data-i18n="int_title">اربط متجرك. والطلبات تصلنا تلقائياً.</h2>
+<p class="lede" data-i18n="int_body">اربط متجرك الإلكتروني مع SOLVED وكل طلب جديد يصلنا تلقائياً، بدون نسخ ولصق أو جداول. نستلم الطلب ونوصله ونحصّل الدفع عند الاستلام، ونحدّث متجرك بحالة الشحنة ورقم التتبع.</p>
+<div class="int-actions">
+<a class="btn btn-primary" data-href-en="/ecommerce-integrations" href="/ar/ecommerce-integrations"><span data-i18n="int_cta">عرض جميع التكاملات</span> <span class="arr"><svg aria-hidden="true" fill="none" height="16" viewbox="0 0 16 16" width="16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a>
+</div>
+</div>
+<div class="int-visual reveal reveal-delay-2">
+<div class="flow">
+<div class="flow-node"><span class="flow-ic"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="22"><path d="M3 9l1.5-5h15L21 9"></path><path d="M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0V9z"></path><path d="M5 13v7h14v-7"></path><path d="M10 20v-4h4v4"></path></svg></span><small data-i18n="int_store">متجرك</small><b class="flow-plat" id="flow-plat">Shopify</b></div>
+<div class="flow-link"><span class="flow-tag" data-i18n="int_s1">مزامنة الطلبات</span></div>
+<div class="flow-node flow-hub"><span class="logo logo-light">SOLVE<span>D</span></span><small data-i18n="int_hub">استلام · توصيل · دفع عند الاستلام</small></div>
+<div class="flow-link flow-link-back"><span class="flow-tag" data-i18n="int_s2">تحديثات التتبع</span></div>
+<div class="flow-node"><span class="flow-ic"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="22"><path d="M21 8l-9-5-9 5 9 5 9-5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></span><small data-i18n="int_customer">عميلك</small><b data-i18n="int_delivered">تم التوصيل</b></div>
+</div>
+<div class="int-chips"><span class="int-chip" data-plat="Shopify">Shopify</span><span class="int-chip" data-plat="Salla">Salla</span><span class="int-chip" data-plat="Zid">Zid</span><span class="int-chip" data-plat="WooCommerce">WooCommerce</span><span class="int-chip" data-plat="Ordable">Ordable</span><span class="int-chip" data-plat="Peak">Peak</span><span class="int-chip int-chip-api" data-i18n="int_api" data-plat="API">ربط عبر API</span></div>
 </div>
 </div>
 </section>
@@ -1142,6 +1226,7 @@ html { overflow-x: clip; }
 <li><a data-href-en="/local-delivery-kuwait" data-i18n="footer_s2" href="/ar/local-delivery-kuwait">التوصيل المحلي</a></li>
 <li><a data-href-en="/air-sea-freight-kuwait" data-i18n="footer_s3" href="/ar/air-sea-freight-kuwait">الشحن والبضائع</a></li>
 <li><a data-href-en="/shipping-kuwait-to-saudi-arabia" data-i18n="cov_route" href="/ar/shipping-kuwait-to-saudi-arabia">الشحن من الكويت إلى السعودية</a></li>
+<li><a data-href-en="/ecommerce-integrations" data-i18n="nav_int_full" href="/ar/ecommerce-integrations">ربط المتاجر الإلكترونية</a></li>
 <li><a data-i18n="footer_s4" href="#services">الأغراض الشخصية</a></li>
 <li><a data-i18n="footer_s5" href="#services">التخزين والتوزيع</a></li>
 </ul>
@@ -1377,8 +1462,8 @@ const T = {
     submit_btn: "أرسل", submit_sent: "✓ تم الإرسال"
   }
 };
-Object.assign(T.en, {"qc_title": "Get a quote within one business day", "qc_body": "What are you shipping? Pick a service and we'll come back with options and clear pricing.", "qc_s1": "International", "qc_s2": "Local delivery", "qc_s3": "Air &amp; sea freight", "qc_s4": "Fulfillment", "qc_s5": "Relocation", "qc_cta": "Start my quote", "qc_call": "or call us", "f1_label": "Countries &amp; territories", "f2_num": "Same-day", "f2_label": "Delivery across Kuwait", "f4_num": "Sat–Thu", "f4_label": "Operations, 9am – 6pm", "srv_more": "Explore", "srv_quote": "Get a quote", "why_badge": "One team. One platform. One invoice.", "c_bh": "Bahrain", "cov_route": "Shipping from Kuwait to Saudi Arabia", "cov_hq": "Salmiya, Kuwait", "contact_loc": "Suhaib Center, Entrance 1, Floor 2, Office 3, Salem Al Mubarak St, Salmiya, Kuwait", "footer_t2": "Suhaib Center, Entrance 1, Floor 2, Office 3, Salem Al Mubarak St, Salmiya, Kuwait", "cov_hq_sub": "Headquarters &amp; operations", "contact_label": "Contact", "wa_cta": "WhatsApp us", "cd_wa": "WhatsApp", "cd_phone": "Landline", "cd_email": "Email", "cd_loc": "Location", "cd_hours": "Operations"});
-Object.assign(T.ar, {"qc_title": "احصل على عرض سعر خلال يوم عمل واحد", "qc_body": "ماذا تريد أن تشحن؟ اختر الخدمة وسنعود إليك بخيارات وأسعار واضحة.", "qc_s1": "شحن دولي", "qc_s2": "توصيل محلي", "qc_s3": "شحن جوي وبحري", "qc_s4": "تخزين وتوزيع", "qc_s5": "انتقال وأغراض شخصية", "qc_cta": "ابدأ طلب السعر", "qc_call": "أو اتصل بنا", "f1_label": "دولة ومنطقة", "f2_num": "نفس اليوم", "f2_label": "توصيل في جميع أنحاء الكويت", "f4_num": "السبت–الخميس", "f4_label": "العمليات من ٩ص إلى ٦م", "srv_more": "اكتشف الخدمة", "srv_quote": "اطلب عرض سعر", "why_badge": "فريق واحد. منصة واحدة. فاتورة واحدة.", "c_bh": "البحرين", "cov_route": "الشحن من الكويت إلى السعودية", "cov_hq": "السالمية، الكويت", "contact_loc": "مجمع صهيب، مدخل ١، الدور ٢، مكتب ٣، شارع سالم المبارك، السالمية، الكويت", "footer_t2": "مجمع صهيب، مدخل ١، الدور ٢، مكتب ٣، شارع سالم المبارك، السالمية، الكويت", "cov_hq_sub": "المقر الرئيسي والعمليات", "contact_label": "تواصل معنا", "wa_cta": "راسلنا على واتساب", "cd_wa": "واتساب", "mq1": "الشحن الدولي", "mq2": "التوصيل المحلي بالكويت", "mq3": "الشحن الجوي", "mq4": "الشحن البحري", "mq5": "التخزين والتوزيع", "mq6": "خدمات البضائع", "mq7": "الأغراض الشخصية", "mq8": "لوجستيات التجارة الإلكترونية", "mq9": "تغطية الخليج", "cd_phone": "الهاتف الأرضي", "cd_email": "البريد الإلكتروني", "cd_loc": "الموقع", "cd_hours": "ساعات العمل"});
+Object.assign(T.en, {"qc_title": "Get a quote within one business day", "qc_body": "What are you shipping? Pick a service and we'll come back with options and clear pricing.", "qc_s1": "International", "qc_s2": "Local delivery", "qc_s3": "Air &amp; sea freight", "qc_s4": "Fulfillment", "qc_s5": "Relocation", "qc_cta": "Start my quote", "qc_call": "or call us", "f1_label": "Countries &amp; territories", "f2_num": "Same-day", "f2_label": "Delivery across Kuwait", "f4_num": "Sat–Thu", "f4_label": "Operations, 9am – 6pm", "srv_more": "Explore", "srv_quote": "Get a quote", "why_badge": "One team. One platform. One invoice.", "c_bh": "Bahrain", "cov_route": "Shipping from Kuwait to Saudi Arabia", "cov_hq": "Salmiya, Kuwait", "contact_loc": "Suhaib Center, Entrance 1, Floor 2, Office 3, Salem Al Mubarak St, Salmiya, Kuwait", "footer_t2": "Suhaib Center, Entrance 1, Floor 2, Office 3, Salem Al Mubarak St, Salmiya, Kuwait", "cov_hq_sub": "Headquarters &amp; operations", "contact_label": "Contact", "int_label": "E-commerce integrations", "int_title": "Plug in your store. Orders flow in.", "int_body": "Connect your online store to SOLVED and every new order reaches us automatically. No copy-pasting, no spreadsheets. We pick up, deliver, collect cash on delivery, and keep your store updated with tracking.", "int_cta": "See all integrations", "int_store": "Your store", "int_customer": "Your customer", "int_delivered": "Delivered", "int_hub": "Pickup · delivery · COD", "int_s1": "Orders sync", "int_s2": "Tracking updates", "int_api": "Custom API", "nav_int": "Integrations", "nav_int_full": "E-commerce Integrations", "wa_cta": "WhatsApp us", "cd_wa": "WhatsApp", "cd_phone": "Landline", "cd_email": "Email", "cd_loc": "Location", "cd_hours": "Operations"});
+Object.assign(T.ar, {"qc_title": "احصل على عرض سعر خلال يوم عمل واحد", "qc_body": "ماذا تريد أن تشحن؟ اختر الخدمة وسنعود إليك بخيارات وأسعار واضحة.", "qc_s1": "شحن دولي", "qc_s2": "توصيل محلي", "qc_s3": "شحن جوي وبحري", "qc_s4": "تخزين وتوزيع", "qc_s5": "انتقال وأغراض شخصية", "qc_cta": "ابدأ طلب السعر", "qc_call": "أو اتصل بنا", "f1_label": "دولة ومنطقة", "f2_num": "نفس اليوم", "f2_label": "توصيل في جميع أنحاء الكويت", "f4_num": "السبت–الخميس", "f4_label": "العمليات من ٩ص إلى ٦م", "srv_more": "اكتشف الخدمة", "srv_quote": "اطلب عرض سعر", "why_badge": "فريق واحد. منصة واحدة. فاتورة واحدة.", "c_bh": "البحرين", "cov_route": "الشحن من الكويت إلى السعودية", "cov_hq": "السالمية، الكويت", "contact_loc": "مجمع صهيب، مدخل ١، الدور ٢، مكتب ٣، شارع سالم المبارك، السالمية، الكويت", "footer_t2": "مجمع صهيب، مدخل ١، الدور ٢، مكتب ٣، شارع سالم المبارك، السالمية، الكويت", "cov_hq_sub": "المقر الرئيسي والعمليات", "contact_label": "تواصل معنا", "int_label": "ربط المتاجر الإلكترونية", "int_title": "اربط متجرك. والطلبات تصلنا تلقائياً.", "int_body": "اربط متجرك الإلكتروني مع SOLVED وكل طلب جديد يصلنا تلقائياً، بدون نسخ ولصق أو جداول. نستلم الطلب ونوصله ونحصّل الدفع عند الاستلام، ونحدّث متجرك بحالة الشحنة ورقم التتبع.", "int_cta": "عرض جميع التكاملات", "int_store": "متجرك", "int_customer": "عميلك", "int_delivered": "تم التوصيل", "int_hub": "استلام · توصيل · دفع عند الاستلام", "int_s1": "مزامنة الطلبات", "int_s2": "تحديثات التتبع", "int_api": "ربط عبر API", "nav_int": "التكاملات", "nav_int_full": "ربط المتاجر الإلكترونية", "wa_cta": "راسلنا على واتساب", "cd_wa": "واتساب", "mq1": "الشحن الدولي", "mq2": "التوصيل المحلي بالكويت", "mq3": "الشحن الجوي", "mq4": "الشحن البحري", "mq5": "التخزين والتوزيع", "mq6": "خدمات البضائع", "mq7": "الأغراض الشخصية", "mq8": "لوجستيات التجارة الإلكترونية", "mq9": "تغطية الخليج", "cd_phone": "الهاتف الأرضي", "cd_email": "البريد الإلكتروني", "cd_loc": "الموقع", "cd_hours": "ساعات العمل"});
 
 function switchLang(lang) {
   document.documentElement.lang = lang;
@@ -1588,7 +1673,23 @@ document.querySelectorAll('[data-count]').forEach(el => {
   addEventListener('resize', onScroll);
   frame();
 
-  // 3. Cursor-follow glow on service cards
+  // 3. Integrations: cycle the connected platform
+  const fp = document.getElementById('flow-plat');
+  if (fp) {
+    const chips = [...document.querySelectorAll('.int-chip')];
+    const names = chips.map(c => c.dataset.plat);
+    let k = 0;
+    const show = () => {
+      const chip = chips[k];
+      fp.classList.add('out');
+      setTimeout(() => { fp.textContent = chip.textContent; fp.classList.remove('out'); }, 300);
+      chips.forEach(c => c.classList.toggle('on', c === chip));
+      k = (k + 1) % names.length;
+    };
+    show(); setInterval(show, 2200);
+  }
+
+  // 4. Cursor-follow glow on service cards
   document.querySelectorAll('.svc').forEach(card => {
     card.addEventListener('pointermove', e => {
       const r = card.getBoundingClientRect();

@@ -679,6 +679,65 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 }
 .social a:hover { background: var(--orange); border-color: var(--orange); color: #fff; transform: translateY(-2px); }
 
+/* ── Integrations (homepage) ────────────────────── */
+.integrations { padding: 128px 0; background: var(--ink-2); color: var(--cream); position: relative; overflow: hidden; }
+.integrations::before {
+  content: ""; position: absolute; width: 800px; height: 800px; border-radius: 50%; inset-inline-start: -320px; bottom: -380px;
+  background: radial-gradient(circle, rgba(208,79,0,.2), transparent 62%); pointer-events: none;
+}
+.integrations .eyebrow { color: var(--flame); }
+.integrations .lede { color: rgba(243,237,225,.68); margin: 24px 0 36px; }
+.int-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(40px, 6vw, 88px); align-items: center; position: relative; }
+.int-visual { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 32px; }
+.flow { display: grid; grid-template-columns: 1fr 84px 1.1fr 84px 1fr; align-items: center; gap: 0; }
+.flow-node {
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;
+  padding: 20px 10px; border-radius: 16px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+}
+.flow-ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(240,106,29,.15); color: var(--flame); }
+.flow-node small { font-size: 12px; color: rgba(243,237,225,.6); }
+.flow-node b { font-size: 16px; font-weight: 800; color: #fff; min-height: 1.3em; }
+.flow-plat { transition: opacity .35s, transform .35s var(--ease); }
+.flow-plat.out { opacity: 0; transform: translateY(6px); }
+.flow-hub { background: var(--orange); border-color: var(--orange); padding: 26px 12px; box-shadow: 0 16px 40px -12px rgba(208,79,0,.6); }
+.flow-hub .logo { font-size: 26px; color: #fff; }
+.flow-hub .logo span { color: var(--ink); }
+.flow-hub small { color: rgba(255,255,255,.85); }
+.flow-link { position: relative; width: 100%; height: 2px; background: rgba(255,255,255,.12); }
+.flow-link::before {
+  content: ""; position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, var(--flame) 0 6px, transparent 6px 14px);
+  animation: flowdash 1s linear infinite;
+}
+.flow-link-back::before { background: repeating-linear-gradient(90deg, rgba(243,237,225,.75) 0 6px, transparent 6px 14px); }
+@keyframes flowdash { from { background-position: 0 0; } to { background-position: 14px 0; } }
+[dir="rtl"] .flow-link::before { animation-direction: reverse; }
+.flow-tag {
+  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); width: 76px; text-align: center;
+  font-size: 11px; line-height: 1.3; font-weight: 600; color: rgba(243,237,225,.7);
+}
+.int-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; justify-content: center; }
+.int-chip {
+  font-size: 13px; font-weight: 700; padding: 8px 14px; border-radius: 999px;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); color: rgba(243,237,225,.85);
+  transition: background .3s, border-color .3s, color .3s;
+}
+.int-chip.on { background: var(--orange); border-color: var(--orange); color: #fff; }
+.int-chip-api { font-family: var(--mono); font-weight: 500; }
+[dir="rtl"] .flow-node b, [dir="rtl"] .int-chip { font-family: "Cairo", var(--display); }
+@media (max-width: 1080px) { .int-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .integrations { padding: 88px 0; }
+  .int-visual { padding: 20px; }
+  .flow { grid-template-columns: 1fr; justify-items: stretch; }
+  .flow-link { width: 2px; height: 44px; justify-self: center; }
+  .flow-link::before { background: repeating-linear-gradient(180deg, var(--flame) 0 6px, transparent 6px 14px); animation-name: flowdashv; }
+  .flow-link-back::before { background: repeating-linear-gradient(180deg, rgba(243,237,225,.75) 0 6px, transparent 6px 14px); }
+  .flow-tag { bottom: auto; top: 50%; left: 14px; transform: translateY(-50%); width: auto; white-space: nowrap; text-align: start; }
+  [dir="rtl"] .flow-tag { left: auto; right: 14px; }
+}
+@keyframes flowdashv { from { background-position: 0 0; } to { background-position: 0 14px; } }
+
 /* ── Service landing pages ─────────────────────── */
 .page-hero {
   position: relative; isolation: isolate; overflow: hidden; color: #fff;
@@ -750,6 +809,27 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 [dir="rtl"] .page-h1 { line-height: 1.2; }
 [dir="rtl"] .crumbs { letter-spacing: 0; font-family: "IBM Plex Sans Arabic", var(--mono); font-size: 14px; }
 .nav-logo-svg { display: flex; align-items: center; direction: ltr; }
+
+/* ── Integrations: platform grid ───────────────── */
+.platforms-sec { padding: 96px 0; background: var(--ink-2); color: var(--cream); }
+.platforms-sec .eyebrow { color: var(--flame); }
+.plat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.plat-tile {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius);
+  padding: 26px; transition: transform .35s var(--ease), border-color .3s, background .3s;
+}
+.plat-tile:hover { transform: translateY(-4px); border-color: rgba(240,106,29,.5); background: rgba(240,106,29,.08); }
+.plat-mono {
+  width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; margin-bottom: 18px;
+  font: 800 18px var(--display); color: #fff; background: var(--orange);
+}
+.plat-tile h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; letter-spacing: -.01em; }
+.plat-tile p { font-size: 14.5px; line-height: 1.65; color: rgba(243,237,225,.65); }
+.plat-api { grid-column: span 2; background: linear-gradient(135deg, rgba(208,79,0,.28), rgba(208,79,0,.08)); border-color: rgba(240,106,29,.35); }
+.plat-api .plat-mono { font-family: var(--mono); font-size: 14px; background: var(--cream); color: var(--ink); }
+[dir="rtl"] .plat-tile h3 { font-family: "Cairo", var(--display); }
+@media (max-width: 960px) { .plat-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .plat-grid { grid-template-columns: 1fr; } .plat-api { grid-column: auto; } .platforms-sec { padding: 72px 0; } }
 
 /* ── Motion layer ───────────────────────────────── */
 .scroll-progress {
@@ -892,6 +972,7 @@ html { overflow-x: clip; }
   </div>
 </section>
 
+
 <section class="faq">
   <div class="wrap faq-grid">
     <div class="reveal"><div class="eyebrow">الأسئلة الشائعة</div><h2 class="h2">أسئلة شائعة</h2></div>
@@ -932,7 +1013,7 @@ html { overflow-x: clip; }
 <li><a href="/ar/local-delivery-kuwait">التوصيل المحلي بالكويت</a></li>
 <li><a href="/ar/shipping-kuwait-to-saudi-arabia">الشحن إلى السعودية</a></li>
 <li><a href="/ar/air-sea-freight-kuwait">الشحن الجوي والبحري</a></li>
-</ul>
+<li><a href="/ar/ecommerce-integrations">ربط المتاجر الإلكترونية</a></li></ul>
 </div>
 <div class="footer-col">
 <h3>الشركة</h3>
@@ -1045,7 +1126,23 @@ html { overflow-x: clip; }
   addEventListener('resize', onScroll);
   frame();
 
-  // 3. Cursor-follow glow on service cards
+  // 3. Integrations: cycle the connected platform
+  const fp = document.getElementById('flow-plat');
+  if (fp) {
+    const chips = [...document.querySelectorAll('.int-chip')];
+    const names = chips.map(c => c.dataset.plat);
+    let k = 0;
+    const show = () => {
+      const chip = chips[k];
+      fp.classList.add('out');
+      setTimeout(() => { fp.textContent = chip.textContent; fp.classList.remove('out'); }, 300);
+      chips.forEach(c => c.classList.toggle('on', c === chip));
+      k = (k + 1) % names.length;
+    };
+    show(); setInterval(show, 2200);
+  }
+
+  // 4. Cursor-follow glow on service cards
   document.querySelectorAll('.svc').forEach(card => {
     card.addEventListener('pointermove', e => {
       const r = card.getBoundingClientRect();
