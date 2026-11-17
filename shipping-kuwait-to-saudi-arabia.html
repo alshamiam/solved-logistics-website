@@ -667,7 +667,7 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
   content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid #25D366;
   animation: waPulse 2.4s ease-out infinite;
 }
-@keyframes waPulse { from { transform: scale(1); opacity: .7; } to { transform: scale(1.6); opacity: 0; } }
+@keyframes waPulse { from { transform: scale(1); opacity: .7; } to { transform: scale(1.35); opacity: 0; } }
 .cd-icon.wa { color: #25D366; }
 @media (max-width: 640px) { .wa-float { width: 54px; height: 54px; bottom: 16px; inset-inline-end: 16px; } }
 
@@ -830,6 +830,8 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 }
 .motion .hero .btn-primary::before, .motion .quote-card .btn-primary::before { animation: sheen 5s ease-in-out 2.5s infinite; }
 @keyframes sheen { 0%, 70% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
+
+html { overflow-x: clip; }
 
 </style>
 </head>
