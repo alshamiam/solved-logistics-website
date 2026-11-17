@@ -1,6 +1,6 @@
 const SUPABASE_URL = 'https://ccpaanmmdehsnkxmndqt.supabase.co';
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY;
-const ADMIN_PASSWORD = 'solved2026';
+const { checkAdminPassword } = require('./_admin');
 
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -10,7 +10,7 @@ module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const { password, updates } = req.body || {};
-  if (!password || password !== ADMIN_PASSWORD) {
+  if (!checkAdminPassword(password)) {
     return res.status(401).json({ error: 'Wrong password' });
   }
   if (!updates || updates.length === 0) return res.json({ saved: 0 });
