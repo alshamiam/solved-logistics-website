@@ -651,6 +651,15 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 .cd-icon.wa { color: #25D366; }
 @media (max-width: 640px) { .wa-float { width: 54px; height: 54px; bottom: 16px; inset-inline-end: 16px; } }
 
+/* ── Social links ───────────────────────────────── */
+.social { display: flex; gap: 10px; margin-top: 24px; position: relative; z-index: 1; }
+.social a {
+  width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center;
+  color: var(--cream); background: rgba(243,237,225,.08); border: 1px solid rgba(243,237,225,.12);
+  transition: background .25s, color .25s, transform .25s var(--ease), border-color .25s;
+}
+.social a:hover { background: var(--orange); border-color: var(--orange); color: #fff; transform: translateY(-2px); }
+
 /* ── Motion layer ───────────────────────────────── */
 .scroll-progress {
   position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 300;
@@ -761,7 +770,7 @@ html { overflow-x: clip; }
 <meta name="twitter:title" content="سولفد — شركة شحن وخدمات لوجستية في الكويت والخليج">
 <meta name="twitter:description" content="شركة شحن وخدمات لوجستية متكاملة في الكويت ودول الخليج: شحن دولي، توصيل محلي، شحن جوي وبحري، تخزين وتوزيع، وتخليص جمركي.">
 <meta name="twitter:image" content="https://solved-logistics.com/images/og-solved-logistics.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","@id":"https://solved-logistics.com/#business","name":"سولفد للخدمات اللوجستية","alternateName":"SOLVED","url":"https://solved-logistics.com","telephone":"+96522099120","email":"hello@solved-logistics.com","image":["https://solved-logistics.com/images/og-solved-logistics.jpg","https://solved-logistics.com/images/hero-container-ship-port-1920.webp"],"logo":"https://solved-logistics.com/android-chrome-512x512.png","description":"شركة شحن وخدمات لوجستية متكاملة في الكويت ودول الخليج: شحن دولي، توصيل محلي، شحن جوي وبحري، أغراض شخصية، تخزين وتوزيع، وتخليص جمركي.","address":{"@type":"PostalAddress","addressLocality":"مدينة الكويت","addressCountry":"KW"},"areaServed":["KW","SA","AE","QA","BH","OM"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"09:00","closes":"18:00"},"priceRange":"$$"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","@id":"https://solved-logistics.com/#business","name":"سولفد للخدمات اللوجستية","alternateName":"SOLVED","url":"https://solved-logistics.com","telephone":"+96522099120","email":"hello@solved-logistics.com","image":["https://solved-logistics.com/images/og-solved-logistics.jpg","https://solved-logistics.com/images/hero-container-ship-port-1920.webp"],"logo":"https://solved-logistics.com/android-chrome-512x512.png","sameAs":["https://www.instagram.com/solvedlogistics/","https://www.linkedin.com/company/solved-logistics"],"description":"شركة شحن وخدمات لوجستية متكاملة في الكويت ودول الخليج: شحن دولي، توصيل محلي، شحن جوي وبحري، أغراض شخصية، تخزين وتوزيع، وتخليص جمركي.","address":{"@type":"PostalAddress","streetAddress":"Suhaib Center, Entrance 1, Floor 2, Office 3, Salem Al Mubarak St","addressLocality":"Salmiya","addressRegion":"Hawalli","addressCountry":"KW"},"areaServed":["KW","SA","AE","QA","BH","OM"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"09:00","closes":"18:00"},"priceRange":"$$"}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">انتقل إلى المحتوى</a>
@@ -1025,7 +1034,7 @@ html { overflow-x: clip; }
 <g><circle class="m-hq-ring" cx="419.4" cy="78.9" r="16"></circle><circle class="m-hq" cx="419.4" cy="78.9" r="7"></circle><circle class="m-city" cx="380.4" cy="218.7" r="5" style="--d:1.45s"></circle><circle class="m-city" cx="155.7" cy="315.3" r="5" style="--d:1.80s"></circle><circle class="m-city" cx="483.0" cy="167.1" r="5" style="--d:2.15s"></circle><circle class="m-city" cx="497.7" cy="173.1" r="5" style="--d:2.50s"></circle><circle class="m-city" cx="525.9" cy="201.3" r="5" style="--d:2.85s"></circle><circle class="m-city" cx="638.1" cy="204.0" r="5" style="--d:3.20s"></circle><circle class="m-city" cx="732.3" cy="252.3" r="5" style="--d:3.55s"></circle></g>
 <g><text class="m-label m-label-hq" text-anchor="end" x="407.4" y="64.9"><tspan class="m-en">Kuwait City</tspan><tspan class="m-ar">الكويت</tspan></text><text class="m-label" text-anchor="end" x="368.4" y="223.7"><tspan class="m-en">Riyadh</tspan><tspan class="m-ar">الرياض</tspan></text><text class="m-label" text-anchor="start" x="167.7" y="320.3"><tspan class="m-en">Jeddah</tspan><tspan class="m-ar">جدة</tspan></text><text class="m-label" text-anchor="end" x="471.0" y="181.1"><tspan class="m-en">Dammam</tspan><tspan class="m-ar">الدمام</tspan></text><text class="m-label" text-anchor="start" x="507.7" y="163.1"><tspan class="m-en">Manama</tspan><tspan class="m-ar">المنامة</tspan></text><text class="m-label" text-anchor="start" x="537.9" y="207.3"><tspan class="m-en">Doha</tspan><tspan class="m-ar">الدوحة</tspan></text><text class="m-label" text-anchor="start" x="648.1" y="194.0"><tspan class="m-en">Dubai</tspan><tspan class="m-ar">دبي</tspan></text><text class="m-label" text-anchor="end" x="722.3" y="272.3"><tspan class="m-en">Muscat</tspan><tspan class="m-ar">مسقط</tspan></text></g>
 </svg>
-<figcaption class="cov-pin"><i aria-hidden="true"></i><span><b data-i18n="cov_hq">مدينة الكويت</b><small data-i18n="cov_hq_sub">المقر الرئيسي والعمليات</small></span></figcaption>
+<figcaption class="cov-pin"><i aria-hidden="true"></i><span><b data-i18n="cov_hq">السالمية، الكويت</b><small data-i18n="cov_hq_sub">المقر الرئيسي والعمليات</small></span></figcaption>
 </figure>
 </div>
 </section>
@@ -1064,12 +1073,13 @@ html { overflow-x: clip; }
 </div>
 <div class="contact-detail">
 <span aria-hidden="true" class="cd-icon"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="18"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
-<div><div class="label" data-i18n="cd_loc">الموقع</div><div class="value" data-i18n="contact_loc">مدينة الكويت، الكويت</div></div>
+<div><div class="label" data-i18n="cd_loc">الموقع</div><a class="value" href="https://www.google.com/maps/search/?api=1&amp;query=Suhaib%20Center%2C%20Salem%20Al%20Mubarak%20St%2C%20Salmiya%2C%20Kuwait" rel="noopener" target="_blank"><span data-i18n="contact_loc">مجمع صهيب، مدخل ١، الدور ٢، مكتب ٣، شارع سالم المبارك، السالمية، الكويت</span></a></div>
 </div>
 <div class="contact-detail">
 <span aria-hidden="true" class="cd-icon"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></span>
 <div><div class="label" data-i18n="cd_hours">ساعات العمل</div><div class="value" data-i18n="contact_hours">السبت – الخميس، ٩ص – ٦م (توقيت الكويت)</div></div>
 </div>
+<div class="social"><a aria-label="SOLVED على إنستغرام" href="https://www.instagram.com/solvedlogistics/" rel="noopener me" target="_blank" title="Instagram"><svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24" width="18"><rect height="18" rx="5" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" fill="currentColor" r="1.1" stroke="none"></circle></svg></a><a aria-label="SOLVED على لينكدإن" href="https://www.linkedin.com/company/solved-logistics" rel="noopener me" target="_blank" title="LinkedIn"><svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M4.98 3.5a2.48 2.48 0 1 1 0 4.96 2.48 2.48 0 0 1 0-4.96zM3 9.75h3.96V21H3V9.75zm6.46 0h3.8v1.54h.05c.53-1 1.82-2.05 3.75-2.05 4.01 0 4.75 2.64 4.75 6.07V21h-3.96v-5.07c0-1.21-.02-2.77-1.69-2.77-1.69 0-1.95 1.32-1.95 2.68V21H9.46V9.75z"></path></svg></a></div>
 </div>
 <form class="contact-form" onsubmit="handleSubmit(event)">
 <div class="form-row">
@@ -1123,6 +1133,7 @@ html { overflow-x: clip; }
 <div class="footer-brand">
 <span aria-label="SOLVED" class="logo logo-light" role="img">SOLVE<span>D</span></span>
 <p class="tagline-text" data-i18n="footer_tagline">خدماتك اللوجستية، محلولة. شحن وتوصيل متكامل للشركات في الكويت والخليج.</p>
+<div class="social"><a aria-label="SOLVED على إنستغرام" href="https://www.instagram.com/solvedlogistics/" rel="noopener me" target="_blank" title="Instagram"><svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24" width="18"><rect height="18" rx="5" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" fill="currentColor" r="1.1" stroke="none"></circle></svg></a><a aria-label="SOLVED على لينكدإن" href="https://www.linkedin.com/company/solved-logistics" rel="noopener me" target="_blank" title="LinkedIn"><svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M4.98 3.5a2.48 2.48 0 1 1 0 4.96 2.48 2.48 0 0 1 0-4.96zM3 9.75h3.96V21H3V9.75zm6.46 0h3.8v1.54h.05c.53-1 1.82-2.05 3.75-2.05 4.01 0 4.75 2.64 4.75 6.07V21h-3.96v-5.07c0-1.21-.02-2.77-1.69-2.77-1.69 0-1.95 1.32-1.95 2.68V21H9.46V9.75z"></path></svg></a></div>
 </div>
 <div class="footer-col">
 <h3 data-i18n="footer_col1">خدماتنا</h3>
@@ -1151,7 +1162,7 @@ html { overflow-x: clip; }
 <li><a data-href-en="https://wa.me/96522099120?text=Hi%20SOLVED%2C%20I%27d%20like%20a%20shipping%20quote." data-i18n="cd_wa" href="https://wa.me/96522099120?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20SOLVED%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%AD%D8%B5%D9%88%D9%84%20%D8%B9%D9%84%D9%89%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1%20%D9%84%D9%84%D8%B4%D8%AD%D9%86." rel="noopener" target="_blank">واتساب</a></li>
 <li><a class="ltr" href="tel:+96522099120">+965 2209 9120</a></li>
 <li><a data-i18n="footer_t1" href="#contact">اطلب معاودة اتصال</a></li>
-<li><a data-i18n="footer_t2" href="#contact">مدينة الكويت، الكويت</a></li>
+<li><a data-i18n="footer_t2" href="https://www.google.com/maps/search/?api=1&amp;query=Suhaib%20Center%2C%20Salem%20Al%20Mubarak%20St%2C%20Salmiya%2C%20Kuwait" rel="noopener" target="_blank">مجمع صهيب، مدخل ١، الدور ٢، مكتب ٣، شارع سالم المبارك، السالمية، الكويت</a></li>
 </ul>
 </div>
 </div>
@@ -1366,8 +1377,8 @@ const T = {
     submit_btn: "أرسل", submit_sent: "✓ تم الإرسال"
   }
 };
-Object.assign(T.en, {"qc_title": "Get a quote within one business day", "qc_body": "What are you shipping? Pick a service and we'll come back with options and clear pricing.", "qc_s1": "International", "qc_s2": "Local delivery", "qc_s3": "Air &amp; sea freight", "qc_s4": "Fulfillment", "qc_s5": "Relocation", "qc_cta": "Start my quote", "qc_call": "or call us", "f1_label": "Countries &amp; territories", "f2_num": "Same-day", "f2_label": "Delivery across Kuwait", "f4_num": "Sat–Thu", "f4_label": "Operations, 9am – 6pm", "srv_more": "Explore", "srv_quote": "Get a quote", "why_badge": "One team. One platform. One invoice.", "c_bh": "Bahrain", "cov_route": "Shipping from Kuwait to Saudi Arabia", "cov_hq": "Kuwait City", "cov_hq_sub": "Headquarters &amp; operations", "contact_label": "Contact", "wa_cta": "WhatsApp us", "cd_wa": "WhatsApp", "cd_phone": "Landline", "cd_email": "Email", "cd_loc": "Location", "cd_hours": "Operations"});
-Object.assign(T.ar, {"qc_title": "احصل على عرض سعر خلال يوم عمل واحد", "qc_body": "ماذا تريد أن تشحن؟ اختر الخدمة وسنعود إليك بخيارات وأسعار واضحة.", "qc_s1": "شحن دولي", "qc_s2": "توصيل محلي", "qc_s3": "شحن جوي وبحري", "qc_s4": "تخزين وتوزيع", "qc_s5": "انتقال وأغراض شخصية", "qc_cta": "ابدأ طلب السعر", "qc_call": "أو اتصل بنا", "f1_label": "دولة ومنطقة", "f2_num": "نفس اليوم", "f2_label": "توصيل في جميع أنحاء الكويت", "f4_num": "السبت–الخميس", "f4_label": "العمليات من ٩ص إلى ٦م", "srv_more": "اكتشف الخدمة", "srv_quote": "اطلب عرض سعر", "why_badge": "فريق واحد. منصة واحدة. فاتورة واحدة.", "c_bh": "البحرين", "cov_route": "الشحن من الكويت إلى السعودية", "cov_hq": "مدينة الكويت", "cov_hq_sub": "المقر الرئيسي والعمليات", "contact_label": "تواصل معنا", "wa_cta": "راسلنا على واتساب", "cd_wa": "واتساب", "mq1": "الشحن الدولي", "mq2": "التوصيل المحلي بالكويت", "mq3": "الشحن الجوي", "mq4": "الشحن البحري", "mq5": "التخزين والتوزيع", "mq6": "خدمات البضائع", "mq7": "الأغراض الشخصية", "mq8": "لوجستيات التجارة الإلكترونية", "mq9": "تغطية الخليج", "cd_phone": "الهاتف الأرضي", "cd_email": "البريد الإلكتروني", "cd_loc": "الموقع", "cd_hours": "ساعات العمل"});
+Object.assign(T.en, {"qc_title": "Get a quote within one business day", "qc_body": "What are you shipping? Pick a service and we'll come back with options and clear pricing.", "qc_s1": "International", "qc_s2": "Local delivery", "qc_s3": "Air &amp; sea freight", "qc_s4": "Fulfillment", "qc_s5": "Relocation", "qc_cta": "Start my quote", "qc_call": "or call us", "f1_label": "Countries &amp; territories", "f2_num": "Same-day", "f2_label": "Delivery across Kuwait", "f4_num": "Sat–Thu", "f4_label": "Operations, 9am – 6pm", "srv_more": "Explore", "srv_quote": "Get a quote", "why_badge": "One team. One platform. One invoice.", "c_bh": "Bahrain", "cov_route": "Shipping from Kuwait to Saudi Arabia", "cov_hq": "Salmiya, Kuwait", "contact_loc": "Suhaib Center, Entrance 1, Floor 2, Office 3, Salem Al Mubarak St, Salmiya, Kuwait", "footer_t2": "Suhaib Center, Entrance 1, Floor 2, Office 3, Salem Al Mubarak St, Salmiya, Kuwait", "cov_hq_sub": "Headquarters &amp; operations", "contact_label": "Contact", "wa_cta": "WhatsApp us", "cd_wa": "WhatsApp", "cd_phone": "Landline", "cd_email": "Email", "cd_loc": "Location", "cd_hours": "Operations"});
+Object.assign(T.ar, {"qc_title": "احصل على عرض سعر خلال يوم عمل واحد", "qc_body": "ماذا تريد أن تشحن؟ اختر الخدمة وسنعود إليك بخيارات وأسعار واضحة.", "qc_s1": "شحن دولي", "qc_s2": "توصيل محلي", "qc_s3": "شحن جوي وبحري", "qc_s4": "تخزين وتوزيع", "qc_s5": "انتقال وأغراض شخصية", "qc_cta": "ابدأ طلب السعر", "qc_call": "أو اتصل بنا", "f1_label": "دولة ومنطقة", "f2_num": "نفس اليوم", "f2_label": "توصيل في جميع أنحاء الكويت", "f4_num": "السبت–الخميس", "f4_label": "العمليات من ٩ص إلى ٦م", "srv_more": "اكتشف الخدمة", "srv_quote": "اطلب عرض سعر", "why_badge": "فريق واحد. منصة واحدة. فاتورة واحدة.", "c_bh": "البحرين", "cov_route": "الشحن من الكويت إلى السعودية", "cov_hq": "السالمية، الكويت", "contact_loc": "مجمع صهيب، مدخل ١، الدور ٢، مكتب ٣، شارع سالم المبارك، السالمية، الكويت", "footer_t2": "مجمع صهيب، مدخل ١، الدور ٢، مكتب ٣، شارع سالم المبارك، السالمية، الكويت", "cov_hq_sub": "المقر الرئيسي والعمليات", "contact_label": "تواصل معنا", "wa_cta": "راسلنا على واتساب", "cd_wa": "واتساب", "mq1": "الشحن الدولي", "mq2": "التوصيل المحلي بالكويت", "mq3": "الشحن الجوي", "mq4": "الشحن البحري", "mq5": "التخزين والتوزيع", "mq6": "خدمات البضائع", "mq7": "الأغراض الشخصية", "mq8": "لوجستيات التجارة الإلكترونية", "mq9": "تغطية الخليج", "cd_phone": "الهاتف الأرضي", "cd_email": "البريد الإلكتروني", "cd_loc": "الموقع", "cd_hours": "ساعات العمل"});
 
 function switchLang(lang) {
   document.documentElement.lang = lang;
