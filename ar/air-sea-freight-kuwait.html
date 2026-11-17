@@ -31,7 +31,7 @@
 <meta name="twitter:image" content="https://www.solved-logistics.com/images/og-solved-logistics.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","image":"https://www.solved-logistics.com/images/page-air-sea-freight-kuwait-1480.webp","serviceType":"Air and Sea Freight Forwarding","name":"الشحن الجوي والبحري من الكويت","description":"خدمات الشحن الجوي والبحري من الكويت — شحن بحري بحاويات كاملة (FCL) وجزئية (LCL)، وشحن جوي للشحنات العاجلة، مع تخليص جمركي وتوصيل من الباب إلى الباب.","provider":{"@type":"LocalBusiness","sameAs":["https://www.instagram.com/solvedlogistics/","https://www.linkedin.com/company/solved-logistics"],"name":"سولفد للخدمات اللوجستية","url":"https://www.solved-logistics.com","telephone":"+96522099120","email":"hello@solved-logistics.com","areaServed":["KW","SA","AE","QA","BH","OM"],"address":{"@type":"PostalAddress","streetAddress":"Suhaib Center, Entrance 1, Floor 2, Office 3, Salem Al Mubarak St","addressLocality":"Salmiya","addressRegion":"Hawalli","addressCountry":"KW"}},"areaServed":["KW","SA","AE","QA","BH","OM"],"url":"https://www.solved-logistics.com/ar/air-sea-freight-kuwait"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://www.solved-logistics.com/ar"},{"@type":"ListItem","position":2,"name":"الشحن الجوي والبحري من الكويت","item":"https://www.solved-logistics.com/ar/air-sea-freight-kuwait"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ما الفرق بين الحاوية الكاملة والجزئية؟","acceptedAnswer":{"@type":"Answer","text":"الحاوية الكاملة (FCL) تعني حجز حاوية لك وحدك، بينما الجزئية (LCL) تعني مشاركة بضائعك حاوية مع شاحنين آخرين. الكاملة تناسب الأحجام الكبيرة، والجزئية اقتصادية للأحمال الأصغر."}},{"@type":"Question","name":"متى أختار الشحن الجوي بدل البحري؟","acceptedAnswer":{"@type":"Answer","text":"اختر الجو للشحنات العاجلة أو الحساسة للوقت أو عالية القيمة حيث تفوق السرعة التكلفة. الشحن البحري أوفر للأحجام الكبيرة غير المستعجلة."}},{"@type":"Question","name":"هل تنظّمون التوصيل بعد الميناء؟","acceptedAnswer":{"@type":"Answer","text":"نعم — نتولّى التخليص الجمركي والتوصيل النهائي حتى الباب، فتُدار شحنتك من الباب إلى الباب وليس من الميناء إلى الميناء فقط."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ما الفرق بين الحاوية الكاملة والجزئية؟","acceptedAnswer":{"@type":"Answer","text":"الحاوية الكاملة (FCL) تعني حجز حاوية لك وحدك، بينما الجزئية (LCL) تعني مشاركة بضائعك حاوية مع شاحنين آخرين. الكاملة تناسب الأحجام الكبيرة، والجزئية اقتصادية للأحمال الأصغر."}},{"@type":"Question","name":"متى أختار الشحن الجوي بدل البحري؟","acceptedAnswer":{"@type":"Answer","text":"اختر الجو للشحنات العاجلة أو الحساسة للوقت أو عالية القيمة حيث تفوق السرعة التكلفة. الشحن البحري أوفر للأحجام الكبيرة غير المستعجلة."}},{"@type":"Question","name":"هل تنظّمون التوصيل بعد الميناء؟","acceptedAnswer":{"@type":"Answer","text":"نعم — نتولّى التخليص الجمركي والتوصيل النهائي حتى الباب، فتُدار شحنتك من الباب إلى الباب وليس من الميناء إلى الميناء فقط."}},{"@type":"Question","name":"هل أختار حاوية كاملة أم شحناً جزئياً؟","acceptedAnswer":{"@type":"Answer","text":"إذا كانت بضاعتك تملأ معظم الحاوية فالحاوية الكاملة عادةً أرخص للوحدة وأسرع في المناولة. أما الكميات الأصغر فالشحن الجزئي أكثر توفيراً. نقترح لك الخيار المناسب بعد معرفة حجم شحنتك."}},{"@type":"Question","name":"كيف أحصل على عرض سعر للشحن؟","acceptedAnswer":{"@type":"Answer","text":"أرسل لنا نوع البضاعة وحجمها ووزنها التقريبي ووجهتها أو مصدرها، وسنعود إليك خلال يوم عمل واحد بخيارات وعرض سعر واضح."}}]}</script>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -897,6 +897,19 @@ a.cov-tag::after { content: "→"; margin-inline-start: auto; color: var(--flame
 .hero-price span { font-size: 14px; color: rgba(255,255,255,.8); }
 [dir="rtl"] .hero-price b { font-family: "Cairo", var(--display); letter-spacing: 0; }
 
+/* lists inside service-page prose */
+.prose ul, .prose ol { margin: 4px 0 18px; padding: 0; list-style: none; display: grid; gap: 10px; }
+.prose li { position: relative; padding-inline-start: 30px; font-size: 16.5px; line-height: 1.7; color: var(--muted); }
+.prose ul li::before { content: ""; position: absolute; inset-inline-start: 6px; top: .72em; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+.prose ol { counter-reset: step; }
+.prose ol li { counter-increment: step; }
+.prose ol li::before {
+  content: counter(step); position: absolute; inset-inline-start: 0; top: .15em; width: 22px; height: 22px; border-radius: 7px;
+  display: grid; place-items: center; font: 600 12px var(--mono); color: var(--orange); background: rgba(208,79,0,.1);
+}
+.prose li b { color: var(--ink); font-weight: 700; }
+@media (max-width: 640px) { .prose li { font-size: 15.5px; } }
+
 /* ── Motion layer ───────────────────────────────── */
 .scroll-progress {
   position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 300;
@@ -1029,6 +1042,14 @@ html { overflow-x: clip; }
 <p>للبضائع العاجلة أو عالية القيمة، يوصلها الشحن الجوي بسرعة. نحجز المساحة، ونجهّز الأوراق، وننقل شحنتك من الكويت إلى مطارات حول العالم مع تتبع طوال الطريق.</p>
 <h2><span class="n">03</span><span>الجمارك والميل الأخير مشمولة</span></h2>
 <p>الشحن لا ينتهي عند الميناء أو المطار. ندير التخليص الجمركي وننظّم التوصيل النهائي حتى الباب، فتُدار شحنتك كمهمة واحدة من المصدر حتى الوجهة.</p>
+<h2><span class="n">04</span><span>حاوية كاملة أم شحن جزئي: أيهما يناسب شحنتك؟</span></h2>
+<p><b>الحاوية الكاملة (FCL)</b> تمنحك حاوية 20 أو 40 قدماً لبضاعتك وحدها، وهي الأوفر للكميات الكبيرة. أما <b>الشحن الجزئي (LCL)</b> فيتيح لك مشاركة مساحة الحاوية ودفع تكلفة الحجم الذي تستخدمه فقط، وهو مناسب للشحنات التجارية الأصغر.</p>
+<h2><span class="n">05</span><span>متى يكون الشحن الجوي الخيار الأنسب؟</span></h2>
+<p>عندما يكون الوقت أهم من التكلفة، ينقل الشحن الجوي الشحنات الكبيرة خلال أيام بدلاً من أسابيع. وهو مثالي للبضائع العاجلة وقطع الغيار والبضائع عالية القيمة.</p>
+<h2><span class="n">06</span><span>من عرض السعر حتى التسليم</span></h2>
+<ol><li><b>أخبرنا</b> بنوع البضاعة وحجمها ووزنها وبلد المنشأ أو الوجهة.</li><li><b>نقارن</b> المسارات وشركات الشحن ونرسل لك عرض سعر واضحاً.</li><li><b>نحجز</b> المساحة ونجهز المستندات ونرتب الاستلام.</li><li><b>نخلّص الجمارك</b> ونوصل الشحنة إلى بابك.</li></ol>
+<h2><span class="n">07</span><span>المستندات المطلوبة</span></h2>
+<ul><li><b>فاتورة تجارية</b> و<b>قائمة تعبئة</b></li><li><b>بوليصة شحن بحري</b> أو <b>بوليصة شحن جوي</b>، ونتولى ترتيبها</li><li><b>شهادات منشأ</b> أو شهادات منتجات عندما تطلبها دولة الوجهة</li></ul>
     </article>
     <aside class="aside-card reveal reveal-delay-2">
       <h2>تحدّث مع مختص لوجستي</h2>
@@ -1045,7 +1066,7 @@ html { overflow-x: clip; }
   <div class="wrap faq-grid">
     <div class="reveal"><div class="eyebrow">الأسئلة الشائعة</div><h2 class="h2">أسئلة شائعة</h2></div>
     <div class="faq-list reveal reveal-delay-2">
-      <details class="faq-item" open><summary class="faq-q">ما الفرق بين الحاوية الكاملة والجزئية؟</summary><div class="faq-a">الحاوية الكاملة (FCL) تعني حجز حاوية لك وحدك، بينما الجزئية (LCL) تعني مشاركة بضائعك حاوية مع شاحنين آخرين. الكاملة تناسب الأحجام الكبيرة، والجزئية اقتصادية للأحمال الأصغر.</div></details><details class="faq-item"><summary class="faq-q">متى أختار الشحن الجوي بدل البحري؟</summary><div class="faq-a">اختر الجو للشحنات العاجلة أو الحساسة للوقت أو عالية القيمة حيث تفوق السرعة التكلفة. الشحن البحري أوفر للأحجام الكبيرة غير المستعجلة.</div></details><details class="faq-item"><summary class="faq-q">هل تنظّمون التوصيل بعد الميناء؟</summary><div class="faq-a">نعم — نتولّى التخليص الجمركي والتوصيل النهائي حتى الباب، فتُدار شحنتك من الباب إلى الباب وليس من الميناء إلى الميناء فقط.</div></details>
+      <details class="faq-item" open><summary class="faq-q">ما الفرق بين الحاوية الكاملة والجزئية؟</summary><div class="faq-a">الحاوية الكاملة (FCL) تعني حجز حاوية لك وحدك، بينما الجزئية (LCL) تعني مشاركة بضائعك حاوية مع شاحنين آخرين. الكاملة تناسب الأحجام الكبيرة، والجزئية اقتصادية للأحمال الأصغر.</div></details><details class="faq-item"><summary class="faq-q">متى أختار الشحن الجوي بدل البحري؟</summary><div class="faq-a">اختر الجو للشحنات العاجلة أو الحساسة للوقت أو عالية القيمة حيث تفوق السرعة التكلفة. الشحن البحري أوفر للأحجام الكبيرة غير المستعجلة.</div></details><details class="faq-item"><summary class="faq-q">هل تنظّمون التوصيل بعد الميناء؟</summary><div class="faq-a">نعم — نتولّى التخليص الجمركي والتوصيل النهائي حتى الباب، فتُدار شحنتك من الباب إلى الباب وليس من الميناء إلى الميناء فقط.</div></details><details class="faq-item"><summary class="faq-q">هل أختار حاوية كاملة أم شحناً جزئياً؟</summary><div class="faq-a">إذا كانت بضاعتك تملأ معظم الحاوية فالحاوية الكاملة عادةً أرخص للوحدة وأسرع في المناولة. أما الكميات الأصغر فالشحن الجزئي أكثر توفيراً. نقترح لك الخيار المناسب بعد معرفة حجم شحنتك.</div></details><details class="faq-item"><summary class="faq-q">كيف أحصل على عرض سعر للشحن؟</summary><div class="faq-a">أرسل لنا نوع البضاعة وحجمها ووزنها التقريبي ووجهتها أو مصدرها، وسنعود إليك خلال يوم عمل واحد بخيارات وعرض سعر واضح.</div></details>
     </div>
   </div>
 </section>

@@ -31,7 +31,7 @@
 <meta name="twitter:image" content="https://www.solved-logistics.com/images/og-solved-logistics.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","image":"https://www.solved-logistics.com/images/page-air-sea-freight-kuwait-1480.webp","serviceType":"Air and Sea Freight Forwarding","name":"Air & Sea Freight from Kuwait","description":"Air and sea freight from Kuwait: FCL and LCL ocean freight plus air cargo for urgent shipments, with customs clearance and door-to-door delivery.","provider":{"@type":"LocalBusiness","sameAs":["https://www.instagram.com/solvedlogistics/","https://www.linkedin.com/company/solved-logistics"],"name":"SOLVED Logistics","url":"https://www.solved-logistics.com","telephone":"+96522099120","email":"hello@solved-logistics.com","areaServed":["KW","SA","AE","QA","BH","OM"],"address":{"@type":"PostalAddress","streetAddress":"Suhaib Center, Entrance 1, Floor 2, Office 3, Salem Al Mubarak St","addressLocality":"Salmiya","addressRegion":"Hawalli","addressCountry":"KW"}},"areaServed":["KW","SA","AE","QA","BH","OM"],"url":"https://www.solved-logistics.com/air-sea-freight-kuwait"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.solved-logistics.com/"},{"@type":"ListItem","position":2,"name":"Air & Sea Freight from Kuwait","item":"https://www.solved-logistics.com/air-sea-freight-kuwait"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What’s the difference between FCL and LCL?","acceptedAnswer":{"@type":"Answer","text":"FCL means you book a full container to yourself; LCL means your goods share a container with other shippers. FCL suits larger volumes, while LCL is cost-effective for smaller loads."}},{"@type":"Question","name":"When should I choose air freight over sea?","acceptedAnswer":{"@type":"Answer","text":"Choose air for urgent, time-sensitive, or high-value shipments where speed outweighs cost. Sea freight is more economical for large volumes that aren’t time-critical."}},{"@type":"Question","name":"Do you arrange delivery after the port?","acceptedAnswer":{"@type":"Answer","text":"Yes — we handle customs clearance and the final door delivery, so your freight is managed door to door, not just port to port."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What’s the difference between FCL and LCL?","acceptedAnswer":{"@type":"Answer","text":"FCL means you book a full container to yourself; LCL means your goods share a container with other shippers. FCL suits larger volumes, while LCL is cost-effective for smaller loads."}},{"@type":"Question","name":"When should I choose air freight over sea?","acceptedAnswer":{"@type":"Answer","text":"Choose air for urgent, time-sensitive, or high-value shipments where speed outweighs cost. Sea freight is more economical for large volumes that aren’t time-critical."}},{"@type":"Question","name":"Do you arrange delivery after the port?","acceptedAnswer":{"@type":"Answer","text":"Yes — we handle customs clearance and the final door delivery, so your freight is managed door to door, not just port to port."}},{"@type":"Question","name":"Should I choose FCL or LCL?","acceptedAnswer":{"@type":"Answer","text":"If your goods fill most of a container, FCL is usually cheaper per unit and quicker to handle. For smaller volumes, LCL is more economical. We recommend the right option once you share your volume."}},{"@type":"Question","name":"How do I get a freight quote?","acceptedAnswer":{"@type":"Answer","text":"Send us the goods, the approximate volume and weight, and where they are going or coming from. We come back within one business day with options and a clear quote."}}]}</script>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -897,6 +897,19 @@ a.cov-tag::after { content: "→"; margin-inline-start: auto; color: var(--flame
 .hero-price span { font-size: 14px; color: rgba(255,255,255,.8); }
 [dir="rtl"] .hero-price b { font-family: "Cairo", var(--display); letter-spacing: 0; }
 
+/* lists inside service-page prose */
+.prose ul, .prose ol { margin: 4px 0 18px; padding: 0; list-style: none; display: grid; gap: 10px; }
+.prose li { position: relative; padding-inline-start: 30px; font-size: 16.5px; line-height: 1.7; color: var(--muted); }
+.prose ul li::before { content: ""; position: absolute; inset-inline-start: 6px; top: .72em; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+.prose ol { counter-reset: step; }
+.prose ol li { counter-increment: step; }
+.prose ol li::before {
+  content: counter(step); position: absolute; inset-inline-start: 0; top: .15em; width: 22px; height: 22px; border-radius: 7px;
+  display: grid; place-items: center; font: 600 12px var(--mono); color: var(--orange); background: rgba(208,79,0,.1);
+}
+.prose li b { color: var(--ink); font-weight: 700; }
+@media (max-width: 640px) { .prose li { font-size: 15.5px; } }
+
 /* ── Motion layer ───────────────────────────────── */
 .scroll-progress {
   position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 300;
@@ -1029,6 +1042,14 @@ html { overflow-x: clip; }
 <p>For urgent or high-value cargo, air freight gets it there fast. We book capacity, prepare the paperwork, and move your shipment from Kuwait to airports worldwide with tracking throughout.</p>
 <h2><span class="n">03</span><span>Customs and last mile included</span></h2>
 <p>Freight doesn’t end at the port or airport. We manage customs clearance and arrange the final delivery to the door, so your shipment is handled as one job from origin to destination.</p>
+<h2><span class="n">04</span><span>FCL or LCL: which fits your shipment?</span></h2>
+<p><b>Full container load (FCL)</b> gives you a 20ft or 40ft container for your goods alone, the best value for large volumes. <b>Less than container load (LCL)</b> lets you share container space and pay only for the volume you use, which suits smaller commercial shipments.</p>
+<h2><span class="n">05</span><span>When air cargo is the right choice</span></h2>
+<p>When time matters more than cost, air cargo moves larger shipments in days instead of weeks. It is ideal for urgent stock, spare parts and high-value goods.</p>
+<h2><span class="n">06</span><span>From quote to delivery</span></h2>
+<ol><li><b>Tell us</b> the goods, volume, weight and the origin or destination.</li><li><b>We compare</b> routes and carriers and send you a clear quote.</li><li><b>We book</b> the space, prepare the documents and arrange pickup.</li><li><b>We clear customs</b> and deliver to your door.</li></ol>
+<h2><span class="n">07</span><span>Documents you will need</span></h2>
+<ul><li>A <b>commercial invoice</b> and <b>packing list</b></li><li>A <b>bill of lading</b> for sea freight or an <b>air waybill</b> for air cargo, which we arrange</li><li><b>Certificates of origin</b> or product certificates when the destination requires them</li></ul>
     </article>
     <aside class="aside-card reveal reveal-delay-2">
       <h2>Talk to a logistics specialist</h2>
@@ -1045,7 +1066,7 @@ html { overflow-x: clip; }
   <div class="wrap faq-grid">
     <div class="reveal"><div class="eyebrow">FAQ</div><h2 class="h2">Frequently asked questions</h2></div>
     <div class="faq-list reveal reveal-delay-2">
-      <details class="faq-item" open><summary class="faq-q">What’s the difference between FCL and LCL?</summary><div class="faq-a">FCL means you book a full container to yourself; LCL means your goods share a container with other shippers. FCL suits larger volumes, while LCL is cost-effective for smaller loads.</div></details><details class="faq-item"><summary class="faq-q">When should I choose air freight over sea?</summary><div class="faq-a">Choose air for urgent, time-sensitive, or high-value shipments where speed outweighs cost. Sea freight is more economical for large volumes that aren’t time-critical.</div></details><details class="faq-item"><summary class="faq-q">Do you arrange delivery after the port?</summary><div class="faq-a">Yes — we handle customs clearance and the final door delivery, so your freight is managed door to door, not just port to port.</div></details>
+      <details class="faq-item" open><summary class="faq-q">What’s the difference between FCL and LCL?</summary><div class="faq-a">FCL means you book a full container to yourself; LCL means your goods share a container with other shippers. FCL suits larger volumes, while LCL is cost-effective for smaller loads.</div></details><details class="faq-item"><summary class="faq-q">When should I choose air freight over sea?</summary><div class="faq-a">Choose air for urgent, time-sensitive, or high-value shipments where speed outweighs cost. Sea freight is more economical for large volumes that aren’t time-critical.</div></details><details class="faq-item"><summary class="faq-q">Do you arrange delivery after the port?</summary><div class="faq-a">Yes — we handle customs clearance and the final door delivery, so your freight is managed door to door, not just port to port.</div></details><details class="faq-item"><summary class="faq-q">Should I choose FCL or LCL?</summary><div class="faq-a">If your goods fill most of a container, FCL is usually cheaper per unit and quicker to handle. For smaller volumes, LCL is more economical. We recommend the right option once you share your volume.</div></details><details class="faq-item"><summary class="faq-q">How do I get a freight quote?</summary><div class="faq-a">Send us the goods, the approximate volume and weight, and where they are going or coming from. We come back within one business day with options and a clear quote.</div></details>
     </div>
   </div>
 </section>

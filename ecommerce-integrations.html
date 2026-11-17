@@ -897,6 +897,19 @@ a.cov-tag::after { content: "→"; margin-inline-start: auto; color: var(--flame
 .hero-price span { font-size: 14px; color: rgba(255,255,255,.8); }
 [dir="rtl"] .hero-price b { font-family: "Cairo", var(--display); letter-spacing: 0; }
 
+/* lists inside service-page prose */
+.prose ul, .prose ol { margin: 4px 0 18px; padding: 0; list-style: none; display: grid; gap: 10px; }
+.prose li { position: relative; padding-inline-start: 30px; font-size: 16.5px; line-height: 1.7; color: var(--muted); }
+.prose ul li::before { content: ""; position: absolute; inset-inline-start: 6px; top: .72em; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+.prose ol { counter-reset: step; }
+.prose ol li { counter-increment: step; }
+.prose ol li::before {
+  content: counter(step); position: absolute; inset-inline-start: 0; top: .15em; width: 22px; height: 22px; border-radius: 7px;
+  display: grid; place-items: center; font: 600 12px var(--mono); color: var(--orange); background: rgba(208,79,0,.1);
+}
+.prose li b { color: var(--ink); font-weight: 700; }
+@media (max-width: 640px) { .prose li { font-size: 15.5px; } }
+
 /* ── Motion layer ───────────────────────────────── */
 .scroll-progress {
   position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 300;
