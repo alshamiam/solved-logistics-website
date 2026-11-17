@@ -785,6 +785,14 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 @media (max-width: 1080px) { .price-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) { .price-grid { grid-template-columns: 1fr; } .pricing { padding: 88px 0; } }
 
+a.cov-tag { text-decoration: none; transition: border-color .2s, background .2s, transform .2s var(--ease); }
+a.cov-tag:hover { border-color: rgba(240,106,29,.6); background: rgba(240,106,29,.1); transform: translateY(-2px); }
+a.cov-tag::after { content: "→"; margin-inline-start: auto; color: var(--flame); opacity: .7; font-weight: 700; }
+[dir="rtl"] a.cov-tag::after { content: "←"; }
+.cov-tag-wide { grid-column: 1 / -1; }
+.cov-tag-wide .num { margin-inline-start: 12px; }
+.cov-tag-wide::after { margin-inline-start: auto; }
+
 /* ── Service landing pages ─────────────────────── */
 .page-hero {
   position: relative; isolation: isolate; overflow: hidden; color: #fff;
@@ -884,7 +892,8 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
   padding: 10px 18px; border-radius: 14px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
   -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
 }
-.hero-price b { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: -.02em; }
+.hero-price { flex-wrap: wrap; row-gap: 2px; }
+.hero-price b { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: -.02em; white-space: nowrap; }
 .hero-price span { font-size: 14px; color: rgba(255,255,255,.8); }
 [dir="rtl"] .hero-price b { font-family: "Cairo", var(--display); letter-spacing: 0; }
 
