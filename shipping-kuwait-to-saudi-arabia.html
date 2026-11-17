@@ -911,6 +911,14 @@ a.cov-tag::after { content: "→"; margin-inline-start: auto; color: var(--flame
 .prose li b { color: var(--ink); font-weight: 700; }
 @media (max-width: 640px) { .prose li { font-size: 15.5px; } }
 
+/* guides */
+.guide-meta { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: rgba(255,255,255,.75); margin: -8px 0 16px; }
+[dir="rtl"] .guide-meta { font-family: "IBM Plex Sans Arabic", var(--mono); letter-spacing: 0; font-size: 13px; }
+.prose a { color: var(--orange); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.prose a:hover { color: var(--flame); }
+.prose h2 a { color: var(--ink); font-weight: inherit; text-decoration: none; background: linear-gradient(var(--orange), var(--orange)) 0 100% / 0 2px no-repeat; transition: background-size .35s var(--ease); }
+.prose h2 a:hover { color: var(--ink); background-size: 100% 2px; }
+
 /* ── Motion layer ───────────────────────────────── */
 .scroll-progress {
   position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 300;
@@ -1025,6 +1033,7 @@ html { overflow-x: clip; }
   <img data-parallax="0.18" data-scale="1.1" src="/images/page-shipping-kuwait-to-saudi-arabia-1920.webp" srcset="/images/page-shipping-kuwait-to-saudi-arabia-760.webp 760w, /images/page-shipping-kuwait-to-saudi-arabia-1480.webp 1480w, /images/page-shipping-kuwait-to-saudi-arabia-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Freight truck on the highway for road shipping from Kuwait to Saudi Arabia" fetchpriority="high" decoding="async">
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">›</span><span aria-current="page">Shipping from Kuwait to Saudi Arabia</span></nav>
+    
     <h1 class="page-h1">Shipping from Kuwait to Saudi Arabia</h1>
     <p class="lead">Send parcels, cargo, and freight from Kuwait to anywhere in Saudi Arabia — Riyadh, Jeddah, Dammam, and the Eastern Province. We handle the GCC customs paperwork, track every shipment, and keep rates competitive for one-off sends and regular routes alike.</p>
     <div class="hero-price"><b>from 3.9 KD</b><span>express parcel · up to 0.5 kg</span></div>
@@ -1112,7 +1121,7 @@ html { overflow-x: clip; }
 <li><a href="/#why">Why SOLVED</a></li>
 <li><a href="/#coverage">Coverage</a></li>
 <li><a href="/#contact">Get a Quote</a></li>
-</ul>
+<li><a href="/guides">Guides</a></li></ul>
 </div>
 <div class="footer-col">
 <h3>Contact</h3>
