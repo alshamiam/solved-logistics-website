@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /admin.html
 
-Sitemap: https://solved-logistics.com/sitemap.xml
+Sitemap: https://www.solved-logistics.com/sitemap.xml
