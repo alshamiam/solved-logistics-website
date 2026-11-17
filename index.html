@@ -670,7 +670,7 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 .integrations .lede { color: rgba(243,237,225,.68); margin: 24px 0 36px; }
 .int-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(40px, 6vw, 88px); align-items: center; position: relative; }
 .int-visual { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 32px; }
-.flow { display: grid; grid-template-columns: 1fr 84px 1.1fr 84px 1fr; align-items: center; gap: 0; }
+.flow { display: grid; grid-template-columns: 1.25fr 56px 1.1fr 56px 1.25fr; align-items: center; gap: 0; }
 .flow-node {
   display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;
   padding: 20px 10px; border-radius: 16px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
@@ -678,10 +678,14 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 .flow-ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(240,106,29,.15); color: var(--flame); }
 .flow-node small { font-size: 12px; color: rgba(243,237,225,.6); }
 .flow-node b { font-size: 16px; font-weight: 800; color: #fff; min-height: 1.3em; }
-.flow-plat { transition: opacity .35s, transform .35s var(--ease); }
-.flow-plat.out { opacity: 0; transform: translateY(6px); }
+.flow-plat { display: block; white-space: nowrap; font-size: 15px !important; letter-spacing: -.01em; will-change: transform, opacity; }
+.flow-node { height: 152px; justify-content: center; min-width: 0; padding-left: 8px; padding-right: 8px; }
+.flow-hub { height: 164px; }
+@media (max-width: 640px) { .flow-node { height: auto; min-height: 118px; } .flow-hub { height: auto; } }
+.int-chip { transition: background .25s, border-color .25s, color .25s; }
 .flow-hub { background: var(--orange); border-color: var(--orange); padding: 26px 12px; box-shadow: 0 16px 40px -12px rgba(208,79,0,.6); }
-.flow-hub .logo { font-size: 26px; color: #fff; }
+.flow-hub .logo { font-size: 23px; color: #fff; }
+.flow-hub small { font-size: 11.5px; line-height: 1.45; }
 .flow-hub .logo span { color: var(--ink); }
 .flow-hub small { color: rgba(255,255,255,.85); }
 .flow-link { position: relative; width: 100%; height: 2px; background: rgba(255,255,255,.12); }
@@ -694,7 +698,7 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 @keyframes flowdash { from { background-position: 0 0; } to { background-position: 14px 0; } }
 [dir="rtl"] .flow-link::before { animation-direction: reverse; }
 .flow-tag {
-  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); width: 76px; text-align: center;
+  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); width: 60px; text-align: center;
   font-size: 11px; line-height: 1.3; font-weight: 600; color: rgba(243,237,225,.7);
 }
 .int-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; justify-content: center; }
@@ -706,7 +710,7 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 .int-chip.on { background: var(--orange); border-color: var(--orange); color: #fff; }
 .int-chip-api { font-family: var(--mono); font-weight: 500; }
 [dir="rtl"] .flow-node b, [dir="rtl"] .int-chip { font-family: "Cairo", var(--display); }
-@media (max-width: 1080px) { .int-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1240px) { .int-grid { grid-template-columns: 1fr; } .int-visual { max-width: 720px; } }
 @media (max-width: 640px) {
   .integrations { padding: 88px 0; }
   .int-visual { padding: 20px; }
@@ -1684,20 +1688,31 @@ document.querySelectorAll('[data-count]').forEach(el => {
   addEventListener('resize', onScroll);
   frame();
 
-  // 3. Integrations: cycle the connected platform
+  // 3. Integrations: cycle the connected platform (name and chip change together)
   const fp = document.getElementById('flow-plat');
   if (fp) {
     const chips = [...document.querySelectorAll('.int-chip')];
-    const names = chips.map(c => c.dataset.plat);
-    let k = 0;
-    const show = () => {
+    const ease = 'cubic-bezier(0.16, 1, 0.3, 1)';
+    let k = 0, timer = null, busy = false;
+    const light = chip => chips.forEach(c => c.classList.toggle('on', c === chip));
+    fp.textContent = chips[0].textContent; light(chips[0]);
+    const next = () => {
+      if (busy) return; busy = true;
+      k = (k + 1) % chips.length;
       const chip = chips[k];
-      fp.classList.add('out');
-      setTimeout(() => { fp.textContent = chip.textContent; fp.classList.remove('out'); }, 300);
-      chips.forEach(c => c.classList.toggle('on', c === chip));
-      k = (k + 1) % names.length;
+      fp.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-10px)' }],
+                 { duration: 220, easing: 'ease-in', fill: 'forwards' }).onfinish = () => {
+        fp.textContent = chip.textContent;
+        light(chip);
+        fp.animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }],
+                   { duration: 380, easing: ease, fill: 'forwards' }).onfinish = () => { busy = false; };
+      };
     };
-    show(); setInterval(show, 2200);
+    // only run while the section is on screen
+    new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting && !timer) timer = setInterval(next, 2400);
+      else if (!e.isIntersecting && timer) { clearInterval(timer); timer = null; }
+    })).observe(fp.closest('.int-visual'));
   }
 
   // 4. Cursor-follow glow on service cards

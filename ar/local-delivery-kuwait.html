@@ -697,8 +697,8 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 .flow-ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(240,106,29,.15); color: var(--flame); }
 .flow-node small { font-size: 12px; color: rgba(243,237,225,.6); }
 .flow-node b { font-size: 16px; font-weight: 800; color: #fff; min-height: 1.3em; }
-.flow-plat { transition: opacity .35s, transform .35s var(--ease); }
-.flow-plat.out { opacity: 0; transform: translateY(6px); }
+.flow-plat { display: block; will-change: transform, opacity; }
+.int-chip { transition: background .25s, border-color .25s, color .25s; }
 .flow-hub { background: var(--orange); border-color: var(--orange); padding: 26px 12px; box-shadow: 0 16px 40px -12px rgba(208,79,0,.6); }
 .flow-hub .logo { font-size: 26px; color: #fff; }
 .flow-hub .logo span { color: var(--ink); }
@@ -1126,20 +1126,31 @@ html { overflow-x: clip; }
   addEventListener('resize', onScroll);
   frame();
 
-  // 3. Integrations: cycle the connected platform
+  // 3. Integrations: cycle the connected platform (name and chip change together)
   const fp = document.getElementById('flow-plat');
   if (fp) {
     const chips = [...document.querySelectorAll('.int-chip')];
-    const names = chips.map(c => c.dataset.plat);
-    let k = 0;
-    const show = () => {
+    const ease = 'cubic-bezier(0.16, 1, 0.3, 1)';
+    let k = 0, timer = null, busy = false;
+    const light = chip => chips.forEach(c => c.classList.toggle('on', c === chip));
+    fp.textContent = chips[0].textContent; light(chips[0]);
+    const next = () => {
+      if (busy) return; busy = true;
+      k = (k + 1) % chips.length;
       const chip = chips[k];
-      fp.classList.add('out');
-      setTimeout(() => { fp.textContent = chip.textContent; fp.classList.remove('out'); }, 300);
-      chips.forEach(c => c.classList.toggle('on', c === chip));
-      k = (k + 1) % names.length;
+      fp.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-10px)' }],
+                 { duration: 220, easing: 'ease-in', fill: 'forwards' }).onfinish = () => {
+        fp.textContent = chip.textContent;
+        light(chip);
+        fp.animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }],
+                   { duration: 380, easing: ease, fill: 'forwards' }).onfinish = () => { busy = false; };
+      };
     };
-    show(); setInterval(show, 2200);
+    // only run while the section is on screen
+    new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting && !timer) timer = setInterval(next, 2400);
+      else if (!e.isIntersecting && timer) { clearInterval(timer); timer = null; }
+    })).observe(fp.closest('.int-visual'));
   }
 
   // 4. Cursor-follow glow on service cards
