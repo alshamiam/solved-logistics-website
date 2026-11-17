@@ -652,6 +652,94 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 .cd-icon.wa { color: #25D366; }
 @media (max-width: 640px) { .wa-float { width: 54px; height: 54px; bottom: 16px; inset-inline-end: 16px; } }
 
+/* ── Motion layer ───────────────────────────────── */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 300;
+  background: linear-gradient(90deg, var(--orange), var(--flame));
+  transform-origin: 0 50%; transform: scaleX(0); pointer-events: none;
+}
+[dir="rtl"] .scroll-progress { transform-origin: 100% 50%; }
+
+/* word reveal */
+.motion .split .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .12em; margin-bottom: -.12em; }
+.motion .split .w > span {
+  display: inline-block; transform: translateY(110%);
+  transition: transform 1s var(--ease); transition-delay: calc(var(--i) * 55ms);
+}
+.motion .split.in .w > span { transform: none; }
+.motion .hero-headline.split { opacity: 1; animation: none; }
+.motion .hero-headline.split .w > span { transition-delay: calc(150ms + var(--i) * 90ms); transition-duration: 1.1s; }
+[dir="rtl"] .motion .split .w { padding-bottom: .3em; margin-bottom: -.3em; padding-top: .1em; margin-top: -.1em; }
+
+/* parallax targets */
+.motion [data-parallax] { will-change: transform; }
+.motion .hero-bg img { animation: none; }
+
+/* solutions list stagger */
+.motion .solutions-list .solution-item { opacity: 0; transform: translateX(32px); transition: opacity .7s var(--ease), transform .7s var(--ease), background .25s, border-color .25s; }
+[dir="rtl"] .motion .solutions-list .solution-item { transform: translateX(-32px); }
+.motion .solutions-list.visible .solution-item { opacity: 1; transform: none; }
+.motion .solutions-list.visible .solution-item:hover { transform: translateX(4px); }
+[dir="rtl"] .motion .solutions-list.visible .solution-item:hover { transform: translateX(-4px); }
+.solutions-list .solution-item:nth-child(1) { transition-delay: .05s, .05s, 0s, 0s; }
+.solutions-list .solution-item:nth-child(2) { transition-delay: .12s, .12s, 0s, 0s; }
+.solutions-list .solution-item:nth-child(3) { transition-delay: .19s, .19s, 0s, 0s; }
+.solutions-list .solution-item:nth-child(4) { transition-delay: .26s, .26s, 0s, 0s; }
+.solutions-list .solution-item:nth-child(5) { transition-delay: .33s, .33s, 0s, 0s; }
+.solutions-list .solution-item:nth-child(6) { transition-delay: .40s, .40s, 0s, 0s; }
+.solutions-list .solution-item:nth-child(7) { transition-delay: .47s, .47s, 0s, 0s; }
+
+/* service card cursor glow */
+.svc::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(240,106,29,.32), transparent 60%);
+  opacity: 0; transition: opacity .4s;
+}
+.svc:hover::after { opacity: 1; }
+
+/* process progress tracker */
+.road { position: relative; height: 24px; margin: 0 0 28px; --p: 0; }
+.road-line {
+  position: absolute; left: 0; right: 0; top: 50%; height: 2px; transform: translateY(-50%);
+  background: rgba(24,16,0,.12);
+}
+.road-fill {
+  position: absolute; top: 50%; height: 2px; transform: translateY(-50%); border-radius: 2px;
+  inset-inline-start: 0; width: calc(var(--p) * (100% - 14px) + 7px);
+  background: linear-gradient(90deg, var(--orange), var(--flame));
+}
+[dir="rtl"] .road-fill { background: linear-gradient(270deg, var(--orange), var(--flame)); }
+.tracker {
+  position: absolute; top: 50%; inset-inline-start: calc(var(--p) * (100% - 14px));
+  width: 14px; height: 14px; border-radius: 50%; transform: translateY(-50%);
+  background: var(--flame); box-shadow: 0 0 0 5px rgba(240,106,29,.18), 0 0 18px 2px rgba(240,106,29,.55);
+}
+.tracker::after {
+  content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 1.5px solid rgba(240,106,29,.6);
+  animation: ring 1.8s ease-out infinite;
+}
+.no-motion .road, .road:not(.has-js) { display: none; }
+.motion .step .step-num { transition: color .5s var(--ease), -webkit-text-stroke-color .5s; }
+.motion .step.active .step-num { color: var(--orange); }
+.motion .step { transition: transform .35s var(--ease), box-shadow .35s, border-color .5s; }
+.motion .step.active { border-color: rgba(208,79,0,.35); }
+
+/* route map: staged entrance */
+.motion .map-card .m-arc, .motion .map-card .m-city, .motion .map-card .m-label { opacity: 0; transition: opacity .8s var(--ease); }
+.motion .map-card.visible .m-arc { opacity: .9; transition-delay: calc(var(--d) * .6 + .3s); }
+.motion .map-card.visible .m-city { opacity: 1; transition-delay: calc(var(--d) * .6 + .7s); }
+.motion .map-card.visible .m-label { opacity: 1; transition-delay: 1.2s; }
+
+/* primary button sheen */
+.btn-primary { position: relative; overflow: hidden; isolation: isolate; }
+.btn-primary::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+}
+.motion .hero .btn-primary::before, .motion .quote-card .btn-primary::before { animation: sheen 5s ease-in-out 2.5s infinite; }
+@keyframes sheen { 0%, 70% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
+
 </style>
 
 <link rel="canonical" href="https://solved-logistics.com/">
@@ -707,7 +795,7 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 <main id="main">
 <!-- ── HERO ── -->
 <section class="hero" id="home">
-  <picture class="hero-bg">
+  <picture class="hero-bg" data-parallax="0.18" data-scale="1.08">
     <source media="(max-width: 640px)" srcset="/images/hero-container-ship-port-mobile-800.webp" width="800" height="1000">
     <img src="/images/hero-container-ship-port-1920.webp" srcset="/images/hero-container-ship-port-1280.webp 1280w, /images/hero-container-ship-port-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Container ship being loaded by gantry cranes at a commercial port" data-alt-ar="سفينة حاويات يتم تحميلها بالرافعات في ميناء تجاري" fetchpriority="high" decoding="async">
   </picture>
@@ -739,7 +827,7 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
     <div class="hero-facts">
       <div class="fact"><div class="fact-num"><span data-count="220">220</span><em>+</em></div><div class="fact-label" data-i18n="f1_label">Countries &amp; territories</div></div>
       <div class="fact"><div class="fact-num" data-i18n="f2_num">Same-day</div><div class="fact-label" data-i18n="f2_label">Delivery across Kuwait</div></div>
-      <div class="fact"><div class="fact-num">6<em>/</em>6</div><div class="fact-label" data-i18n="f3_label">Kuwait governorates covered</div></div>
+      <div class="fact"><div class="fact-num"><span data-count="6">6</span><em>/</em>6</div><div class="fact-label" data-i18n="f3_label">Kuwait governorates covered</div></div>
       <div class="fact"><div class="fact-num" data-i18n="f4_num">Sat–Thu</div><div class="fact-label" data-i18n="f4_label">Operations, 8am – 8pm</div></div>
     </div>
   </div>
@@ -860,7 +948,7 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 <section class="why" id="why">
   <div class="wrap why-grid">
     <figure class="why-media reveal">
-      <img src="/images/why-warehouse-aisle-1000.webp" srcset="/images/why-warehouse-aisle-600.webp 600w, /images/why-warehouse-aisle-1000.webp 1000w" sizes="(max-width: 860px) 100vw, 580px" width="1000" height="1250" alt="Warehouse aisle with high racking stocked with palletized goods" data-alt-ar="ممر مستودع برفوف عالية مليئة بالبضائع على منصات" loading="lazy" decoding="async">
+      <img src="/images/why-warehouse-aisle-1000.webp" srcset="/images/why-warehouse-aisle-600.webp 600w, /images/why-warehouse-aisle-1000.webp 1000w" sizes="(max-width: 860px) 100vw, 580px" width="1000" height="1250" data-parallax="0.08" data-scale="1.12" alt="Warehouse aisle with high racking stocked with palletized goods" data-alt-ar="ممر مستودع برفوف عالية مليئة بالبضائع على منصات" loading="lazy" decoding="async">
       <figcaption class="why-badge" data-i18n="why_badge">One team. One platform. One invoice.</figcaption>
     </figure>
     <div class="why-copy">
@@ -906,6 +994,7 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
       </div>
       <p class="lede" data-i18n="proc_body">We keep the process lean. You focus on your business — we handle every step of the logistics chain.</p>
     </div>
+    <div class="road" aria-hidden="true"><div class="road-line"></div><div class="road-fill"></div><div class="tracker"></div></div>
     <ol class="steps" style="list-style:none">
       <li class="step reveal reveal-delay-1"><div class="step-num">01</div><h3 class="step-title" data-i18n="p1_title">Tell us what you need</h3><p class="step-body" data-i18n="p1_body">Reach out with your shipment details, volume, and destinations. We'll recommend the right service and give you a clear quote — no hidden fees.</p></li>
       <li class="step reveal reveal-delay-2"><div class="step-num">02</div><h3 class="step-title" data-i18n="p2_title">We arrange the pickup</h3><p class="step-body" data-i18n="p2_body">Our team schedules a collection from your address or warehouse. You get a confirmation, a tracking reference, and documentation handled.</p></li>
@@ -951,7 +1040,7 @@ html:not([dir="rtl"]) .m-ar, [dir="rtl"] .m-en { display: none; }
 <!-- ── CTA ── -->
 <section class="cta">
   <div class="cta-panel reveal">
-    <img src="/images/cta-truck-highway-1920.webp" width="1920" height="1080" alt="Freight truck trailer on the highway at dusk" data-alt-ar="مقطورة شاحنة شحن على الطريق السريع عند الغروب" loading="lazy" decoding="async" sizes="(max-width: 1240px) 100vw, 1240px">
+    <img data-parallax="0.12" data-scale="1.2" src="/images/cta-truck-highway-1920.webp" width="1920" height="1080" alt="Freight truck trailer on the highway at dusk" data-alt-ar="مقطورة شاحنة شحن على الطريق السريع عند الغروب" loading="lazy" decoding="async" sizes="(max-width: 1240px) 100vw, 1240px">
     <div class="cta-label" data-i18n="cta_label">Ready to ship smarter?</div>
     <h2 class="cta-headline" data-i18n="cta_headline">Let's get your<br>logistics <span class="accent">solved.</span></h2>
     <p class="cta-sub" data-i18n="cta_sub">Talk to our team — we'll put together a solution that fits your operation and your budget.</p>
@@ -1315,6 +1404,7 @@ function switchLang(lang) {
     opt.textContent = lang === 'ar' ? opt.dataset.ar : opt.dataset.en;
   });
   try { localStorage.setItem('solved-lang', lang); } catch (e) {}
+  if (window.solvedSplit) window.solvedSplit();
 }
 
 // Init from saved preference (only switch if it differs from the page language)
@@ -1422,6 +1512,90 @@ document.querySelectorAll('[data-count]').forEach(el => {
   };
   requestAnimationFrame(tick);
 });
+
+// ── Motion layer (respects prefers-reduced-motion) ─────────────
+(function () {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+  if (reduce) { root.classList.add('no-motion'); return; }
+  root.classList.add('motion');
+
+  // 1. Word-by-word heading reveal
+  function splitWords(el) {
+    if (el.querySelector('.w')) return;
+    let i = 0;
+    const walk = node => {
+      [...node.childNodes].forEach(n => {
+        if (n.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(part => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            const w = document.createElement('span'); w.className = 'w';
+            const inner = document.createElement('span'); inner.textContent = part;
+            inner.style.setProperty('--i', i++);
+            w.appendChild(inner); frag.appendChild(w);
+          });
+          n.replaceWith(frag);
+        } else if (n.nodeType === 1 && n.tagName !== 'BR' && n.tagName !== 'SVG') walk(n);
+      });
+    };
+    walk(el);
+  }
+  const SPLIT = '.h2, .solutions-headline, .cta-headline, .hero-headline, .page-h1';
+  const splitObs = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); splitObs.unobserve(e.target); }
+  }), { threshold: 0.2 });
+  window.solvedSplit = function () {
+    document.querySelectorAll(SPLIT).forEach(el => {
+      el.classList.add('split'); splitWords(el);
+      if (el.classList.contains('hero-headline') || el.classList.contains('page-h1')) requestAnimationFrame(() => el.classList.add('in'));
+      else if (!el.classList.contains('in')) splitObs.observe(el);
+    });
+  };
+  window.solvedSplit();
+
+  // 2. Scroll-linked effects: progress bar, parallax, process truck
+  const bar = document.createElement('div'); bar.className = 'scroll-progress'; document.body.appendChild(bar);
+  const par = [...document.querySelectorAll('[data-parallax]')];
+  const road = document.querySelector('.road');
+  const steps = [...document.querySelectorAll('.step')];
+  if (road) road.classList.add('has-js');
+  let ticking = false;
+  function frame() {
+    ticking = false;
+    const vh = innerHeight, max = document.documentElement.scrollHeight - vh;
+    bar.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+    par.forEach(el => {
+      const r = el.parentElement.getBoundingClientRect();
+      if (r.bottom < -100 || r.top > vh + 100) return;
+      const k = parseFloat(el.dataset.parallax);
+      const offset = (r.top + r.height / 2 - vh / 2) * -k;
+      el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0) scale(${el.dataset.scale || 1.15})`;
+    });
+    if (road) {
+      const r = road.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, (vh * 0.85 - r.top) / (vh * 0.6)));
+      road.style.setProperty('--p', p.toFixed(4));
+      steps.forEach((s, i) => s.classList.toggle('active', p >= (i + 0.35) / steps.length));
+    }
+  }
+  const onScroll = () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(frame); }
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', onScroll);
+  frame();
+
+  // 3. Cursor-follow glow on service cards
+  document.querySelectorAll('.svc').forEach(card => {
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+})();
 
 </script>
 </body></html>
