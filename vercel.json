@@ -9,6 +9,14 @@
     {
       "source": "/ar",
       "destination": "/ar.html"
+    },
+    {
+      "source": "/guides",
+      "destination": "/guides.html"
+    },
+    {
+      "source": "/ar/guides",
+      "destination": "/ar/guides.html"
     }
   ],
   "headers": [

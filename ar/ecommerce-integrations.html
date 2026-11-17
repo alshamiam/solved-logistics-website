@@ -911,6 +911,14 @@ a.cov-tag::after { content: "→"; margin-inline-start: auto; color: var(--flame
 .prose li b { color: var(--ink); font-weight: 700; }
 @media (max-width: 640px) { .prose li { font-size: 15.5px; } }
 
+/* guides */
+.guide-meta { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: rgba(255,255,255,.75); margin: -8px 0 16px; }
+[dir="rtl"] .guide-meta { font-family: "IBM Plex Sans Arabic", var(--mono); letter-spacing: 0; font-size: 13px; }
+.prose a { color: var(--orange); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.prose a:hover { color: var(--flame); }
+.prose h2 a { color: var(--ink); font-weight: inherit; text-decoration: none; background: linear-gradient(var(--orange), var(--orange)) 0 100% / 0 2px no-repeat; transition: background-size .35s var(--ease); }
+.prose h2 a:hover { color: var(--ink); background-size: 100% 2px; }
+
 /* ── Motion layer ───────────────────────────────── */
 .scroll-progress {
   position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 300;
@@ -1025,6 +1033,7 @@ html { overflow-x: clip; }
   <img data-parallax="0.18" data-scale="1.1" src="/images/page-ecommerce-integrations-1920.webp" srcset="/images/page-ecommerce-integrations-760.webp 760w, /images/page-ecommerce-integrations-1480.webp 1480w, /images/page-ecommerce-integrations-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="مستودع تجهيز طلبات مع رفوف مخزون جاهزة لطلبات المتاجر الإلكترونية" fetchpriority="high" decoding="async">
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/ar">الرئيسية</a><span class="sep">‹</span><span aria-current="page">ربط المتاجر الإلكترونية</span></nav>
+    
     <h1 class="page-h1">ربط المتاجر الإلكترونية</h1>
     <p class="lead">اربط متجرك الإلكتروني مع SOLVED مرة واحدة، وسيصلنا كل طلب جديد تلقائياً. يتولى فريقنا الاستلام والتوصيل وتحصيل الدفع عند الاستلام، ويتم تحديث متجرك بحالة الشحنة ورقم التتبع، لتتفرغ أنت للبيع.</p>
     <div class="hero-actions">
@@ -1110,7 +1119,7 @@ html { overflow-x: clip; }
 <li><a href="/ar#why">لماذا SOLVED</a></li>
 <li><a href="/ar#coverage">التغطية</a></li>
 <li><a href="/ar#contact">اطلب عرضاً</a></li>
-</ul>
+<li><a href="/ar/guides">الأدلة</a></li></ul>
 </div>
 <div class="footer-col">
 <h3>تواصل معنا</h3>
