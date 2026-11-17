@@ -237,7 +237,7 @@ a { color: inherit; }
 .qc-call a { color: #fff; font-weight: 700; text-decoration: none; direction: ltr; unicode-bidi: embed; }
 
 .hero-facts {
-  margin-top: 44px; display: grid; grid-template-columns: repeat(4, 1fr);
+  margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid rgba(255,255,255,.16);
   opacity: 0; animation: fadeUp .9s .7s var(--ease) forwards;
 }
@@ -537,8 +537,7 @@ footer { background: var(--ink-2); color: var(--cream); padding: 80px 0 32px; ma
   .why-media { min-height: 0; aspect-ratio: 4/3; }
   .services, .why, .solutions, .coverage, .process, .contact { padding: 88px 0; }
   .hero-facts { grid-template-columns: 1fr 1fr; }
-  .fact:nth-child(3) { border-inline-start: 0; padding-inline-start: 0; }
-  .fact:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.16); margin-top: 20px; }
+  .fact:nth-child(3) { grid-column: 1 / -1; border-inline-start: 0; padding-inline-start: 0; border-top: 1px solid rgba(255,255,255,.16); margin-top: 20px; }
 }
 @media (max-width: 640px) {
   .nav { height: 60px; top: 8px; width: calc(100% - 16px); }
@@ -762,7 +761,7 @@ html { overflow-x: clip; }
 <meta name="twitter:title" content="SOLVED — Logistics &amp; Shipping Company in Kuwait &amp; the GCC">
 <meta name="twitter:description" content="Full-service logistics in Kuwait &amp; the GCC: international shipping, local delivery, freight, fulfillment, and customs clearance.">
 <meta name="twitter:image" content="https://solved-logistics.com/images/og-solved-logistics.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","@id":"https://solved-logistics.com/#business","name":"SOLVED Logistics","alternateName":"SOLVED","url":"https://solved-logistics.com","telephone":"+96522099120","email":"hello@solved-logistics.com","image":["https://solved-logistics.com/images/og-solved-logistics.jpg","https://solved-logistics.com/images/hero-container-ship-port-1920.webp"],"logo":"https://solved-logistics.com/android-chrome-512x512.png","description":"Full-service logistics company in Kuwait and the GCC: international shipping, local delivery, air and sea freight, personal effects, fulfillment, and customs clearance.","address":{"@type":"PostalAddress","addressLocality":"Kuwait City","addressCountry":"KW"},"areaServed":["KW","SA","AE","QA","BH","OM"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"08:00","closes":"20:00"},"priceRange":"$$"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","@id":"https://solved-logistics.com/#business","name":"SOLVED Logistics","alternateName":"SOLVED","url":"https://solved-logistics.com","telephone":"+96522099120","email":"hello@solved-logistics.com","image":["https://solved-logistics.com/images/og-solved-logistics.jpg","https://solved-logistics.com/images/hero-container-ship-port-1920.webp"],"logo":"https://solved-logistics.com/android-chrome-512x512.png","description":"Full-service logistics company in Kuwait and the GCC: international shipping, local delivery, air and sea freight, personal effects, fulfillment, and customs clearance.","address":{"@type":"PostalAddress","addressLocality":"Kuwait City","addressCountry":"KW"},"areaServed":["KW","SA","AE","QA","BH","OM"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"09:00","closes":"18:00"},"priceRange":"$$"}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -829,8 +828,7 @@ html { overflow-x: clip; }
     <div class="hero-facts">
       <div class="fact"><div class="fact-num"><span data-count="220">220</span><em>+</em></div><div class="fact-label" data-i18n="f1_label">Countries &amp; territories</div></div>
       <div class="fact"><div class="fact-num" data-i18n="f2_num">Same-day</div><div class="fact-label" data-i18n="f2_label">Delivery across Kuwait</div></div>
-      <div class="fact"><div class="fact-num"><span data-count="6">6</span><em>/</em>6</div><div class="fact-label" data-i18n="f3_label">Kuwait governorates covered</div></div>
-      <div class="fact"><div class="fact-num" data-i18n="f4_num">Sat–Thu</div><div class="fact-label" data-i18n="f4_label">Operations, 8am – 8pm</div></div>
+      <div class="fact"><div class="fact-num" data-i18n="f4_num">Sat–Thu</div><div class="fact-label" data-i18n="f4_label">Operations, 9am – 6pm</div></div>
     </div>
   </div>
 </section>
@@ -1079,7 +1077,7 @@ html { overflow-x: clip; }
         </div>
         <div class="contact-detail">
           <span class="cd-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
-          <div><div class="label" data-i18n="cd_hours">Operations</div><div class="value" data-i18n="contact_hours">Sat – Thu, 8am – 8pm (AST)</div></div>
+          <div><div class="label" data-i18n="cd_hours">Operations</div><div class="value" data-i18n="contact_hours">Sat – Thu, 9am – 6pm (KWT)</div></div>
         </div>
       </div>
       <form class="contact-form" onsubmit="handleSubmit(event)">
@@ -1246,7 +1244,7 @@ const T = {
     contact_title: "Start a conversation.",
     contact_body: "Tell us about your business and your shipments. Our team will come back to you within one business day with options, pricing, and a plan.",
     contact_loc: "Kuwait City, Kuwait",
-    contact_hours: "Sat – Thu, 8am – 8pm (AST)",
+    contact_hours: "Sat – Thu, 9am – 6pm (KWT)",
     footer_copy: "© 2026 SOLVED Logistics. Kuwait · GCC.",
     ph_name: "", ph_company: "",
     ph_email: "", ph_phone: "",
@@ -1378,8 +1376,8 @@ const T = {
     submit_btn: "أرسل", submit_sent: "✓ تم الإرسال"
   }
 };
-Object.assign(T.en, {"qc_title": "Get a quote within one business day", "qc_body": "What are you shipping? Pick a service and we'll come back with options and clear pricing.", "qc_s1": "International", "qc_s2": "Local delivery", "qc_s3": "Air &amp; sea freight", "qc_s4": "Fulfillment", "qc_s5": "Relocation", "qc_cta": "Start my quote", "qc_call": "or call us", "f1_label": "Countries &amp; territories", "f2_num": "Same-day", "f2_label": "Delivery across Kuwait", "f3_label": "Kuwait governorates covered", "f4_num": "Sat–Thu", "f4_label": "Operations, 8am – 8pm", "srv_more": "Explore", "srv_quote": "Get a quote", "why_badge": "One team. One platform. One invoice.", "c_bh": "Bahrain", "cov_route": "Shipping from Kuwait to Saudi Arabia", "cov_hq": "Kuwait City", "cov_hq_sub": "Headquarters &amp; operations", "contact_label": "Contact", "wa_cta": "WhatsApp us", "cd_wa": "WhatsApp", "cd_phone": "Landline", "cd_email": "Email", "cd_loc": "Location", "cd_hours": "Operations"});
-Object.assign(T.ar, {"qc_title": "احصل على عرض سعر خلال يوم عمل واحد", "qc_body": "ماذا تريد أن تشحن؟ اختر الخدمة وسنعود إليك بخيارات وأسعار واضحة.", "qc_s1": "شحن دولي", "qc_s2": "توصيل محلي", "qc_s3": "شحن جوي وبحري", "qc_s4": "تخزين وتوزيع", "qc_s5": "انتقال وأغراض شخصية", "qc_cta": "ابدأ طلب السعر", "qc_call": "أو اتصل بنا", "f1_label": "دولة ومنطقة", "f2_num": "نفس اليوم", "f2_label": "توصيل في جميع أنحاء الكويت", "f3_label": "محافظات الكويت مغطاة", "f4_num": "السبت–الخميس", "f4_label": "العمليات من ٨ص إلى ٨م", "srv_more": "اكتشف الخدمة", "srv_quote": "اطلب عرض سعر", "why_badge": "فريق واحد. منصة واحدة. فاتورة واحدة.", "c_bh": "البحرين", "cov_route": "الشحن من الكويت إلى السعودية", "cov_hq": "مدينة الكويت", "cov_hq_sub": "المقر الرئيسي والعمليات", "contact_label": "تواصل معنا", "wa_cta": "راسلنا على واتساب", "cd_wa": "واتساب", "mq1": "الشحن الدولي", "mq2": "التوصيل المحلي بالكويت", "mq3": "الشحن الجوي", "mq4": "الشحن البحري", "mq5": "التخزين والتوزيع", "mq6": "خدمات البضائع", "mq7": "الأغراض الشخصية", "mq8": "لوجستيات التجارة الإلكترونية", "mq9": "تغطية الخليج", "cd_phone": "الهاتف الأرضي", "cd_email": "البريد الإلكتروني", "cd_loc": "الموقع", "cd_hours": "ساعات العمل"});
+Object.assign(T.en, {"qc_title": "Get a quote within one business day", "qc_body": "What are you shipping? Pick a service and we'll come back with options and clear pricing.", "qc_s1": "International", "qc_s2": "Local delivery", "qc_s3": "Air &amp; sea freight", "qc_s4": "Fulfillment", "qc_s5": "Relocation", "qc_cta": "Start my quote", "qc_call": "or call us", "f1_label": "Countries &amp; territories", "f2_num": "Same-day", "f2_label": "Delivery across Kuwait", "f4_num": "Sat–Thu", "f4_label": "Operations, 9am – 6pm", "srv_more": "Explore", "srv_quote": "Get a quote", "why_badge": "One team. One platform. One invoice.", "c_bh": "Bahrain", "cov_route": "Shipping from Kuwait to Saudi Arabia", "cov_hq": "Kuwait City", "cov_hq_sub": "Headquarters &amp; operations", "contact_label": "Contact", "wa_cta": "WhatsApp us", "cd_wa": "WhatsApp", "cd_phone": "Landline", "cd_email": "Email", "cd_loc": "Location", "cd_hours": "Operations"});
+Object.assign(T.ar, {"qc_title": "احصل على عرض سعر خلال يوم عمل واحد", "qc_body": "ماذا تريد أن تشحن؟ اختر الخدمة وسنعود إليك بخيارات وأسعار واضحة.", "qc_s1": "شحن دولي", "qc_s2": "توصيل محلي", "qc_s3": "شحن جوي وبحري", "qc_s4": "تخزين وتوزيع", "qc_s5": "انتقال وأغراض شخصية", "qc_cta": "ابدأ طلب السعر", "qc_call": "أو اتصل بنا", "f1_label": "دولة ومنطقة", "f2_num": "نفس اليوم", "f2_label": "توصيل في جميع أنحاء الكويت", "f4_num": "السبت–الخميس", "f4_label": "العمليات من ٩ص إلى ٦م", "srv_more": "اكتشف الخدمة", "srv_quote": "اطلب عرض سعر", "why_badge": "فريق واحد. منصة واحدة. فاتورة واحدة.", "c_bh": "البحرين", "cov_route": "الشحن من الكويت إلى السعودية", "cov_hq": "مدينة الكويت", "cov_hq_sub": "المقر الرئيسي والعمليات", "contact_label": "تواصل معنا", "wa_cta": "راسلنا على واتساب", "cd_wa": "واتساب", "mq1": "الشحن الدولي", "mq2": "التوصيل المحلي بالكويت", "mq3": "الشحن الجوي", "mq4": "الشحن البحري", "mq5": "التخزين والتوزيع", "mq6": "خدمات البضائع", "mq7": "الأغراض الشخصية", "mq8": "لوجستيات التجارة الإلكترونية", "mq9": "تغطية الخليج", "cd_phone": "الهاتف الأرضي", "cd_email": "البريد الإلكتروني", "cd_loc": "الموقع", "cd_hours": "ساعات العمل"});
 
 function switchLang(lang) {
   document.documentElement.lang = lang;
