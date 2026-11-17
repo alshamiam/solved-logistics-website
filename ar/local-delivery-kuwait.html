@@ -31,7 +31,7 @@
 <meta name="twitter:image" content="https://www.solved-logistics.com/images/og-solved-logistics.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","image":"https://www.solved-logistics.com/images/page-local-delivery-kuwait-1480.webp","serviceType":"Local Delivery","name":"التوصيل المحلي في الكويت","description":"توصيل محلي في الكويت بسعر 1.5 د.ك لجميع المناطق السكنية. توصيل في نفس اليوم واليوم التالي، تتبع لحظي ودفع عند الاستلام للمتاجر الإلكترونية.","provider":{"@type":"LocalBusiness","sameAs":["https://www.instagram.com/solvedlogistics/","https://www.linkedin.com/company/solved-logistics"],"name":"سولفد للخدمات اللوجستية","url":"https://www.solved-logistics.com","telephone":"+96522099120","email":"hello@solved-logistics.com","areaServed":["KW","SA","AE","QA","BH","OM"],"address":{"@type":"PostalAddress","streetAddress":"Suhaib Center, Entrance 1, Floor 2, Office 3, Salem Al Mubarak St","addressLocality":"Salmiya","addressRegion":"Hawalli","addressCountry":"KW"}},"areaServed":["KW","SA","AE","QA","BH","OM"],"url":"https://www.solved-logistics.com/ar/local-delivery-kuwait","offers":{"@type":"Offer","price":"1.500","priceCurrency":"KWD","description":"Per delivery, all residential areas in Kuwait"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://www.solved-logistics.com/ar"},{"@type":"ListItem","position":2,"name":"التوصيل المحلي في الكويت","item":"https://www.solved-logistics.com/ar/local-delivery-kuwait"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"كم تكلفة التوصيل المحلي؟","acceptedAnswer":{"@type":"Answer","text":"التوصيل المحلي بسعر 1.5 د.ك لكل طلب إلى جميع المناطق السكنية في الكويت."}},{"@type":"Question","name":"هل توفّرون التوصيل في نفس اليوم بالكويت؟","acceptedAnswer":{"@type":"Answer","text":"نعم — التوصيل في نفس اليوم متاح في جميع أنحاء الكويت للطلبات المقدّمة ضمن أوقاتنا المحددة، مع اليوم التالي كخيار قياسي لما عداها."}},{"@type":"Question","name":"هل يوجد دفع عند الاستلام؟","acceptedAnswer":{"@type":"Answer","text":"نعم. نحصّل المبلغ نيابةً عنك ونسوّيه لك مع تقارير واضحة، فتصبح المطابقة بسيطة."}},{"@type":"Question","name":"ما المناطق التي تغطّونها في الكويت؟","acceptedAnswer":{"@type":"Answer","text":"نوصّل إلى جميع المحافظات — العاصمة وحولي والفروانية والأحمدي والجهراء ومبارك الكبير."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"كم تكلفة التوصيل المحلي؟","acceptedAnswer":{"@type":"Answer","text":"التوصيل المحلي بسعر 1.5 د.ك لكل طلب إلى جميع المناطق السكنية في الكويت."}},{"@type":"Question","name":"هل توفّرون التوصيل في نفس اليوم بالكويت؟","acceptedAnswer":{"@type":"Answer","text":"نعم — التوصيل في نفس اليوم متاح في جميع أنحاء الكويت للطلبات المقدّمة ضمن أوقاتنا المحددة، مع اليوم التالي كخيار قياسي لما عداها."}},{"@type":"Question","name":"هل يوجد دفع عند الاستلام؟","acceptedAnswer":{"@type":"Answer","text":"نعم. نحصّل المبلغ نيابةً عنك ونسوّيه لك مع تقارير واضحة، فتصبح المطابقة بسيطة."}},{"@type":"Question","name":"ما المناطق التي تغطّونها في الكويت؟","acceptedAnswer":{"@type":"Answer","text":"نوصّل إلى جميع المحافظات — العاصمة وحولي والفروانية والأحمدي والجهراء ومبارك الكبير."}},{"@type":"Question","name":"هل تستلمون الطلبات من موقعي؟","acceptedAnswer":{"@type":"Answer","text":"نعم. نستلم الطلبات من محلك أو منزلك أو مستودعك، ويمكن جدولة استلام منتظم حسب حجم طلباتك."}},{"@type":"Question","name":"هل يمكنني ربط متجري الإلكتروني؟","acceptedAnswer":{"@type":"Answer","text":"نعم. يمكن لمتاجر شوبيفاي وسلة وزد وووكومرس وأوردابل وبيك إرسال الطلبات إلى SOLVED تلقائياً، كما يمكن ربط الأنظمة الأخرى عبر واجهة API."}}]}</script>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -897,6 +897,19 @@ a.cov-tag::after { content: "→"; margin-inline-start: auto; color: var(--flame
 .hero-price span { font-size: 14px; color: rgba(255,255,255,.8); }
 [dir="rtl"] .hero-price b { font-family: "Cairo", var(--display); letter-spacing: 0; }
 
+/* lists inside service-page prose */
+.prose ul, .prose ol { margin: 4px 0 18px; padding: 0; list-style: none; display: grid; gap: 10px; }
+.prose li { position: relative; padding-inline-start: 30px; font-size: 16.5px; line-height: 1.7; color: var(--muted); }
+.prose ul li::before { content: ""; position: absolute; inset-inline-start: 6px; top: .72em; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+.prose ol { counter-reset: step; }
+.prose ol li { counter-increment: step; }
+.prose ol li::before {
+  content: counter(step); position: absolute; inset-inline-start: 0; top: .15em; width: 22px; height: 22px; border-radius: 7px;
+  display: grid; place-items: center; font: 600 12px var(--mono); color: var(--orange); background: rgba(208,79,0,.1);
+}
+.prose li b { color: var(--ink); font-weight: 700; }
+@media (max-width: 640px) { .prose li { font-size: 15.5px; } }
+
 /* ── Motion layer ───────────────────────────────── */
 .scroll-progress {
   position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 300;
@@ -1030,6 +1043,16 @@ html { overflow-x: clip; }
 <p>اربط طلباتك ودعنا نتولّى الباقي — استلام من موقعك، وتوصيل للعميل، وتحصيل الدفع عند الاستلام إن احتجت. لوحة تحكم واحدة وتسوية واحدة بدل أكوام إيصالات السائقين.</p>
 <h2><span class="n">03</span><span>تتبع يثق به عملاؤك</span></h2>
 <p>كل طلب يُتتبع لحظياً من الاستلام حتى الباب، مع تأكيد التسليم. رسائل أقل من نوع «أين طلبي؟»، وتجربة أسلس تُعيد العملاء إليك.</p>
+<h2><span class="n">04</span><span>سعر واحد لجميع المناطق السكنية: 1.5 د.ك</span></h2>
+<p>تكلفة التوصيل المحلي <b>1.5 د.ك لكل طلب</b> إلى أي منطقة سكنية في الكويت، من العاصمة وحولي إلى الجهراء والأحمدي ومبارك الكبير. لا توجد مناطق للحساب ولا رسوم إضافية حسب المسافة، فتعرف تكلفة التوصيل قبل أن تبيع.</p>
+<h2><span class="n">05</span><span>كيف تعمل الخدمة</span></h2>
+<ol><li><b>أرسل لنا طلباتك</b> عبر متجرك الإلكتروني المربوط أو ملف إكسل أو واتساب.</li><li><b>نستلم الطلبات</b> من محلك أو منزلك أو مستودعك، ويمكن جدولة استلام منتظم حسب طبيعة عملك.</li><li><b>نوصل الطلبات</b> في نفس اليوم أو اليوم التالي، وتستطيع متابعة حالة كل طلب.</li><li><b>نحوّل لك مبالغ الدفع عند الاستلام</b> مع كشف واضح بكل ما تم تحصيله.</li></ol>
+<h2><span class="n">06</span><span>الدفع عند الاستلام مع تقارير واضحة</span></h2>
+<p>ما زال كثير من المتسوقين في الكويت يفضلون الدفع عند وصول الطلب. يحصّل سائقونا المبلغ عند التسليم، ويُسجَّل كل مبلغ على طلبه. وبذلك تصبح مطابقة مبالغ الدفع عند الاستلام مجرد قراءة كشف واحد بدلاً من ملاحقة السائقين والإيصالات.</p>
+<h2><span class="n">07</span><span>إثبات التسليم وإعادة المحاولة والمرتجعات</span></h2>
+<p>يُسجَّل كل تسليم مكتمل بوقته والموقع الذي تم فيه. وإذا تعذّر الوصول إلى عميلك نعيد المحاولة ونبقيك على اطلاع. والطلبات التي يتعذّر تسليمها تعود إليك كمرتجعات، فلا يضيع أي طلب.</p>
+<h2><span class="n">08</span><span>لمن نقدم خدماتنا</span></h2>
+<p>للمتاجر الإلكترونية وبائعي وسائل التواصل الاجتماعي والمحلات التجارية وموردي الشركات الذين يحتاجون توصيلاً موثوقاً في جميع أنحاء الكويت، من بضعة طلبات أسبوعياً إلى مئات الطلبات يومياً. اربط متجرك على شوبيفاي أو سلة أو زد أو ووكومرس أو أوردابل أو بيك لتصلنا الطلبات تلقائياً.</p>
     </article>
     <aside class="aside-card reveal reveal-delay-2">
       <h2>تحدّث مع مختص لوجستي</h2>
@@ -1046,7 +1069,7 @@ html { overflow-x: clip; }
   <div class="wrap faq-grid">
     <div class="reveal"><div class="eyebrow">الأسئلة الشائعة</div><h2 class="h2">أسئلة شائعة</h2></div>
     <div class="faq-list reveal reveal-delay-2">
-      <details class="faq-item" open><summary class="faq-q">كم تكلفة التوصيل المحلي؟</summary><div class="faq-a">التوصيل المحلي بسعر 1.5 د.ك لكل طلب إلى جميع المناطق السكنية في الكويت.</div></details><details class="faq-item"><summary class="faq-q">هل توفّرون التوصيل في نفس اليوم بالكويت؟</summary><div class="faq-a">نعم — التوصيل في نفس اليوم متاح في جميع أنحاء الكويت للطلبات المقدّمة ضمن أوقاتنا المحددة، مع اليوم التالي كخيار قياسي لما عداها.</div></details><details class="faq-item"><summary class="faq-q">هل يوجد دفع عند الاستلام؟</summary><div class="faq-a">نعم. نحصّل المبلغ نيابةً عنك ونسوّيه لك مع تقارير واضحة، فتصبح المطابقة بسيطة.</div></details><details class="faq-item"><summary class="faq-q">ما المناطق التي تغطّونها في الكويت؟</summary><div class="faq-a">نوصّل إلى جميع المحافظات — العاصمة وحولي والفروانية والأحمدي والجهراء ومبارك الكبير.</div></details>
+      <details class="faq-item" open><summary class="faq-q">كم تكلفة التوصيل المحلي؟</summary><div class="faq-a">التوصيل المحلي بسعر 1.5 د.ك لكل طلب إلى جميع المناطق السكنية في الكويت.</div></details><details class="faq-item"><summary class="faq-q">هل توفّرون التوصيل في نفس اليوم بالكويت؟</summary><div class="faq-a">نعم — التوصيل في نفس اليوم متاح في جميع أنحاء الكويت للطلبات المقدّمة ضمن أوقاتنا المحددة، مع اليوم التالي كخيار قياسي لما عداها.</div></details><details class="faq-item"><summary class="faq-q">هل يوجد دفع عند الاستلام؟</summary><div class="faq-a">نعم. نحصّل المبلغ نيابةً عنك ونسوّيه لك مع تقارير واضحة، فتصبح المطابقة بسيطة.</div></details><details class="faq-item"><summary class="faq-q">ما المناطق التي تغطّونها في الكويت؟</summary><div class="faq-a">نوصّل إلى جميع المحافظات — العاصمة وحولي والفروانية والأحمدي والجهراء ومبارك الكبير.</div></details><details class="faq-item"><summary class="faq-q">هل تستلمون الطلبات من موقعي؟</summary><div class="faq-a">نعم. نستلم الطلبات من محلك أو منزلك أو مستودعك، ويمكن جدولة استلام منتظم حسب حجم طلباتك.</div></details><details class="faq-item"><summary class="faq-q">هل يمكنني ربط متجري الإلكتروني؟</summary><div class="faq-a">نعم. يمكن لمتاجر شوبيفاي وسلة وزد وووكومرس وأوردابل وبيك إرسال الطلبات إلى SOLVED تلقائياً، كما يمكن ربط الأنظمة الأخرى عبر واجهة API.</div></details>
     </div>
   </div>
 </section>
