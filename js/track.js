@@ -17,7 +17,7 @@
 (function () {
   var ADS_CONVERSIONS = {
     whatsapp_click: "AW-18580474209/QifACOOe4bodEOGS7ptF",  // "WhatsApp click" (Contact goal)
-    generate_lead:  "",
+    generate_lead:  "AW-18580474209/IVEBCLOilbodEOGS7ptF",  // "Submit lead form" (quote form sent)
     phone_click:    ""
   };
 
