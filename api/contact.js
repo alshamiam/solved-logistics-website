@@ -55,7 +55,25 @@ async function watcherIds() {
   return (await r.json()).map(u => u.id);
 }
 
-async function createTicket(lead) {
+// The ad visit this form came from, if any (set by js/track.js → /api/track).
+async function adSession(key) {
+  if (!/^[a-z0-9-]{16,64}$/i.test(String(key || ''))) return null;
+  const r = await sb(`utm_sessions?session_key=eq.${encodeURIComponent(key)}&select=*&limit=1`);
+  if (!r.ok) return null;
+  return (await r.json())[0] || null;
+}
+
+function sourceLine(s) {
+  if (!s) return null;
+  const parts = ['Google Ads'];
+  if (s.utm_term) parts.push(`keyword: ${s.utm_term}`);
+  if (s.utm_campaign) parts.push(`campaign: ${s.utm_campaign}`);
+  if (s.landing_page) parts.push(`landed on: ${s.landing_page.split('?')[0]}`);
+  if (s.ref_code) parts.push(`ref: ${s.ref_code}`);
+  return `Source: ${parts.join(' · ')}`;
+}
+
+async function createTicket(lead, session) {
   const lines = [
     'Enquiry from the solved-logistics.com contact form.',
     '',
@@ -65,6 +83,7 @@ async function createTicket(lead) {
     lead.phone && `Phone: ${lead.phone}`,
     lead.service && `Service: ${lead.service}`,
     `Language: ${lead.lang === 'ar' ? 'Arabic' : 'English'}`,
+    sourceLine(session),
     '',
     'Message:',
     lead.message || '(none)',
@@ -78,7 +97,7 @@ async function createTicket(lead) {
       type: 'website_enquiry',
       priority: 'medium',
       status: 'open',
-      tags: ['website', lead.lang === 'ar' ? 'arabic' : 'english'],
+      tags: ['website', lead.lang === 'ar' ? 'arabic' : 'english', ...(session ? ['google-ads'] : [])],
       watchers: await watcherIds(),
     }),
   });
@@ -205,10 +224,28 @@ module.exports = async function handler(req, res) {
   if (!saved.ok) console.error('Lead NOT saved to Supabase:', saved.status, (await saved.text()).slice(0, 300));
 
   // 2. Ticket in Beyond.
+  const session = await adSession(b.attr_key).catch(() => null);
   let ticket = null;
-  try { ticket = await createTicket(lead); }
+  try { ticket = await createTicket(lead, session); }
   catch (e) { console.error('Ticket NOT created:', e.message); }
   const ticketNo = ticket?.ticket_no || null;
+
+  // Record the lead against the ad visit so Marketing can count it.
+  if (session) {
+    await sb('marketing_conversions', {
+      method: 'POST', headers: { Prefer: 'return=minimal' },
+      body: JSON.stringify({
+        session_id: session.id, event_type: 'form_submit', ticket_id: ticket?.id || null,
+        ref_code: session.ref_code, gclid: session.gclid, phone: lead.phone || null,
+        utm_source: session.utm_source, utm_medium: session.utm_medium, utm_campaign: session.utm_campaign,
+        utm_term: session.utm_term, landing_page: session.landing_page,
+      }),
+    }).catch(e => console.error('conversion insert', e.message));
+    await sb(`utm_sessions?id=eq.${encodeURIComponent(session.id)}`, {
+      method: 'PATCH', headers: { Prefer: 'return=minimal' },
+      body: JSON.stringify({ converted: true, converted_at: new Date().toISOString(), last_seen_at: new Date().toISOString() }),
+    }).catch(() => {});
+  }
 
   // 3. Emails: team notification, then the customer's confirmation.
   const teamSent = await notifyTeam({
