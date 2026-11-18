@@ -16,13 +16,16 @@
  */
 (function () {
   var ADS_CONVERSIONS = {
-    whatsapp_click: "",   // e.g. "AW-123456789/AbCdEfGhIj"
+    whatsapp_click: "AW-18580474209/QifACOOe4bodEOGS7ptF",  // "WhatsApp click" (Contact goal)
     generate_lead:  "",
     phone_click:    ""
   };
 
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
+  // The Google Ads account behind the conversions above (customer 324-682-6635).
+  var ADS_ID = "AW-18580474209";
+  gtag("config", ADS_ID);
 
   function track(name, params) {
     params = params || {};
@@ -31,7 +34,8 @@
     try {
       gtag("event", name, params);
       var sendTo = ADS_CONVERSIONS[name];
-      if (sendTo) gtag("event", "conversion", { send_to: sendTo });
+      // beacon: the conversion still reaches Google if the tap opens WhatsApp in this tab.
+      if (sendTo) gtag("event", "conversion", { send_to: sendTo, transport_type: "beacon" });
       if (window.va) window.va("event", { name: name, data: { page: params.page_path } });
     } catch (e) { /* never break the page for analytics */ }
   }
