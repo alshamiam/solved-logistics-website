@@ -8,13 +8,9 @@
 //         back to the ad.
 //   { type: "whatsapp_click" | "call_click", key, page? }
 //       → records a lead action against that visit.
-//   { type: "consent", key, granted, oppref? }
-//       → ChatGPT ads: the visitor's answer to "May we measure this visit?".
-//         Stores utm_sessions.measurement_consent, and the OpenAI click id
-//         (oppref) only when granted — a "No" clears it. The internal system
-//         reports conversions to OpenAI only for granted visits.
-//   A session may carry { oppref, consent: true } when the visitor already
-//   allowed measurement on an earlier visit.
+//   A session from a ChatGPT ad also carries { oppref } (OpenAI's click id);
+//   it is stored on the visit so the internal system (Marketing → ChatGPT
+//   Ads) can report that visit's leads to OpenAI.
 //
 // Writes with the service key into utm_sessions / marketing_conversions (the
 // internal system's Marketing screen reads them). Only ad visits are recorded,
@@ -53,7 +49,7 @@ function newRef() {
 }
 
 const isPaid = s => !!(s.oppref || s.gclid || s.gbraid || s.wbraid || /^(cpc|ppc|paid|paidsearch)$/i.test(s.utm_medium || ''));
-// OpenAI's click id. Only accepted together with consent.
+// OpenAI's click id from a ChatGPT ad.
 const cleanOppref = v => { const t = String(v || '').trim(); return /^[A-Za-z0-9._~:-]{1,256}$/.test(t) ? t : null; };
 
 async function getSession(key) {
@@ -82,8 +78,8 @@ module.exports = async function handler(req, res) {
         utm_term: clip(b.utm_term, 160), utm_content: clip(b.utm_content, 160),
         landing_page: clip(b.landing, 300), referrer: clip(b.referrer, 300),
       };
-      const oppref = b.consent === true ? cleanOppref(b.oppref) : null;
-      if (oppref) { s.oppref = oppref; s.measurement_consent = true; }
+      const oppref = cleanOppref(b.oppref);
+      if (oppref) s.oppref = oppref;
       if (!isPaid(s)) return res.json({ ok: true, ref: null });
       const existing = await getSession(key);
       if (existing) return res.json({ ok: true, ref: existing.ref_code });
@@ -97,20 +93,6 @@ module.exports = async function handler(req, res) {
         if (again) return res.json({ ok: true, ref: again.ref_code });
       }
       return res.status(500).json({ ok: false });
-    }
-
-    if (b.type === 'consent') {
-      if (typeof b.granted !== 'boolean') return res.status(400).json({ ok: false });
-      const oppref = b.granted ? cleanOppref(b.oppref) : null;
-      if (b.granted && !oppref) return res.status(400).json({ ok: false });
-      const s = await getSession(key);
-      if (!s) return res.json({ ok: true, skipped: 'no ad visit' });
-      const r = await sb(`utm_sessions?id=eq.${encodeURIComponent(s.id)}`, {
-        method: 'PATCH', headers: { Prefer: 'return=minimal' },
-        body: JSON.stringify({ measurement_consent: b.granted, oppref, last_seen_at: new Date().toISOString() }),
-      });
-      if (!r.ok) { console.error('track consent update', r.status, (await r.text()).slice(0, 200)); return res.status(500).json({ ok: false }); }
-      return res.json({ ok: true });
     }
 
     if (EVENTS.has(b.type)) {
